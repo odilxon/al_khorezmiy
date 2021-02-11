@@ -1,1 +1,1 @@
-NEW JOURNAL
+This is for Jurody
