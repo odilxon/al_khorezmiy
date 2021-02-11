@@ -20,10 +20,12 @@ class Issues(db.Model):
 class Article(db.Model):
     __tablename__ = 'article'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    intro = db.Column(db.String(300), nullable=False)
-    text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
-
+    user_id = db.Column(db.Integer, ForeignKey('user.id'))
+    content = db.Column(db.String, nullable=False)
+    files = db.Column(db.String, nullable=False)
+    issue_id = db.Column(db.Integer, ForeignKey('issues.id'))
+    status = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=False)
+    
     def __repr__(self):
         return '<Article %r>' %self.id
