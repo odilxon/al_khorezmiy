@@ -11,7 +11,11 @@ class User(db.Model):
     role = db.Column(db.String(30), nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     
-
+class Issues(db.Model):
+    __tablename__ = 'issues'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    release = db.Column(db.Integer, nullable=False)
 
 class Article(db.Model):
     __tablename__ = 'article'
