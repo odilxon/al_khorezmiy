@@ -1,6 +1,24 @@
 #top-bar {
     width: 100%;
 }
+.inner-banner {
+    background-color: #636c77;
+}
+.right-b {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+#banner-style {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0;}
+.navigation-bar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .top-bar-right {
     text-align: right;
 }
@@ -55,7 +73,8 @@ div {
     display: block;
 }
 .break-line{
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     color: #dddddd;
 }
 .row {

@@ -32,10 +32,14 @@
             
             
         </div>
-        <div>
-            <hr class="break-line">
+        <div class="break-line">
+            <hr>
         </div>
         <div class="row">
+
+        <div class="col-sm">
+
+
             <div class="navigation-bar">
                 <div class="row">
                     <div class="col-4">
@@ -59,7 +63,27 @@
                     </div>
                 </div>
             </div>
+
+
+            
         </div>
+
+        </div class='row'>
+
+            <div class="col-12 inner-banner">
+                <div class="row">
+                    <div class="col-6">
+                        <div id="banner-style">{% block banner %}{% endblock %}</div>
+                    </div>
+                    <div class="col-6 top-bar-right right-b">
+                        <a href="#">  Home</a>
+                        <a href="#">About</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
     </div>
     
     {% block body %}
