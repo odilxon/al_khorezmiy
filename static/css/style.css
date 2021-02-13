@@ -1,10 +1,43 @@
-body,.row {
-    color: greenyellow;
-    background: rgb(5, 255, 5);
-
+#top-bar {
+    width: 100%;
 }
-
-
+.top-bar-right {
+    text-align: right;
+}
+.nav-item dropdown {
+    list-style: none;
+}
+.fa {
+    padding: 1px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
+.fa-facebook {
+    color: #3B5998;
+  }
+.fa-twitter {
+    color: rgba(0, 162, 255, 0.6);
+}
+  
+.top-strip {
+    position: absolute;
+    top: 0%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 4px 0 0;
+    max-width: 1270px;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px 3px rgb(0 0 0 / 20%);
+}
 .container {
     width: 100%;
     padding-right: 15px;
@@ -20,4 +53,61 @@ body,.row {
 
 div {
     display: block;
+}
+.break-line{
+    width: 100%;
+    color: #dddddd;
+}
+.row {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.topmenu > li {
+    display: inline-block;
+    position: relative;
+  }
+  .topmenu > li > a {
+    position: relative;
+    padding: 10px 15px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5em;
+    line-height: 1;
+    letter-spacing: 3px;
+  }
+  .topmenu > li > a:before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 100%;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    transition: .3s;
+  }
+  .topmenu li:hover a:before {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+.submenu {
+position: absolute;
+z-index: 4;
+left: 50%;
+top: 100%;
+width: 150px;
+padding: 15px 0 15px;
+margin-top: 5px;
+background: white;
+border-radius: 5px;
+box-shadow: 0 0 30px rgba(0,0,0,.2);
+box-sizing: border-box;
+visibility: hidden;
+opacity: 0;
+transform: translate(-50%, 20px);
+transition: .3s;
 }
