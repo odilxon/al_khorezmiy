@@ -1,0 +1,23 @@
+body,.row {
+    color: greenyellow;
+    background: rgb(5, 255, 5);
+
+}
+
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+div {
+    display: block;
+}
