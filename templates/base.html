@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="content-wrapper">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
         <img class='top-strip' src="https://raw.githubusercontent.com/odilxon/al_khorezmiy/main/top-strip.jpg" alt="top_strip">
         <div class="row">
 
@@ -23,9 +24,9 @@
                         
             </div>
             <div id='top-bar-right' class="col-6 top-bar-right">
-                <a href="#">Login</a>
-                <a href="#">Register</a>
-                <a href="#">English</a>
+                <a class='autoriz' href="#">Login</a>
+                <a class='autoriz' href="#">Register</a>
+                <a class='autoriz' href="#">English</a>
                 
             
             </div>
@@ -48,12 +49,14 @@
                     <div class="col-8 top-bar-right">
                         <nav>
                             <ul class='topmenu'> 
-                                <li><a href="#" class="down"> Blog </a></li>
+                                <li><a href="#" class="down"> Blog </a>
                                     <ul class='submenu'>
                                         <li>
                                             <a href="#">Home</a>
                                         </li>
                                     </ul>
+                                </li>
+                                    
                                 <li>About us</li>
                                 <li>Articles</li>
                                 <li>Issues</li>
@@ -75,9 +78,11 @@
                     <div class="col-6">
                         <div id="banner-style">{% block banner %}{% endblock %}</div>
                     </div>
-                    <div class="col-6 top-bar-right right-b">
-                        <a href="#">  Home</a>
-                        <a href="#">About</a>
+                    <div class="col-6 right-b">
+                        <ul class='top-right-home'>
+                            <li><a href="#">  Home</a>
+                            <li><a href="#">About</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

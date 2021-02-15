@@ -1,5 +1,9 @@
+.down:hover#submenu{
+    display: block;
+}
 #top-bar {
     width: 100%;
+    margin-top: 10px;
 }
 .inner-banner {
     background-color: #636c77;
@@ -7,22 +11,55 @@
 .right-b {
     font-size: 16px;
     font-weight: 500;
-    padding: 10px 0;
+    padding-top: 10px 0;
+    text-align: right;
+}
+.top-right-home li {
+    display: inline-block;
+    position: relative;
+    padding-top: 12px;
+}
+.top-right-home li a{
+    margin-left: 20px;
+}
+
+li:first-child::after{
+    display: none;
+}
+
+li:after {
+    top: 70%;
+    left: 8px;
+    width: 4px;
+    height: 4px;
+    content: '';
+    margin: -2px 0 0;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
 }
 
 #banner-style {
     color: #fff;
     font-size: 16px;
     font-weight: 500;
-    padding: 10px 0;}
+    padding: 13px 0;}
 .navigation-bar{
     margin-top: 20px;
     margin-bottom: 20px;
 }
 .top-bar-right {
     text-align: right;
+    margin-top: 8px;
 }
-.nav-item dropdown {
+.top-bar-right li {
+    margin-left: 10px;
+}
+.autoriz{
+    margin: 10px;
+    margin-top: 10pt;
+}
+.nav-item  {
     list-style: none;
 }
 .fa {
@@ -90,7 +127,7 @@ div {
     position: relative;
     padding: 10px 15px;
     font-family: 'Kaushan Script', cursive;
-    font-size: 1.5em;
+    font-size: 1em;
     line-height: 1;
     letter-spacing: 3px;
   }
