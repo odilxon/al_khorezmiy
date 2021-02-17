@@ -105,6 +105,10 @@ li:after {
     background: #fcfcfc;
     border-top: 1px solid #ddd;
 }
+.sj-socialicons li {
+    display: inline;
+    
+}
 * {
     margin: 0px;
     padding: 0px;
