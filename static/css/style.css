@@ -75,7 +75,13 @@ li:after {
 .fa-twitter {
     color: rgba(0, 162, 255, 0.6);
 }
-  
+.linke {
+    color: black;
+    text-decoration: none
+} 
+.sj-more {
+    list-style: none;
+}
 .top-strip {
     position: absolute;
     top: 0%;
