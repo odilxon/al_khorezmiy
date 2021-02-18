@@ -6,7 +6,14 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 }
 #top-bar {
     margin-top: 10px;
-    padding: 0;
+    padding-bottom: 0;
+}
+.teppa {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.pas {
+    padding-top: 10px;
 }
 .inner-banner {
     background-color: #636c77;
@@ -37,8 +44,8 @@ li:first-child::after{
     float: right;
 }
 @media all and (min-width: 992px) {
-	.navbar .nav-item .dropdown-menu{ display: none; }
-	.navbar .nav-item:hover .nav-link{ color: #000;  }
+	.navbar .nav-item .dropdown-menu{ display: none;  margin-left: 10px;}
+	.navbar .nav-item:hover .nav-link{ color: #000;}
 	.navbar .nav-item:hover .dropdown-menu{ display: block; }
 	.navbar .nav-item .dropdown-menu{ margin-top:0; }
 }	
@@ -161,11 +168,13 @@ div {
     display: block;
 }
 .break-line{
-    margin: 0 auto;
-    width: 100%;
+    margin-top: 10px;
     padding: 0;
     margin: 0;
     color: #dddddd;
+}
+hr {
+    margin: 0;
 }
 .row-top {
     margin-right: 10px;
