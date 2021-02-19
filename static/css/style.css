@@ -63,6 +63,29 @@ li:first-child::after{
 .navbar-expand-lg {
     float: right;
 }
+.widget-content .tal {
+    text-align: left;
+}
+.widget-content ul{
+    padding: 0 10px;
+    margin: 0;
+}
+.widget-content ul li {
+    list-style: none;
+    text-align: center;
+    padding: 20px 0px;
+}
+.widget-content ul li span{
+    color: rgb(0, 110, 255);
+}
+.widget-content {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+.widget-content ul li h3, span{
+    font: 700 18px/22px 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
 @media all and (min-width: 992px) {
     .navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
 	.navbar .nav-item:hover .nav-link{ color: rgb(44, 92, 224); }
