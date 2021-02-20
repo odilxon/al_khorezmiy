@@ -95,7 +95,12 @@ li:first-child::after{
 	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
     .navbar-nav { display: block;}
 }	
-.dropdown-toggle, .qora {color: #000;}
+.nav-link{
+    text-transform: capitalize;
+}
+.dropdown-toggle, .qora {
+    color: #000;
+}
 .top-right-home li:after {
     top: 70%;
     left: 8px;
@@ -126,6 +131,11 @@ li:first-child::after{
 .autoriz{
     margin: 10px;
     margin-top: 10pt;
+    color: grey;
+}
+.autoriz:hover{
+    color: grey;
+    text-decoration: none;
 }
 .nav-item  {
     list-style: none;
