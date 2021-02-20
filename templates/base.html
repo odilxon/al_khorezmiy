@@ -63,11 +63,11 @@
                                         <li><a class="dropdown-item" href="/"> Home V-One </a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item active btn"> <a class="nav-link qora" href="#">About us </a> </li>
+                                <li class="nav-item active btn"> <a class="nav-link qora" href="about">About us </a> </li>
                                 <li class="nav-item dropdown btn">
                                     <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Articles  </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"> Articles </a></li>
+                                        <li><a class="dropdown-item" href="articles"> Articles </a></li>
                                         <li><a class="dropdown-item" href="#"> Article-list </a></li>
                                         <li><a class="dropdown-item" href="#"> Article Detail </a></li>
                                         <li><a class="dropdown-item" href="#"> Submit Article </a></li>
@@ -110,7 +110,7 @@
                     <div class="col-6 right-b">
                         <ul class='top-right-home'>
                             <li><a class="linke-top" href="#">  Home</a>
-                            <li><a class="linke-top" href="#">About</a></li>
+                            <li><a class="linke-top" href="#"> {{ self._TemplateReference__context.name[:-5] }} </a></li>
                         </ul>
                     </div>
                 </div>
@@ -126,8 +126,9 @@
         <footer id="sj-footer" class="sj-footer sj-haslayout">
             <div class="container">
                 <div class="row">
-                    
+                    <a href="#"><i class="fa fa-angle-up"></i></a>
                     <div class="sj-footercolumns">
+                        
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 float-left">
                             <div class="sj-fcol sj-footeraboutus">
                                 <strong class="sj-logo">
@@ -177,6 +178,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 float-left">
                             <div class="sj-fcol sj-widget sj-widgetcontactus">
                                 <div class="sj-widgetheading">
@@ -189,8 +191,11 @@
                                         <li><a class="linke" href="tel:(+4)123456789101"><i class="fa fa-television"></i><span>(+4) 4321 8765 1019</span></a></li>
                                         <li><a class="linke" href="mailto:info@yourdomain.com"><i class="fa fa-envelope"></i><span>info@yourdomain.com</span></a></li>
                                     </ul>
+                                    
                                 </div>
+                                
                             </div>
+                            
                         </div>
                         
                     </div>
@@ -198,6 +203,7 @@
                     <div class="brek-line">
                         <hr>
                     </div>
+                    
                     <div class="sj-footerbottom">
                         <p class="sj-copyrights">© 2021 <span>Amentojourn</span>. All Rights Reserved</p>
                     </div>

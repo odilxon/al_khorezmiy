@@ -54,7 +54,7 @@ li:first-child::after{
     height: 20px;
 }
 .searcba {
-    height: 40px;
+    height: 38px;
 }
 .pad80 {
     padding-top: 80px;
@@ -63,6 +63,7 @@ li:first-child::after{
 .navbar-expand-lg {
     float: right;
 }
+
 .widget-content .tal {
     text-align: left;
 }
@@ -85,7 +86,23 @@ li:first-child::after{
 .widget-content ul li h3, .widget-content ul li span{
     font: 700 18px/22px 'Quicksand', Arial, Helvetica, sans-serif;
 }
-
+.widgetnoticeboard {
+    margin-top: 40px;
+}
+.widgetnoticeboard h3 {
+    font: 500 16px/40px 'Quicksand', Arial, Helvetica, sans-serif;
+    background: #fcfcfc;
+    padding-left: 20px;
+}
+.widgetnoticeboard ul {
+    padding-left: 20px;
+}
+.widgetnoticeboard ul li {
+    padding: 6px 0 6px;
+}
+.widgetnoticeboard ul li a {
+    color: grey;
+}
 @media all and (min-width: 992px) {
     .navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
 	.navbar .nav-item:hover .nav-link{ color: rgb(44, 92, 224); }
@@ -153,6 +170,18 @@ address {
 .fabot {
     padding-left: 10px;
 }
+.fa-angle-up {
+    top: -23px;
+    right: 80px;
+    width: 90px;
+    color: #000;
+    height: 22px;
+    display: block;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    position: absolute;
+}
 .fa-facebook {
     color: #3B5998;
   }
@@ -175,6 +204,7 @@ address {
 
 .linke-top {
     color: white;
+    text-transform: capitalize;
 }
 .linke-top:hover {
     text-decoration: none;
