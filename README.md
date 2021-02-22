@@ -1,3 +1,4 @@
+
 [![Developer](https://img.shields.io/badge/developed__by-Odya-success)](https://t.me/isukzib)
 ![Top Languages](https://img.shields.io/github/languages/top/odilxon/al_khorezmiy)
 ![Deploy](https://github.com/odilxon/al_khorezmiy/workflows/Deploy/badge.svg?branch=main)
@@ -7,3 +8,4 @@
 
 
 NEW JOURNAL
+
