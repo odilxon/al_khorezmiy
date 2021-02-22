@@ -1,4 +1,5 @@
 Flask
 Flask-SQLAlchemy
-Flask-Script
 flask_wtf
+gunicorn
+pytest
