@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -26,6 +27,7 @@ heroku pg:psql postgresql-clean-02575 --app al-khorezmiy
 
 
 
+
 @app.route('/', methods = ["GET"])
 def index():
     return render_template('index.html')
@@ -43,3 +45,4 @@ def articles():
     
 if __name__ == '__main__':
     app.run(debug=True)
+
