@@ -26,6 +26,10 @@ def articles():
     return render_template('articles.html')
 
     
+@app.route("/tests")
+def test():
+    return "Works"
+    
 if __name__ == '__main__':
     app.run(debug=True)
 
