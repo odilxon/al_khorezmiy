@@ -249,6 +249,7 @@ address {
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 div {
@@ -468,7 +469,8 @@ background-color: #f8f9fa;
 }
 .bluetopborder {
     border-top: 2.7px solid blue;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 #nav-lang2 > .dropdown-item {
     
@@ -489,4 +491,64 @@ background-color: #f8f9fa;
 }
 .dropdown-menu {
     padding: 0;
+    border-radius: 10px 10px 0 0;
+}
+.formsortitems {
+    width: 100%;
+    float: left;
+    padding: 30px 0 15px;
+}
+form {
+    display: block;
+}
+.formsortitems fieldset {
+    text-align: right;
+}
+.form-group {
+    margin: 0;
+    width: auto;
+    float: none;
+    padding: 5px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+.form-group em {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 17px;
+    font-style: normal;
+}
+.form-group .select {
+    border: 0;
+    float: none;
+    width: auto;
+    padding: 0;
+    line-height: 17px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.select select {
+    border: 0;
+    padding: 0;
+    height: auto;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 0 20px 0 0;
+    z-index: 1;
+    width: 100%;
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-transform: none;
+    box-shadow: none;
+    outline: none;
+}
+.select select option {
+    width: 100%;
+    color: #666;
+    padding: 5px 15px;
 }
