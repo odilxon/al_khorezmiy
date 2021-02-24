@@ -524,7 +524,6 @@ form {
 .form-group .select {
     border: 0;
     float: none;
-    width: auto;
     padding: 0;
     line-height: 17px;
     display: inline-block;
@@ -534,9 +533,10 @@ form {
     border: 0;
     padding: 0;
     height: auto;
+    width: auto;
     font-size: 13px;
     line-height: 17px;
-    padding: 0 20px 0 0;
+    padding: 0 15px 0 0;
     z-index: 1;
     width: 100%;
     position: relative;
