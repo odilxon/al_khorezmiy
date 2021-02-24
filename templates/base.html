@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon" href="../static/fav.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -29,7 +30,17 @@
                 <div id='top-bar-right' class="col-6 top-bar-right">
                     <a class='autoriz' href="#">Login</a>
                     <a class='autoriz' href="#">Register</a>
-                    <a class='autoriz' href="#">English</a>
+                    <nav class="navbar navbar-expand-lg bg-default" id="topnav">
+                        <li id="nav-lang" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>
+                            <div id="nav-lang2" class="dropdown-menu" aria-labelledby="dropdown09">
+                                <a class="dropdown-item bluetopborder" href="#fr"><span class="flag-icon flag-icon-uz"> </span>  Uzb</a>
+                                <a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-us"> </span>  Eng</a>
+                                <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Rus</a>
+                            </div>
+                        </li>
+                    </nav>
+                    
                     
                 
                 </div>
@@ -60,14 +71,14 @@
                                 <li class="nav-item dropdown btn">
                                     <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  <i class="fa fa-home"></i>  </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/"> Home V-One </a></li>
+                                        <li><a class="dropdown-item bluetopborder" href="/"> Home V-One </a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item active btn"> <a class="nav-link qora" href="about">About us </a> </li>
                                 <li class="nav-item dropdown btn">
                                     <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Articles  </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="articles"> Articles </a></li>
+                                        <li><a class="dropdown-item bluetopborder" href="articles"> Articles </a></li>
                                         <li><a class="dropdown-item" href="#"> Article-list </a></li>
                                         <li><a class="dropdown-item" href="#"> Article Detail </a></li>
                                         <li><a class="dropdown-item" href="#"> Submit Article </a></li>
@@ -76,14 +87,14 @@
                                 <li class="nav-item dropdown btn">
                                     <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Issues  </a>
                                     <ul class="dropdown-menu">
-                                        <li btn><a class="dropdown-item" href="#"> Issues Weeks </a></li>
+                                        <li btn><a class="dropdown-item bluetopborder" href="#"> Issues Weeks </a></li>
                                         <li btn><a class="dropdown-item" href="#"> Issues Years </a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown btn">
                                     <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Pages  </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                                        <li><a class="dropdown-item bluetopborder" href="#"> Submenu item 1</a></li>
                                         <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
                                     </ul>
                                 </li>
