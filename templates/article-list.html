@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} {{ Capi(self._TemplateReference__context.name) }} {% endblock %}
+{% block banner %} Submit Your Article {% endblock %}
+
+{% block body %} 
+<div class="sectionspace">
+    <div class="container">
+        <div class="twocolumns row">
+            <div class="col-3">
+                <aside id="asidebar" class="asidebar widgetbox">
+                    <div class="widgetprofile">
+                        <div class="widgetcontent">
+                            <figure>
+                                <img src="/static/atom.png" alt="image">
+                            </figure>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-9">
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

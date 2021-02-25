@@ -629,3 +629,6 @@ p {
 #imgzero {
     padding: 0;
 }
+.sectionspace {
+    padding: 80px 0;
+}
