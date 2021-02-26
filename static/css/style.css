@@ -445,6 +445,7 @@ transition: .3s;
     padding: 0;
     height: 30px;
 }
+
 #dropdown09 {
     color: #666;
     display: block;
@@ -666,8 +667,6 @@ p {
 .sj-bannercontent > h1 {
     font-size: 50px;
 }
-.discription {
-}
 .sj-featureimg {
     margin: 0;
     width: 100%;
@@ -679,9 +678,22 @@ p {
     width: 450px;
     height: 550px;
 }
-.sj-bannercontent > h1 {
-    border-bottom: 3px solid rgb(92, 92, 246);
+.line-bottom {
+    width: 180px;
+    height: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background-color: rgb(91, 91, 248);
+    border-radius: 5px;
 }
-.navbar {
-    display: inline-flex;
+#nav-right {
+    display: inline;
+}
+.description > p {
+    font-size: 22px;
+
+}
+/*footer "Get in touch" contents */
+#link-no {
+
 }
