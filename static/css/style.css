@@ -96,6 +96,7 @@ li:first-child::after{
 }
 .widgetnoticeboard ul {
     padding-left: 20px;
+    margin: 0;
 }
 .widgetnoticeboard ul li {
     padding: 6px 0 6px;
@@ -237,7 +238,7 @@ address {
     margin-left: auto;
     margin-right: auto;
 }
-.sj-footer {
+.sj-nav {
     position: relative;
     background: #fcfcfc;
     border-top: 1px solid #ddd;
@@ -506,6 +507,7 @@ form {
 }
 .form-group {
     margin: 0;
+    margin-left: 6px;
     width: auto;
     float: none;
     padding: 5px 20px;
@@ -524,7 +526,6 @@ form {
 .form-group .select {
     border: 0;
     float: none;
-    width: auto;
     padding: 0;
     line-height: 17px;
     display: inline-block;
@@ -534,9 +535,10 @@ form {
     border: 0;
     padding: 0;
     height: auto;
+    width: auto;
     font-size: 13px;
     line-height: 17px;
-    padding: 0 20px 0 0;
+    padding: 0 15px 0 0;
     z-index: 1;
     width: 100%;
     position: relative;
@@ -551,4 +553,135 @@ form {
     width: 100%;
     color: #666;
     padding: 5px 15px;
+}
+.addimage {
+    margin: 0;
+    width: 100%;
+    float: left;
+    padding: 7px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: block;
+}
+.widgetcontent, .widgetadd {
+    width: 100%;
+    float: left;
+}
+.widget, .widgetadd {
+    margin: 40px 0 0;
+    width: 100%;
+    float: left;
+}
+.widgetheading h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    color: white;
+    
+}
+.widgetheading {
+    background: #5e9cea;
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+    margin: 0 0 10px;
+    border-radius: 6px;
+}
+.widgetquestions {
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+.widgetquestions .widgetcontent {
+    padding: 10px 10px 0;
+}
+.discription {
+    width: 100%;
+    float: left;
+}
+p {
+    margin: 0 0 20px;
+    line-height: 23px;
+    letter-spacing: normal;
+}
+.questions, .selectgroup {
+    width: 100%;
+    float: left;
+}
+.selectgroup {
+    padding: 0 0 24px;
+}
+.btn-secondary {
+    padding: 0 25px;
+    line-height: 30px;
+}
+.radio label + input {
+    margin: 0;
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.radio label {
+    padding-left: 5px;
+    margin: 0;
+}
+#imgzero {
+    padding: 0;
+}
+.sectionspace {
+    padding: 80px 0;
+}
+
+/* section Home banner styleing start */
+.sj-btnvideo {
+    color: #fff;
+    display: block;
+    top: 275px;
+    left: -152px;
+    font-size: 20px;
+    line-height: 20px;
+    position: absolute;
+    border-radius: 10px 10px 0 0;
+    padding: 20px 20px 20px 80px;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    background-color: rgb(156, 156, 212);
+
+}
+.sj-featureimg > a {
+    text-decoration: none;
+}
+.sj-featureimg > a:hover {
+    color: whitesmoke;
+}
+#rightbanner {
+    top: 100px;
+    padding: 0 40px;
+    color: gray;|
+}
+.sj-bannercontent > h1 {
+    font-size: 50px;
+}
+.discription {
+}
+.sj-featureimg {
+    margin: 0;
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 0 0 0 70px;
+}
+#journal-1 {
+    width: 450px;
+    height: 550px;
+}
+.sj-bannercontent > h1 {
+    border-bottom: 3px solid rgb(92, 92, 246);
+}
+.navbar {
+    display: inline-flex;
 }
