@@ -103,11 +103,11 @@
             <div class="row">
                 <div id="issue" class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="issue-content">
-                        <h1>Issues Index</h1>                            
-                        <ol class="issue-ol">
-                            <li><a id="home-link" href="index.html">Home</a></li>
-                            <li><a id="issue-link" href="issuesyears.html">Issues</a></li>
-                        </ol>
+                        <h1>Issues Index</h1>     
+                        <div class="issue-in" style="text-align: right;">   
+                            <a id="home-link" href="index.html">Home</a>
+                            <a id="issue-link" href="issuesyears.html">Issues</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,8 +145,8 @@
                                 <div class="widget-contentmas">
                                     <form action="" class="form-theme">
                                         <fieldset>
-                                            <div class="widget-form">
-                                                <i class="fa fa-calendar"></i>
+                                            <div class="form-group calicon">
+                                                <i id="caldar" class="fa fa-calendar"></i>
                                                 <input type="text" class="form-control" name="date" placeholder="YYYY - MM - DD">
                                             </div>
                                             <div class="filter-btns">
@@ -164,16 +164,16 @@
                                 <div class="widget-contentmas">
                                     <ul>
                                         <li>
-                                            <a href=""><span>View All</span><em id="right-em">(216)</em></a>
+                                            <a id="wid-li-a" href="#"><span>View All</span><em id="right-em">(216)</em></a>
                                         </li>
                                         <li>
-                                            <a href=""><span>Current Issue</span><em id="right-em">(32)</em></a>
+                                            <a id="wid-li-a" href="#"><span>Current Issue</span><em id="right-em">(32)</em></a>
                                         </li>
                                         <li>
-                                            <a href=""><span>December 21, 2021</span><em id="right-em">(37)</em></a>
+                                            <a id="wid-li-a" href="#"><span>December 21, 2021</span><em id="right-em">(37)</em></a>
                                         </li>
                                         <li>
-                                            <a href=""><span>March 31, 2021</span><em id="right-em">(137)</em></a>
+                                            <a id="wid-li-a" href="#"><span>March 31, 2021</span><em id="right-em">(137)</em></a>
                                         </li>
                                     </ul>                                                                                               
                                 </div>
@@ -198,7 +198,9 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                            <div class="years"></div>
+                            <div class="years">
+
+                            </div>
                         </div>
                     </div>
     <!-- right board -->

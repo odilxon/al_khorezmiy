@@ -427,6 +427,9 @@ transition: .3s;
     border-radius: 3px;
     background-color: rgb(57, 57, 168);
 }
+.centerbtn:hover {
+    color: rgb(158, 165, 147);
+}
 .filter-btn {
     padding-top: 30px;
     float: left;
@@ -434,7 +437,7 @@ transition: .3s;
     text-align: center;
 }
 .fbtn {
-    width: 48%;
+    width: 50%;
     background-color: grey;
     line-height: 30px;
     border-radius: 5px;
@@ -716,13 +719,19 @@ p > .past-read {
 }
 
 /* issue index page styleing start */
+#issue {
+}
 .issue-banner {
     background-color: #636c77;
     background-image: none;
     margin: 0;
     padding: 0;
 }
+.issue-in {
+    float: right;
+} 
 .issue-content {
+    align-items: center;
     display: flex;
 }
 .issue-content > h1 {
@@ -744,9 +753,16 @@ p > .past-read {
 .widget-contentmas > ul {
     list-style: none;
 }
-
+li > a > em {
+    float: right;
+}
+#wid-li-a {
+    text-decoration: none;
+}
 .widget-notice > ul > li > a{
     text-decoration: none;
+}
+.calicon {
 }
 #add-imge {
     width: 270px;
@@ -767,6 +783,7 @@ p > .past-read {
     border-radius: 5px;
     background-color: rgb(65, 65, 155);
     color: #fff;
+    margin-bottom: 10px;
     padding: 5px 15px;
 }
 /* Side bar */
@@ -795,7 +812,6 @@ h3 > #left-widget {
 #leftbanner {
     margin-top: 40px;
 }
-
 .fof {
     width: 100%;
     margin: 0;
