@@ -1018,7 +1018,7 @@ button {
 .collapse.show {
     display: block;
 }
-*:after, *:before, p a, a, .sj-socialicons li a, .sj-roundicontext, .sj-roundicontext .sj-usericonholder, .sub-menu, .mega-menu, .sj-prev, .sj-next, .sj-navtabs li, .sj-radio input[type=radio]+ label, .sj-radio input[type=radio] + label:before, .sj-widgetspeciality .sj-checkbox input[type=checkbox] + label, .sj-widgetspeciality .sj-checkbox input[type=checkbox] + label em, .sj-widgetsinginwith ul li a span, .sj-downloadprint li a, .sj-downloadprint li a i, .sj-downloadprint li a span, .sj-thumbs .item, .sj-thumbs .item figure, .sj-thumbs .item figure:before, .sj-viewchart .ct-bar, .sj-panel h4, .sj-panel h4 i, .sj-panel h4 i:before, .sub-menu li, .children li, .sj-uploadphoto figcaption, .sj-articledetails li, .sj-nameandmail, .sj-userinfohold, .sj-usernav, .chosen-container-multi .chosen-choices li.search-choice {
+*:after, *:before, p a, a, .socialicons li a, .roundicontext, .roundicontext .usericonholder, .sub-menu, .mega-menu, .prev, .next, .navtabs li, .radio input[type=radio]+ label, .radio input[type=radio] + label:before, .widgetspeciality .checkbox input[type=checkbox] + label, .widgetspeciality .checkbox input[type=checkbox] + label em, .widgetsinginwith ul li a span, .downloadprint li a, .downloadprint li a i, .downloadprint li a span, .thumbs .item, .thumbs .item figure, .thumbs .item figure:before, .viewchart .ct-bar, .panel h4, .panel h4 i, .panel h4 i:before, .sub-menu li, .children li, .uploadphoto figcaption, .articledetails li, .nameandmail, .userinfohold, .usernav, .chosen-container-multi .chosen-choices li.search-choice {
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
     -ms-transition: all 300ms ease-in-out;
@@ -1320,4 +1320,78 @@ img {
     position: relative;
     line-height: inherit;
     padding: 6px 0 6px 20px;
+}
+.articledetails > li:hover:before, .articledetails > li.active:before {
+    height: 100%;
+}
+.userinfoimgname {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 20px 20px 20px 120px;
+}
+.addarticleholdcontent .pagination {
+    padding: 30px;
+}
+.pagination {
+    width: 100%;
+    float: left;
+    font: 500 13px/20px 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.pagination ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style: none;
+    text-align: center;
+    line-height: inherit;
+}
+.pagination ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style: none;
+    text-align: center;
+    line-height: inherit;
+}
+.pagination ul li.prevpage {
+    margin: 0 14px 0 0;
+}
+.pagination ul li.prevpage {
+    margin-left: 0;
+}
+.pagination ul li {
+    float: left;
+    margin: 0 6px;
+    line-height: inherit;
+    list-style-type: none;
+}
+.pagination ul li a {
+    width: auto;
+    color: #999;
+    display: block;
+    text-align: center;
+    position: relative;
+    line-height: inherit;
+}
+.pagination ul li.nextpage a, .pagination ul li.prevpage a {
+    padding: 0;
+    width: auto;
+    font-size: 13px;
+    overflow: hidden;
+    position: relative;
+}
+.pagination ul li.prevpage a i {
+    margin: 0 4px 0 0;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.pagination ul li.nextpage {
+    margin: 0 0 0 14px;
 }
