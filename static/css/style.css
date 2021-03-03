@@ -15,6 +15,19 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 .pas {
     padding-top: 10px;
 }
+.inner-addon {
+    position: relative;
+}
+.inner-addon i {
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 40px;
+    height: 42px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+}
 .inner-banner {
     background-color: #636c77;
 }
@@ -720,27 +733,43 @@ p > .past-read {
 
 /* issue index page styleing start */
 #issue {
+    width: 100%;
 }
 .issue-banner {
     background-color: #636c77;
     background-image: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
-.issue-in {
-    float: right;
-} 
 .issue-content {
-    align-items: center;
+    width: 100%;
     display: flex;
 }
 .issue-content > h1 {
+    margin: 0;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
 }
 .issue-ol > li {
     color: #fff;
     font-size: 18px;
+}
+.crumb li {
+    width: auto;
+    padding: 0 10px;
+    position: relative;
+    line-height: inherit;
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.crumb {
+    float: right;
+    text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
 }
 #home-link , #issue-link {
     color: #fff;
@@ -754,10 +783,14 @@ p > .past-read {
     list-style: none;
 }
 li > a > em {
+    padding-right: 8px;
     float: right;
 }
 #wid-li-a {
     text-decoration: none;
+}
+.widget-notice {
+    padding-left: 20px;
 }
 .widget-notice > ul > li > a{
     text-decoration: none;
@@ -787,6 +820,10 @@ li > a > em {
     padding: 5px 15px;
 }
 /* Side bar */
+#left-widget {
+    border: none;
+    background-color: rgb(123, 127, 133);
+}
 h3 > #left-widget {
     width: 100px;
 }
@@ -798,11 +835,11 @@ h3 > #left-widget {
 }
 .filter-btns {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 6vh;
 }
 .filter-btns > a {
     color: #fff;
-    padding: 5px 20px;
+    padding: 5px 27px;
     font-size: 15px;
     text-decoration: none;
     border: 1px solid rgb(65, 65, 155);
@@ -821,4 +858,52 @@ h3 > #left-widget {
 /* footer part some tags need to change*/
 p > span {
     color: rgb(91, 114, 144);
+}
+
+/* issue-years part styling start */
+
+.years .accordion .panel {
+    width: 100%;
+    float: left;
+}
+.years {
+    padding: 30px 0 0;
+}
+.panel h4 {
+    margin: 0;
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    line-height: 44px;
+    border-radius: 6px;
+    background: #fcfcfc;
+    border: 1px solid transparent;
+    background-image: initial;
+    background-color: rgb(193, 192, 191);
+}
+.panel h4.active, .panel h4:hover {
+    border-color: rgb(171, 170, 168);
+}
+.panel-title {
+    
+}
+a > #panel-head {
+    float: right;
+    padding-top: 10px;
+}
+.panel-title > a , .panel-body > a {
+    text-decoration: none;
+}
+.panel-title > a {
+    display: block;
+}
+.panel-title:hover {
+    background-color: rgb(89, 107, 180);
+    border-radius: 10px;   
+}
+.panel-title > a:hover {
+    color: #fff;
 }

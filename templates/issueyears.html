@@ -100,13 +100,15 @@
         </div>
         
         <section class="issue-banner">
-            <div class="row">
-                <div id="issue" class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="issue-content">
-                        <h1>Issues Index</h1>     
-                        <div class="issue-in" style="text-align: right;">   
-                            <a id="home-link" href="index.html">Home</a>
-                            <a id="issue-link" href="issuesyears.html">Issues</a>
+            <div class="container">
+                <div class="row">
+                    <div id="issue" class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="issue-content">
+                            <h1>Issues Index</h1>       
+                            <ol class="crumb">
+                                <a id="home-link" href="index.html">Home</a>
+                                <a id="issue-link" href="issuesyears.html">Issues</a>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -145,7 +147,7 @@
                                 <div class="widget-contentmas">
                                     <form action="" class="form-theme">
                                         <fieldset>
-                                            <div class="form-group calicon">
+                                            <div class="inner-addon calicon">
                                                 <i id="caldar" class="fa fa-calendar"></i>
                                                 <input type="text" class="form-control" name="date" placeholder="YYYY - MM - DD">
                                             </div>
@@ -198,8 +200,97 @@
                                     </figcaption>
                                 </figure>
                             </div>
+    <!-- issue years center bottom part -->
                             <div class="years">
-
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    2021
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>2020</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2019</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2018</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2017</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2016</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    2022
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>202</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>201</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>208</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>207</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>206</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <span class="more-less glyphicon glyphicon-chevron-down"></span>
+                                                    Collapsible Group Item #3
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>   
                             </div>
                         </div>
                     </div>
