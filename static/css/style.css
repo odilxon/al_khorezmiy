@@ -771,6 +771,17 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
     line-height: inherit;
     /* list-style-type: none; */
 }
+.dashboardnav > ul > li:hover > a:before, .dashboardnav > ul > li.active > a:before {
+    height: 100%;
+}
+.dashboardnav > ul > li > a:before {
+    top: 0;
+    left: 0;
+    content: '';
+    height: 0;
+    width: 3px;
+    position: absolute;
+}
 .dashboardnav > ul > li > a {
     display: block;
     padding: 15px 20px;
@@ -940,7 +951,7 @@ button {
 .articledetails > li {
     width: 100%;
     float: left;
-    padding: 30px;
+    padding: 0px 30px;
     min-height: 96px;
     position: relative;
     list-style-type: none;
@@ -1337,6 +1348,7 @@ img {
     width: 100%;
     float: left;
     font: 500 13px/20px 'Montserrat', Arial, Helvetica, sans-serif;
+    display: block;
 }
 .pagination ul {
     margin: 0;
@@ -1360,6 +1372,10 @@ img {
 .pagination ul li.prevpage {
     margin-left: 0;
 }
+.pagination ul li.active {
+    box-shadow: none;
+    color: #5e9cea;
+}
 .pagination ul li {
     float: left;
     margin: 0 6px;
@@ -1373,6 +1389,7 @@ img {
     text-align: center;
     position: relative;
     line-height: inherit;
+    text-decoration: none;
 }
 .pagination ul li.nextpage a, .pagination ul li.prevpage a {
     padding: 0;
@@ -1394,4 +1411,10 @@ img {
 }
 .pagination ul li.nextpage {
     margin: 0 0 0 14px;
+}
+.pagination ul li.active a {
+    color: #0056b3;
+}
+.pagination ul li a:hover {
+    color: #0056b3;
 }
