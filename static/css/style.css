@@ -870,24 +870,16 @@ p > span {
     padding: 30px 0 0;
 }
 .panel h4 {
-    margin: 0;
-    width: 100%;
-    float: left;
-    padding: 0 20px;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: 500;
-    line-height: 44px;
-    border-radius: 6px;
-    background: #fcfcfc;
-    border: 1px solid transparent;
-    background-image: initial;
-    background-color: rgb(193, 192, 191);
+}
+.panel h4:hover {
+    border: 1px solid grey;
 }
 .panel h4.active, .panel h4:hover {
     border-color: rgb(171, 170, 168);
 }
 .panel-title {
+    margin: 0;
+    padding: 5px;
     
 }
 a > #panel-head {
