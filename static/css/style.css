@@ -853,7 +853,7 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
     border: 0;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: auto;
     float: left;
     position: relative;
 }
@@ -1437,4 +1437,11 @@ img {
 #nav-lang2 .dropdown-item {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+.sortupdown a {
+    float: left;
+    width: auto;
+    color: #999;
+    font-size: 18px;
+    line-height: 16px;
 }
