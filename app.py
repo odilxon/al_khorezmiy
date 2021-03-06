@@ -36,6 +36,8 @@ def article_list():
 @app.route('/article-detail')
 def article_detail():
     return render_template('article-detail.html')
+
+    
 @app.route("/tests")
 def test():
     return "Works!"

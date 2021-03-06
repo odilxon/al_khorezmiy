@@ -1445,3 +1445,75 @@ img {
     font-size: 18px;
     line-height: 16px;
 }
+.widget + .widgetrelatedarticles {
+    margin: 40px 0 0;
+}
+.widget {
+    width: 100%;
+    float: left;
+}
+.widgetheading {
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+    margin: 0 0 10px;
+    border-radius: 6px;
+    background: #fcfcfc;
+}
+.widgetheading h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #636c77;
+}
+.widgetcontent {
+    width: 100%;
+    float: left;
+}
+.sj-widgetcontent ul {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    list-style: none;
+    line-height: 14px;
+    text-transform: capitalize;
+}
+ul {
+    margin: 0;
+}
+.widgetrelatedarticles .sj-widgetcontent ul li {
+    padding: 13px 0 13px 5px;
+}
+.widgetcontent ul li {
+    width: 100%;
+    float: left;
+    position: relative;
+    line-height: inherit;
+    list-style-type: none;
+    padding: 6px 0 6px 15px;
+    list-style-type: disc inside none;
+}
+.username {
+    color: #636c77;
+    display: block;
+    font-size: 13px;
+    margin: 0 0 10px;
+    line-height: 13px;
+    position: relative;
+    padding: 0 0 0 20px;
+}
+.widgetcontent ul li a {
+    color: #636c77;
+    display: block;
+}
+
+.username:after {
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    content: '\f007';
+    line-height: 13px;
+    position: absolute;
+    font-family: 'Font Awesome\ 5 Free';
+}
