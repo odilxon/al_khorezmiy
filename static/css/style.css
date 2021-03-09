@@ -1507,13 +1507,122 @@ ul {
     color: #636c77;
     display: block;
 }
-
-.username:after {
-    top: 0;
-    left: 0;
-    font-size: 13px;
-    content: '\f007';
-    line-height: 13px;
+.username .fa-user {
     position: absolute;
-    font-family: 'Font Awesome\ 5 Free';
+    left: 0;
+}
+.articledetail {
+    width: 100%;
+    float: left;
+}
+.downloadprint {
+    float: right;
+    font-size: 14px;
+    list-style: none;
+    padding: 0 0 20px;
+    line-height: 14px;
+}
+.downloadprint li {
+    float: left;
+    padding: 0 20px;
+    line-height: inherit;
+    list-style-type: none;
+}
+.downloadprint li a {
+    display: block;
+    color: #636c77;
+}
+.downloadprint li a i, .downloadprint li a span {
+    color: #636c77;
+    display: inline-block;
+    vertical-align: middle;
+}
+.downloadprint li a i {
+    margin: 0 10px 0 0;
+}
+.downloadprint li a .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.articledetailimg {
+    width: 100%;
+    float: left;
+    padding: 5px;
+    margin: 0 0 10px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+.articledetailimg img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+}
+.articledescription {
+    width: 100%;
+    float: left;
+}
+.sectioninnerspace {
+    padding: 20px 0;
+}
+.articledescription .username {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0 0 0 30px;
+}
+.articledescription h4 {
+    font-size: 30px;
+    margin: 0 0 15px;
+    line-height: 33px;
+}
+.username a {
+    color: #636c77;
+    display: block;
+    text-decoration: none;
+}
+.ourfocus {
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+}
+.borderheading {
+    width: 100%;
+    float: left;
+    margin: 0 0 20px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+.borderheading h3 {
+    margin: 0;
+    float: left;
+    font-size: 24px;
+    line-height: 24px;
+}
+.thumbs, .ourfocusslider, .ourfocussliderholder {
+    width: 100%;
+    float: left;
+}
+.owl-carousel.owl-loaded {
+    display: block;
+}
+.thumbs, .ourfocusslider, .ourfocussliderholder {
+    width: 100%;
+    float: left;
+}
+.owl-carousel {
+    z-index: 1;
+    width: 100%;
+    display: none;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+.owl-carousel .owl-stage-outer {
+    overflow: hidden;
+    position: relative;
+    -webkit-transform: translate3d(0px, 0px, 0px);
 }
