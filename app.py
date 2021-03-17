@@ -7,10 +7,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 
 
-
-
-
-
 @app.route('/', methods = ["GET"])
 def index():
     return render_template('index.html')
@@ -24,6 +20,16 @@ def about():
 @app.route('/articles')
 def articles():
     return render_template('articles.html')
+
+
+@app.route('/issueyears.html')
+def issueyears():
+    return render_template('issueyears.html')
+
+
+@app.route('/submitarticle.html')
+def submitarticle():
+    return render_template('submitarticle.html')
 
     
 @app.route("/tests")

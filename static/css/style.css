@@ -49,9 +49,6 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 li:first-child::after{
     display: none;
 }
-.navbar  {
-    position: absolute;
-}
 .navbar-brand{
     opacity: 0;
     visibility: hidden;
@@ -75,6 +72,9 @@ li:first-child::after{
 .pad80 {
     padding-top: 80px;
     padding-bottom: 80px;
+}
+.navbar {
+    padding: 0;
 }
 .navbar-expand-lg {
     float: right;
@@ -170,15 +170,18 @@ li:first-child::after{
     color: #fff;
     font-size: 16px;
     font-weight: 500;
-    padding: 13px 0;}
+    padding: 13px 0;
+}
 .navigation-bar{
+    min-width: 1185px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 .top-bar-right {
-    text-align: right;
     margin-top: 8px;
     padding: 0;
+    text-align: right;
+    
 }
 
 .autoriz{
@@ -210,7 +213,7 @@ address {
     top: -23px;
     right: 80px;
     width: 90px;
-    color: #000;
+    color: #fff;
     height: 22px;
     display: block;
     font-size: 18px;
@@ -405,9 +408,6 @@ transition: .3s;
     line-height: 18px;
 
 }
-.content {
-    
-}
 .uploadarticle {
     background-color: cornsilk;
     background-image: url('../imgs/logo.png');
@@ -473,12 +473,12 @@ transition: .3s;
     text-align: center;
     text-transform: uppercase;
 }
-#nav-lang {
+#nav-lang1 {
     width: 100px;
+    height: 100%;
     list-style: none;
     float: right;
     padding: 0;
-    height: 30px;
 }
 
 #dropdown09 {
@@ -494,7 +494,9 @@ transition: .3s;
     border-radius: 6px;
 }
 .dropdown-item {
-background-color: #f8f9fa;
+    background-color: #f8f9fa;
+    padding: 5px 15px;
+    text-align: left;
 
 }
 #topnav {
@@ -510,7 +512,6 @@ background-color: #f8f9fa;
     border-top-right-radius: 10px;
 }
 #nav-lang2 > .dropdown-item {
-    
     width: 100px;
     margin-right: 0;
     padding-right: 0;
@@ -683,7 +684,7 @@ p {
 #rightbanner {
     top: 100px;
     padding: 0 40px;
-    color: gray;|
+    color: gray;
 }
 .sj-bannercontent > h1 {
     font-size: 50px;
@@ -792,10 +793,8 @@ li > a > em {
 .widget-notice {
     padding-left: 20px;
 }
-.widget-notice > ul > li > a{
+.widget-notice > ul > li > a {
     text-decoration: none;
-}
-.calicon {
 }
 #add-imge {
     width: 270px;
@@ -822,7 +821,6 @@ li > a > em {
 /* Side bar */
 #left-widget {
     border: none;
-    background-color: rgb(123, 127, 133);
 }
 h3 > #left-widget {
     width: 100px;
@@ -853,7 +851,7 @@ h3 > #left-widget {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-top: 1px solid gray;
+    border-top: 2px circle gray;
 }
 /* footer part some tags need to change*/
 p > span {
@@ -870,8 +868,6 @@ p > span {
     padding: 30px 0 0;
 }
 .panel h4 {
-}
-.panel h4:hover {
     border: 1px solid grey;
 }
 .panel h4.active, .panel h4:hover {
@@ -892,10 +888,52 @@ a > #panel-head {
 .panel-title > a {
     display: block;
 }
-.panel-title:hover {
-    background-color: rgb(89, 107, 180);
-    border-radius: 10px;   
+.panel-title {
+    background-color: rgb(193, 192, 191);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;   
 }
-.panel-title > a:hover {
-    color: #fff;
+.panel-body {
+    padding: 10px 0;
+    min-width: 3rem;
+    background-color: lightslategrey;
 }
+.btnrecord {
+    color: rgb(84, 87, 89);
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(195, 194, 193);
+    border-radius: 5px;
+}
+.btnrecord:hover {
+    color: white;
+    background-color: rgb(34, 69, 165);
+}
+
+/* Submitarticle page styling start */
+.sj-haslayout {
+    width: 100%;
+}
+.sectionspace {
+    padding: 80px 0;
+}
+.headerhold {
+    padding: 30px;
+}
+.strengthcomplete {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 12px;
+}
+.profile-strenght {
+    box-shadow: rgb(5 6 6 / 15%) 0px 2px 6px 2px;
+    border-radius: 5px;
+}
+.select {
+    width: 100%;
+}
+.general-main {
+
+}
+
+/* Submitarticle page styling end */

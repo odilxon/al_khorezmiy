@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block body %}
+  <div class="sj-haslayout sectionspace">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 float-left">
+          <aside class="sj-sidebar">
+            <div class="profile-strenght">
+              <div class="headerhold">
+                <div class="dashboardbox">
+                  <h2>Article Strength</h2>
+                  <span>Consectetur adipisicing elit eiusmod</span>
+                </div>
+                <div class="ourskill">
+                  <div class="skill">
+                    <div class="skillholder">
+                      <div class="skillbar"></div>
+                    </div>
+                    <span class="strengthcomplete">84% Complete</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="profilecomplete">
+                <li class="profile">
+                  <i class="fa fa-check"></i>
+                  <span>Article Title</span>
+                </li>
+                <li class="profile">
+                  <i class="fa fa-check"></i>
+                  <span>First author</span>
+                </li>
+                <li class="profile">
+                  <i class="fa fa-times"></i>
+                  <span>Your Abstract</span>
+                </li>
+                <li class="profile">
+                  <i class="fa fa-check"></i>
+                  <span>Upload Document(s)</span>
+                </li>
+              </ul>
+              <div class="submitdetails">
+                <span>
+                  <h3>I accept all the submiting article`s</h3>
+                  <a href="#">Terms & Conditions</a>
+                </span>
+                <a href="#" class="btn-past">Submit Now</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 float-right">
+          <div class="content">
+            <div class="dashboardbox">
+              <h2>Add A New Article</h2>
+            </div>
+            <div class="addarticlehold">
+              <form action="" class="formtheme sj-formartcile">
+                <fieldset>
+                  <div class="form-group">
+                    <input type="text" name="" class="form-control" placeholder="Title of artcile">
+                  </div>
+                  <div class="form-group general-main">
+                    <span class="form-select">
+                      <select name="" id="">
+                        <option value="">Select category (Optional)</option>
+                        <option value="">Name 1</option>
+                        <option value="">Name 2</option>
+                        <option value="">Name 3</option>
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <span class="form-select">
+                      <select name="" id="">
+                        <option value="">Select category (Optional)</option>
+                        <option value="">Name 1</option>
+                        <option value="">Name 2</option>
+                        <option value="">Name 3</option>
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <span class="form-select">
+                      <select name="" id="">
+                        <option value="">Select category (Optional)</option>
+                        <option value="">Name 1</option>
+                        <option value="">Name 2</option>
+                        <option value="">Name 3</option>
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <span class="form-select">
+                      <select name="" id="">
+                        <option value="">Select category (Optional)</option>
+                        <option value="">Name 1</option>
+                        <option value="">Name 2</option>
+                        <option value="">Name 3</option>
+                      </select>
+                    </span>
+                    <div class="addelbtns">
+                      <a href="" class="addbtn">
+                        <i class="fa fa-plus"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <span class="form-select">
+                      <select name="" id="">
+                        <option value="">Select category (Optional)</option>
+                        <option value="">Name 1</option>
+                        <option value="">Name 2</option>
+                        <option value="">Name 3</option>
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="" class="form-control" placeholder="Corresponding Author Title Here">
+                  </div>                
+                  <div class="form-group">
+                    <textarea placeholder="Add Your Abstract"></textarea>
+                  </div>                
+                </fieldset>
+              </form>
+              <form action="" class="formtheme sj-formaddproject">
+                <fieldset>
+                  <div class="inputfile">
+                    <h3>Upload Powerpoint</h3>
+                    <label for="">
+                      <span>Upload Your File Here</span>
+                      <span>
+                        <i class="fa fa-upload"></i>
+                      </span>
+                      <input type="file" name="uploadimgtwo" id="uploadimgvtwo">
+                    </label>
+                    <div class="filedetails">
+                      <span>
+                        <h3>File should be max 500kb</h3>
+                        <i class="fa fa-exclamation"></i>
+                        <em>Not Uploaded Yet</em>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="inputfile">
+                    <h3>Upload Handout</h3>
+                    <label for="">
+                      <span>
+                        Final_handout_2019.pdf
+                        <i class="fa fa-close"></i>
+                      </span>
+                      <input type="file" name="uploadimgtwo">
+                    </label>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
