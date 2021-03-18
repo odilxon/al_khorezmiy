@@ -35,6 +35,7 @@ def submitarticle():
 @app.route("/tests")
 def test():
     return "Works!"
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

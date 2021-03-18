@@ -929,11 +929,142 @@ a > #panel-head {
     box-shadow: rgb(5 6 6 / 15%) 0px 2px 6px 2px;
     border-radius: 5px;
 }
-.select {
+#first-sel {
+    height: 40px;
     width: 100%;
 }
-.general-main {
+.profilecomplete {
+    width: 100%;
+}
+.profile {
+    padding: 15px 20px;
+    list-style-type: none;
+    line-height: inherit;
+    border: 1px solid #eff2f5;
+}
+.fa-check {
+    color: limegreen;
+}
+.fa-times, .iclose-right .fa-close {
+    color: red;
+}
+.iclose-right .fa-upload {
+    color: rgb(44, 120, 243);
+}
+.submitdetails {
+    width: 100%;
+    padding: 30px 40px;
+}
+.submitdetails span {
+    display: block;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+}
+.submitdetails a {
+    text-decoration: none;
+}
+.btn-past {
+    color: rgb(229, 229, 245);
+    background: #105ebf;
+    padding: 10px 96px;
+    text-align: center;
+    border-radius: 6px;
+    font: 500 14px/44px 'Quicksand', Arial, Helvetica, sans-serif; 
+    list-style-type: none;
+}
+.btn-past:hover {
+    color: white;
+}
+.contentadd {
+    width: 100%;
+    box-shadow: rgb(5 6 6 / 15%) 0px 2px 6px 2px;
+    border-radius: 5px;
+}
+.dashboardbox {
+    padding: 10px 0;
+    background: #fcfcfc;
+}
+.skillbar {
+    width: 98%;
+    height: 10px;
+    background-image: linear-gradient(to right,
+    rgb(189, 166, 143) 0%,
+    rgb(141, 89, 100) 100%);
+    background-color: initial;
+    border-radius: 10px;
+}
+.dashboardbox-right {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eff2f5;
+    border-bottom-color: rgb(186 180 205);
+    background-image: linear-gradient(to right,
+    rgb(189, 166, 143) 0%,
+    rgb(141, 89, 100) 100%);
+    background-color: initial;
+}
+.addarticlehold { 
+    width: 100%;
+    padding: 30px;
+}
+.formarticle fieldset .form-group {
+    margin: 0;
+    padding: 5px;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    resize: none;
+}
+.inputfile h3 {
+    font-size: 16px;
+}
+label span {
+    font-size: 13px;
+}
+.filedetails span, .filedetails em {
+    font-size: 12px;
+    line-height: 12px;
+    font-style: italic;
+    display: inline-block;
 
 }
-
+.inputfile label {
+    line-height: 37px;
+    margin: 0;
+    width: 100%;
+    padding: 0 20px;
+    min-height: 40px;
+    border: 1px solid rgb(162, 160, 158);
+    border-radius: 5px;
+    background-color: #fff;
+    border-color: rgb(162, 160, 158);
+}
+label {
+    display: block;
+    font-weight: 400;
+}
+.iclose-right {
+    float: right;
+}
+.filedetails {
+    display: flex;
+}
+.group {
+    display: flex;
+}
+.hright-side {
+    margin: 0 15px;
+    width: 100%;
+}
+#select-right {
+    width: 80%;
+    height: 40px;
+}
+#select-left {
+    height: 40px;
+}
+.adddelbtns {
+    
+}
 /* Submitarticle page styling end */

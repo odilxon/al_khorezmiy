@@ -8,13 +8,13 @@
             <div class="profile-strenght">
               <div class="headerhold">
                 <div class="dashboardbox">
-                  <h2>Article Strength</h2>
+                  <h4>Article Strength</h4>
                   <span>Consectetur adipisicing elit eiusmod</span>
                 </div>
                 <div class="ourskill">
                   <div class="skill">
-                    <div class="skillholder">
-                      <div class="skillbar"></div>
+                    <div class="skillholder" data-percent="80%">
+                      <div class="skillbar" style="width: 80%;"></div>
                     </div>
                     <span class="strengthcomplete">84% Complete</span>
                   </div>
@@ -41,7 +41,7 @@
               </ul>
               <div class="submitdetails">
                 <span>
-                  <h3>I accept all the submiting article`s</h3>
+                  <h5>I accept all the submiting article`s</h5>
                   <a href="#">Terms & Conditions</a>
                 </span>
                 <a href="#" class="btn-past">Submit Now</a>
@@ -50,19 +50,19 @@
           </aside>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 float-right">
-          <div class="content">
-            <div class="dashboardbox">
-              <h2>Add A New Article</h2>
+          <div class="contentadd">
+            <div class="dashboardbox-right">
+              <h5>Add A New Article</h5>
             </div>
             <div class="addarticlehold">
-              <form action="" class="formtheme sj-formartcile">
+              <form action="" class="formtheme formartcile">
                 <fieldset>
                   <div class="form-group">
                     <input type="text" name="" class="form-control" placeholder="Title of artcile">
                   </div>
                   <div class="form-group general-main">
                     <span class="form-select">
-                      <select name="" id="">
+                      <select name="" id="first-sel">
                         <option value="">Select category (Optional)</option>
                         <option value="">Name 1</option>
                         <option value="">Name 2</option>
@@ -70,87 +70,97 @@
                       </select>
                     </span>
                   </div>
-                  <div class="form-group">
-                    <span class="form-select">
-                      <select name="" id="">
-                        <option value="">Select category (Optional)</option>
-                        <option value="">Name 1</option>
-                        <option value="">Name 2</option>
-                        <option value="">Name 3</option>
-                      </select>
-                    </span>
-                  </div>
-                  <div class="form-group">
-                    <span class="form-select">
-                      <select name="" id="">
-                        <option value="">Select category (Optional)</option>
-                        <option value="">Name 1</option>
-                        <option value="">Name 2</option>
-                        <option value="">Name 3</option>
-                      </select>
-                    </span>
-                  </div>
-                  <div class="form-group">
-                    <span class="form-select">
-                      <select name="" id="">
-                        <option value="">Select category (Optional)</option>
-                        <option value="">Name 1</option>
-                        <option value="">Name 2</option>
-                        <option value="">Name 3</option>
-                      </select>
-                    </span>
-                    <div class="addelbtns">
-                      <a href="" class="addbtn">
-                        <i class="fa fa-plus"></i>
-                      </a>
+                  <div class="group">
+                    <div class="form-group hleft-side">
+                      <div class="form-group left-side">
+                        <span class="form-select">
+                          <select name="" id="select-left">
+                            <option value="">Select category (Optional)</option>
+                            <option value="">Name 1</option>
+                            <option value="">Name 2</option>
+                            <option value="">Name 3</option>
+                          </select>
+                        </span>
+                      </div>
+                      <div class="form-group left-side">
+                        <span class="form-select">
+                          <select name="" id="select-left">
+                            <option value="">Select category (Optional)</option>
+                            <option value="">Name 1</option>
+                            <option value="">Name 2</option>
+                            <option value="">Name 3</option>
+                          </select>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <span class="form-select">
-                      <select name="" id="">
-                        <option value="">Select category (Optional)</option>
-                        <option value="">Name 1</option>
-                        <option value="">Name 2</option>
-                        <option value="">Name 3</option>
-                      </select>
-                    </span>
-                  </div>
+                    <div class="form-group hright-side">
+                      <div class="form-group right-side">
+                        <span class="form-select">
+                          <select name="" id="select-right">
+                            <option value="">Select category (Optional)</option>
+                            <option value="">Name 1</option>
+                            <option value="">Name 2</option>
+                            <option value="">Name 3</option>
+                          </select>
+                          <div class="adddelbtns"><a href="#" class="addbtn"><i class="fa fa-plus"></i></a></div>
+                        </span>
+                      </div>
+                      <div class="form-group right-side">
+                        <span class="form-select">
+                          <select name="" id="select-right">
+                            <option value="">Select category (Optional)</option>
+                            <option value="">Name 1</option>
+                            <option value="">Name 2</option>
+                            <option value="">Name 3</option>
+                          </select>
+                          <div class="adddelbtns"><a href="#" class="delbtn"><i class="fa fa-plus"></i></a></div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>  
                   <div class="form-group">
                     <input type="text" name="" class="form-control" placeholder="Corresponding Author Title Here">
                   </div>                
                   <div class="form-group">
                     <textarea placeholder="Add Your Abstract"></textarea>
-                  </div>                
+                  </div>                  
                 </fieldset>
               </form>
-              <form action="" class="formtheme sj-formaddproject">
+              <form action="" class="formtheme formaddproject">
                 <fieldset>
                   <div class="inputfile">
                     <h3>Upload Powerpoint</h3>
-                    <label for="">
+                    <label for="sj-uploadimgvtwo">
                       <span>Upload Your File Here</span>
-                      <span>
-                        <i class="fa fa-upload"></i>
-                      </span>
+                      <span class="iclose-right"><i class="fa fa-upload"></i></span>
                       <input type="file" name="uploadimgtwo" id="uploadimgvtwo">
                     </label>
                     <div class="filedetails">
+                      <h3>File should be max 500kb</h3>
                       <span>
-                        <h3>File should be max 500kb</h3>
-                        <i class="fa fa-exclamation"></i>
-                        <em>Not Uploaded Yet</em>
+                        <div class="rightic">
+                          <i class="fa fa-exclamation"></i>
+                          <em>Not Uploaded Yet</em>
+                        </div>
                       </span>
                     </div>
                   </div>
                   <div class="inputfile">
                     <h3>Upload Handout</h3>
-                    <label for="">
-                      <span>
-                        Final_handout_2019.pdf
-                        <i class="fa fa-close"></i>
-                      </span>
+                    <label for="sj-uploadimgvtwoa">
+                      <span>Final_handout_2019.pdf</span>
+                      <span class="iclose-right"><i class="fa fa-close"></i></span>
                       <input type="file" name="uploadimgtwo">
                     </label>
+                    <div class="filedetails">
+                      <h3>File should be max 500kb</h3>
+                      <div class="rightic">
+                        <span>
+                          <i class="fa fa-check"></i>
+                          <em>File Uploaded</em>
+                        </span>
+                      </div>  
+                    </div>
                   </div>
                 </fieldset>
               </form>
