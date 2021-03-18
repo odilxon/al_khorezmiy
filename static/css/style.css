@@ -209,6 +209,12 @@ address {
 .fabot {
     padding-left: 10px;
 }
+.strelka {
+    background: #636C77;
+    margin: 50px 0;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
 .fa-angle-up {
     top: -23px;
     right: 80px;
@@ -846,12 +852,6 @@ h3 > #left-widget {
 }
 #leftbanner {
     margin-top: 40px;
-}
-.fof {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border-top: 2px circle gray;
 }
 /* footer part some tags need to change*/
 p > span {
