@@ -209,14 +209,21 @@ address {
 .fabot {
     padding-left: 10px;
 }
-.strelka {
+.strelkaone {
     background: #636C77;
-    margin: 50px 0;
+    margin: 40px 0;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
+.strelkatwo {
+    position: absolute;
+    background: #636C77;
+    margin: 40px 0;
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
 }
 .fa-angle-up {
-    top: -23px;
+    margin-left: 90%;
     right: 80px;
     width: 90px;
     color: #fff;
@@ -224,8 +231,6 @@ address {
     display: block;
     font-size: 18px;
     line-height: 22px;
-    text-align: center;
-    position: absolute;
 }
 .fa-facebook {
     color: #3B5998;
@@ -503,7 +508,9 @@ transition: .3s;
     background-color: #f8f9fa;
     padding: 5px 15px;
     text-align: left;
-
+}
+.dropdown-item:hover {
+    background-color: rgb(125, 189, 253);
 }
 #topnav {
     padding: 0;
@@ -512,11 +519,11 @@ transition: .3s;
     margin: 0;
     text-align: left;
 }
-.bluetopborder {
+/* .bluetopborder {
     border-top: 2.7px solid blue;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
+} */
 #nav-lang2 > .dropdown-item {
     width: 100px;
     margin-right: 0;
@@ -534,8 +541,10 @@ transition: .3s;
     border: none;
 }
 .dropdown-menu {
-    padding: 0;
-    border-radius: 10px 10px 0 0;
+    padding: 5px;
+    border-top-color: rgb(45, 115, 245);    
+    border-top-width: 2px;
+    border-radius: 10px;
 }
 .formsortitems {
     width: 100%;
@@ -1011,10 +1020,14 @@ a > #panel-head {
     margin: 0;
     padding: 5px;
 }
+
 textarea {
     width: 100%;
     height: 300px;
     resize: none;
+}
+.inputfile {
+    margin-bottom: 20px;
 }
 .inputfile h3 {
     font-size: 16px;
@@ -1049,6 +1062,8 @@ label {
 }
 .filedetails {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .group {
     display: flex;
@@ -1057,8 +1072,16 @@ label {
     margin: 0 15px;
     width: 100%;
 }
+.right-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-select {
+    width: 100%;
+}
 #select-right {
-    width: 80%;
+    width: 100%;
     height: 40px;
 }
 #select-left {
@@ -1066,5 +1089,11 @@ label {
 }
 .adddelbtns {
     
+}
+.addbtn {
+    color: rgb(34, 243, 34);
+}
+.delbtn {
+    color: red;
 }
 /* Submitarticle page styling end */
