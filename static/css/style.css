@@ -32,7 +32,6 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
     background-color: #636c77;
 }
 .right-b {
-    font-size: 16px;
     font-weight: 500;
     padding-top: 10px 0;
     text-align: right;
@@ -40,7 +39,6 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 .top-right-home li {
     display: inline-block;
     position: relative;
-    padding-top: 12px;
 }
 .top-right-home li a{
     margin-left: 20px;
@@ -179,7 +177,6 @@ li:first-child::after{
 }
 .top-bar-right {
     margin-top: 8px;
-    padding: 0;
     text-align: right;
     
 }
@@ -209,27 +206,25 @@ address {
 .fabot {
     padding-left: 10px;
 }
-.strelkaone {
+.astrelka {
+    width: 100%;
+}
+/* .strelkaone {
     background: #636C77;
     margin: 40px 0;
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
-}
+} */
 .strelkatwo {
-    position: absolute;
+    color: rgb(195, 194, 193);
     background: #636C77;
-    margin: 40px 0;
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
 }
 .fa-angle-up {
-    margin-left: 90%;
-    right: 80px;
+    float: right;
     width: 90px;
-    color: #fff;
-    height: 22px;
     display: block;
-    font-size: 18px;
     line-height: 22px;
 }
 .fa-facebook {
@@ -509,9 +504,6 @@ transition: .3s;
     padding: 5px 15px;
     text-align: left;
 }
-.dropdown-item:hover {
-    background-color: rgb(125, 189, 253);
-}
 #topnav {
     padding: 0;
 }
@@ -696,6 +688,9 @@ p {
 .sj-featureimg > a:hover {
     color: whitesmoke;
 }
+a:hover {
+    color: none;
+}
 #rightbanner {
     top: 100px;
     padding: 0 40px;
@@ -820,9 +815,7 @@ li > a > em {
 .widget-heading > h3 {
     font-size: 20px;
     padding: 10px;
-    color: #fff;
-    border: 2px solid rgb(65, 65, 155);
-    background-color:rgb(65, 65, 155);
+    color: #545759;
     border-radius: 5px;
 }
 #last-que {
@@ -851,13 +844,11 @@ h3 > #left-widget {
     margin-top: 6vh;
 }
 .filter-btns > a {
-    color: #fff;
+    color: #545759;
     padding: 5px 27px;
     font-size: 15px;
     text-decoration: none;
-    border: 1px solid rgb(65, 65, 155);
     border-radius: 7px;
-    background-color: rgb(65, 65, 155);
 }
 #leftbanner {
     margin-top: 40px;
@@ -879,12 +870,11 @@ p > span {
 .panel h4 {
     border: 1px solid grey;
 }
-.panel h4.active, .panel h4:hover {
-    border-color: rgb(171, 170, 168);
-}
 .panel-title {
     margin: 0;
     padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     
 }
 a > #panel-head {
@@ -897,21 +887,17 @@ a > #panel-head {
 .panel-title > a {
     display: block;
 }
-.panel-title {
-    background-color: rgb(193, 192, 191);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;   
-}
 .panel-body {
     padding: 10px 0;
     min-width: 3rem;
-    background-color: lightslategrey;
+    background-color: #BDBCBB;
 }
 .btnrecord {
     color: rgb(84, 87, 89);
     margin: 10px;
     padding: 5px;
-    background-color: rgb(195, 194, 193);
+    border: 1px solid green;
+    background-color: #C3C2C1;
     border-radius: 5px;
 }
 .btnrecord:hover {
