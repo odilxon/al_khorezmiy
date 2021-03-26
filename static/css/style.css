@@ -844,7 +844,8 @@ h3 > #left-widget {
     margin-top: 6vh;
 }
 .filter-btns > a {
-    color: #545759;
+    color: #fff;
+    background: #545759;
     padding: 5px 27px;
     font-size: 15px;
     text-decoration: none;
@@ -1073,9 +1074,6 @@ label {
 #select-left {
     height: 40px;
 }
-.adddelbtns {
-    
-}
 .addbtn {
     color: rgb(34, 243, 34);
 }
@@ -1083,3 +1081,27 @@ label {
     color: red;
 }
 /* Submitarticle page styling end */
+
+/* Login page styling start */
+.form-group {
+
+}
+.loginpage {
+    color: #545759;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    margin: 10px;
+    border-radius: 6px;
+}
+.loginform {
+    width: 350px;
+    height: 45px;
+}
+.btnarea {
+    
+}
+.btnactive {
+    
+}
+/* Login page styling end */

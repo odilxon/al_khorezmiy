@@ -1,11 +1,28 @@
 
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from forms import RegisterationForm, LoginForm, SubmitYourArticleForm
 from datetime import datetime
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 
+app.config['SECRET_KEY'] = '4079d33f50e34921722161947c3cab26'
+
+posts = [
+    {
+        'author': 'Sherlock Holmes',
+        'title': 'Blog Post 1',
+        'content': 'First post',
+        'datepased': 'March 24 2021'
+    },
+    {
+        'author': 'Djhon Watson',
+        'title': 'Blog Post 2',
+        'content': 'Second post',
+        'datepased': 'March 25 2021'
+    }
+]
 
 @app.route('/', methods = ["GET"])
 def index():
@@ -22,16 +39,27 @@ def articles():
     return render_template('articles.html')
 
 
-@app.route('/issueyears.html')
+@app.route('/issueyears')
 def issueyears():
     return render_template('issueyears.html')
 
 
-@app.route('/submitarticle.html')
+@app.route('/submitarticle')
 def submitarticle():
     return render_template('submitarticle.html')
 
+@app.route('/register')
+def register():
+    form = RegisterationForm()
+    return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
     
+
 @app.route("/tests")
 def test():
     return "Works!"

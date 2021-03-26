@@ -260,8 +260,8 @@
                                 <span class="head-title"><center>Advertisers 270x270</center></span>
                                 <div class="widget-contentmas">
                                     <figure class="add-imge">
-                                        <a href="">
-                                            <img id="add-imge" src="../static/imgs/nature.jpg" alt="Im img">
+                                        <a href="{{ url_for('index') }}">
+                                            <img id="add-imge" src="{{ url_for('static', filename='imgs/nature.jpg') }}" alt="Im img">
                                         </a>
                                     </figure>
                                 </div>
@@ -296,7 +296,7 @@
                             <div class="widget widgetadd">
                                 <div class="widgetcontent">
                                     <figure class="addimage">
-                                        <a href="#"><img src="../static/imgs/issue-last.png" alt=""><img src="#" alt=""></a>
+                                        <a href="#"><img src="{{ url_for('static', filename='imgs/issue-last.png') }}" alt=""><img src="#" alt=""></a>
                                     </figure>
                                 </div>
 
