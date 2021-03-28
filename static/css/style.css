@@ -33,8 +33,11 @@ font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 }
 .right-b {
     font-weight: 500;
-    padding-top: 10px 0;
+    padding-top: 8px 0 0 0;
     text-align: right;
+}
+.top-right-home {
+    padding-top: 13px;
 }
 .top-right-home li {
     display: inline-block;
@@ -153,7 +156,7 @@ li:first-child::after{
     color: #000;
 }
 .top-right-home li:after {
-    top: 70%;
+    top: 53%;
     left: 8px;
     width: 4px;
     height: 4px;
@@ -257,6 +260,9 @@ address {
 }
 .sj-more {
     list-style: none;
+}
+.sj-more a {
+    text-decoration: none;
 }
 .top-strip {
     position: absolute;
@@ -388,7 +394,6 @@ transition: .3s;
 
 .checkbox {
     display: block;
-    margin-bottom: 5px;
 }
 .checkbox input {
     cursor: pointer;
@@ -399,10 +404,11 @@ transition: .3s;
 }
 .checkbox label {
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 15px;
     float: left;
     position: absolute;
-    width: 85%;
+    width: auto;
+    margin-top: -24px;
 }
 .showitems em{
     font-style: normal;
@@ -456,7 +462,7 @@ transition: .3s;
     text-align: center;
 }
 .fbtn {
-    width: 50%;
+    width: 49%;
     background-color: grey;
     line-height: 30px;
     border-radius: 5px;
@@ -504,6 +510,9 @@ transition: .3s;
     padding: 5px 15px;
     text-align: left;
 }
+.dropdown-item:hover {
+    background-color: rgb(195, 194, 193);
+}
 #topnav {
     padding: 0;
 }
@@ -533,8 +542,7 @@ transition: .3s;
     border: none;
 }
 .dropdown-menu {
-    padding: 5px;
-    border-top-color: rgb(45, 115, 245);    
+    padding: 2px;
     border-top-width: 2px;
     border-radius: 10px;
 }
@@ -548,6 +556,10 @@ form {
 }
 .formsortitems fieldset {
     text-align: right;
+}
+.fieldset {
+    display: flex;
+    justify-content: space-around;
 }
 .form-group em {
     display: inline-block;
@@ -884,6 +896,7 @@ a > #panel-head {
 }
 .panel-title > a , .panel-body > a {
     text-decoration: none;
+    transition: .6s;
 }
 .panel-title > a {
     display: block;
@@ -1084,7 +1097,7 @@ label {
 
 /* Login page styling start */
 .form-group {
-
+    padding: 5px 0;
 }
 .loginpage {
     color: #545759;
@@ -1098,10 +1111,53 @@ label {
     width: 350px;
     height: 45px;
 }
-.btnarea {
-    
+.forgotpass a {
+    text-decoration: none;
 }
-.btnactive {
-    
+.loginbtn {
+    width: 150px;
+    line-height: 40px;
+}
+.checkboxa {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+#login {
+    margin: 4px 0;
+
+}
+.checkember {
+    display: flex;
+}
+.form-check {
+    padding: 0;
 }
 /* Login page styling end */
+
+/* Register page styling start */
+.colregister {
+    margin: 50px 0;
+}
+.registerleft {
+    width: 400px;
+}
+.registerright {
+    width: 600px;
+    padding: 35px 0;
+}
+.form-groups {
+    padding: 5px 0;
+}
+.registerarea {
+    margin: 10px 0;
+}
+.registerform {
+    width: 350px;
+    height: 40px;
+}
+.liststyle {
+    margin-left: 20px;
+    padding: 10px 0 0 0;
+}
+/* Register page styling end */
