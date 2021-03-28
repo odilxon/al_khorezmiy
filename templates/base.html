@@ -31,9 +31,9 @@
                     <a class='autoriz' href="{{ url_for('login') }}">Login</a>
                     <a class='autoriz' href="{{ url_for('register') }}">Register</a>
                     <nav class="navbar navbar-expand-lg bg-default" id="topnav">
-                        <li id="nav-lang" class="nav-item dropdown">
+                        <li id="nav-lang1" class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>
-                            <div id="nav-lang2" class="dropdown-menu" aria-labelledby="dropdown09">
+                            <div id="nav-lang" class="dropdown-menu" aria-labelledby="dropdown09">
                                 <a class="dropdown-item" href="#uz"><span class="flag-icon flag-icon-uz"> </span>  Uzb</a>
                                 <a class="dropdown-item" href="#us"><span class="flag-icon flag-icon-us"> </span>  Eng</a>
                                 <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Rus</a>
@@ -74,8 +74,8 @@
                                             <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Articles  </a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="{{ url_for('articles') }}"> Articles </a></li>
-                                                <li><a class="dropdown-item" href="#"> Article-list </a></li>
-                                                <li><a class="dropdown-item" href="#"> Article Detail </a></li>
+                                                <li><a class="dropdown-item" href="{{ url_for('articlelist') }}"> Article-list </a></li>
+                                                <li><a class="dropdown-item" href="{{ url_for('articledetail') }}"> Article Detail </a></li>
                                                 <li><a class="dropdown-item" href="{{ url_for('submitarticle') }}"> Submit Article </a></li>
                                             </ul>
                                         </li>
@@ -121,8 +121,8 @@
                 </div>
             </div>
         </div>
-    {% block body %}
-    {% endblock %}
+        {% block body %}
+        {% endblock %}
     
         <footer id="sj-footer" class="sj-footer sj-haslayout">
             <div class="container">
