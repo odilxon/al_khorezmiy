@@ -211,15 +211,15 @@ address {
 }
 .footer-line {
     padding: 20px 0;
-    border-bottom: 1px solid rgb(107, 101, 101);
-}
-.rasmstrelka {
+    border-bottom: 1px solid rgb(161 166 168);
 }
 .strelkacha {
     background-image: url(../imgs/btnscroll-bg.png);
     padding: 0;
-    color: white;
-    position: relative;
+    color: rgb(195, 194, 193);
+    position: absolute;
+    left: 1100px;
+    top: -23px;
 }
 /* .strelkaone {
     background: #636C77;

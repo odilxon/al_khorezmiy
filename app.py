@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from forms import RegisterationForm, LoginForm, SubmitYourArticleForm
 from datetime import datetime
+from flask_login import LoginManager
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
@@ -39,6 +40,16 @@ def articles():
     return render_template('articles.html')
 
 
+@app.route('/articlelist')
+def articlelist():
+    return render_template('articlelist.html')
+
+
+@app.route('/articledetail')
+def articledetail():
+    return render_template('articledetail.html')
+
+
 @app.route('/issueyears')
 def issueyears():
     return render_template('issueyears.html')
@@ -48,17 +59,29 @@ def issueyears():
 def submitarticle():
     return render_template('submitarticle.html')
 
-@app.route('/register')
+@app.route('/foraccount')
+def foraccount():
+    return render_template('foraccount.html')
+
+
+
+@app.route('/register', methods=['GET','POST'])
 def register():
     form = RegisterationForm()
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
-    
+    if request.method == 'POST':
+        if  login(request.form['username'],
+                  request.form['password']):
+            return user(request.form['blabla'])
+        else:
+            error = 'Invalid username/password'
+    return render_template('foraccount.html', error=error)
 
 @app.route("/tests")
 def test():
