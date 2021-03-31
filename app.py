@@ -10,6 +10,7 @@ db = SQLAlchemy(app)
 
 app.config['SECRET_KEY'] = '4079d33f50e34921722161947c3cab26'
 
+
 posts = [
     {
         'author': 'Sherlock Holmes',
@@ -25,19 +26,11 @@ posts = [
     }
 ]
 
-@app.route('/', methods = ["GET"])
-def index():
-    return render_template('index.html')
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-    
-
-@app.route('/articles')
-def articles():
-    return render_template('articles.html')
+@app.context_processor
+def utility_processor():
+    def Capi(name):
+        return name.split(".")[0][0].upper() + name.split(".")[0][1::] #returning name of the file name wo extension and w first letter uppercase
+    return dict(Capi=Capi)
 
 
 @app.route('/articlelist')
@@ -82,6 +75,12 @@ def login():
         else:
             error = 'Invalid username/password'
     return render_template('foraccount.html', error=error)
+
+
+    
+
+
+
 
 @app.route("/tests")
 def test():
