@@ -1,0 +1,42 @@
+{% extends 'base2.html' %}
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="widget widgetlogin">
+          <div class="widgethead loginpage">
+            <h5>Login Now</h5>
+          </div>
+          <div class="widgetcontent">
+            <form class="formthem">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" name="yourname" class="form-control loginform" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control loginform" placeholder="Passoword">
+                </div>
+                <div class="form-check forgotpass">
+                  <div class="checkboxa">
+                    <div class="checkember">
+                      <input type="checkbox" id="login">
+                    <label for="login">
+                      Remember Me
+                    </label>
+                    </div>
+                    <div class="fofrgotpass">
+                      <a href="" class="forgotpass">Forgot Password?</a>  
+                    </div>
+                  </div>
+                </div>
+                <div class="btnarea">
+                  <button type="button" class="btn btn-primary loginbtn">Login</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

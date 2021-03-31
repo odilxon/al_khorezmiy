@@ -1,0 +1,308 @@
+{% extends 'base.html' %}
+{% block banner %} Submit Your Article {% endblock %}
+{% block body %} 
+        <section class="issue-index">
+            <div class="container">
+                <div class="row">
+    <!-- left board -->
+                    <div class="col-sm-3 leftboard">
+                        <aside class="side-bar">
+                            <div class="widget">
+                                <div class="widget-heading">
+                                    <h3 id="left-widget">By Volume and Issue</h3>
+                                </div>
+                                <div class="widget-contentmas">
+                                    <form action="" class="form-theme">
+                                        <fieldset class="fiel-text">
+                                            <div class="widget-form">
+                                                <input type="text" name="issuenumber" class="form-control" placeholder="Vol no.">
+                                                
+                                            </div>
+                                            <div class="widget-form">
+                                                <input type="text" name="issuenumber" class="form-control" placeholder="Issue no.">
+                                                
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="widget-heading">
+                                    <h3 id="left-widget">By Date</h3>
+                                </div>
+                                <div class="widget-contentmas">
+                                    <form action="" class="form-theme">
+                                        <fieldset>
+                                            <div class="inner-addon calicon">
+                                                <i id="caldar" class="fa fa-calendar"></i>
+                                                <input type="text" class="form-control" name="date" placeholder="YYYY - MM - DD">
+                                            </div>
+                                            <div class="filter-btns">
+                                                <a href="#" class="sj-btn">Apply Filter</a>
+                                                <a href="#" class="sj-btn">Reset All</a>
+                                            </div>
+                                        </fieldset>
+                                    </form>                                                           
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="widget-heading">
+                                    <h3 id="left-widget">Recent Issues</h3>
+                                </div>
+                                <div class="widget-contentmas">
+                                    <ul>
+                                        <li>
+                                            <a id="wid-li-a" href="#"><span>View All</span><em id="right-em">(216)</em></a>
+                                        </li>
+                                        <li>
+                                            <a id="wid-li-a" href="#"><span>Current Issue</span><em id="right-em">(32)</em></a>
+                                        </li>
+                                        <li>
+                                            <a id="wid-li-a" href="#"><span>December 21, 2021</span><em id="right-em">(37)</em></a>
+                                        </li>
+                                        <li>
+                                            <a id="wid-li-a" href="#"><span>March 31, 2021</span><em id="right-em">(137)</em></a>
+                                        </li>
+                                    </ul>                                                                                               
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+    <!-- center board -->
+                    <div class="col-sm-6 centerboard">
+                        <div class="content">
+                            <div class="uploadarticle">
+                                <figure class="upload-img">
+                                    <figcaption>
+                                        <div class="uploadcontent">
+                                            <div class="fortext">
+                                                <span>Do You Want To Upload Your Article?</span>
+                                                <h3>Submit Now & Make Your Online Presence</h3>
+                                            </div>
+                                            <div class="forbtn">
+                                                <a href="#" class="centerbtn">Submit Now</a>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+    <!-- issue years center bottom part -->
+                            <div class="years">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    2021
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>2020</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2019</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2018</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>2017</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                    2022
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>202</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>201</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>208</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>207</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTre" aria-expanded="true" aria-controls="collapseTre">
+                                                    2023
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTre" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>202</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>201</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>208</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>207</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFor" aria-expanded="true" aria-controls="collapseFor">
+                                                    2024
+                                                    <i id="panel-head" class="fa fa-angle-down"></i>
+                                                    
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFor" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFor">
+                                            <div class="panel-body">
+                                                <a href="#" class="btnrecord">
+                                                    <span>202</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>201</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>208</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                                <a href="#" class="btnrecord">
+                                                    <span>207</span>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+    <!-- right board -->
+                    <div class="col-sm-3 rightboard">
+                        <aside id="sidebar" class="sidebar">
+                            <div class="widget">
+                                <div class="widget-content">
+                                    <ul>
+                                        <li>
+                                            <h3>Impact Factor</h3>
+                                            <p id="num">1.234</p>
+                                            <h3>5 year inpact Factor </h3>
+                                            <p id="num">4.567</p>
+                                        </li>
+                                        <hr class="inside">
+                                        <li>
+                                            <h3 id="conname">Dr. Jhon Watson</h3>
+                                            <div class="description">
+                                                <p id="consec">
+                                                    Consectetur adipisicing elit sedo amod tempor incididunt.
+                                                    <br><a id="readmore" href="#">Read more</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget widget-notic">
+                                <div class="widget-heading">
+                                    <h3>Notice Board</h3>
+                                </div>
+                                <div class="widget-notice">
+                                    <ul>
+                                        <li><a href="">Adipisicing elitaium sed dotas eiusm tempor incididunt utae labore etiate dolore magna aliqua enim.1</a></li>
+                                        <li><a href="">Adipisicing elitaium sed dotas eiusm tempor incididunt utae labore etiate dolore magna aliqua enim.2</a></li>
+                                        <li><a href="">Adipisicing elitaium sed dotas eiusm tempor incididunt utae labore etiate dolore magna aliqua enim.3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget widget-add">
+                                <span class="head-title"><center>Advertisers 270x270</center></span>
+                                <div class="widget-contentmas">
+                                    <figure class="add-imge">
+                                        <a href="{{ url_for('index') }}">
+                                            <img id="add-imge" src="{{ url_for('static', filename='imgs/nature.jpg') }}" alt="Im img">
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="widget widget-ques">
+                                <div class="widget-heading">
+                                    <h3>questions of the week</h3>
+                                </div>
+                                <div class="widget-contentmas">
+                                    <div class="description">
+                                        <p>Consectetur adipisicing elit, sed aeiuse tempor incididunt ut labore etamiudon magna aliqua enim ad minim?</p>
+                                    </div>
+                                    <div class="questions">
+                                        <div class="selectgroup">
+                                            <span class="sj-radio">
+                                                <label for="que"><input type="radio" id="sj-qone" name="question" value="qone" checked>blabla</label>    
+                                            </span>
+                                            <span class="sj-radio">
+                                                <label for="que"><input type="radio" id="sj-qone" name="question" value="qone" checked>blabla</label>        
+                                            </span>
+                                            <span class="sj-radio">
+                                                <label for="que"><input type="radio" id="sj-qone" name="question" value="qone" checked>blabla</label>        
+                                            </span>
+                                            <span class="sj-radio">
+                                                <label for="que"><input type="radio" id="sj-qone" name="question" value="qone" checked>blabla</label>        
+                                            </span>
+                                        </div>
+                                        <a id="last-que" href="#" class="btn">Submit Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget widgetadd">
+                                <div class="widgetcontent">
+                                    <figure class="addimage">
+                                        <a href="#"><img src="{{ url_for('static', filename='imgs/issue-last.png') }}" alt=""><img src="#" alt=""></a>
+                                    </figure>
+                                </div>
+
+                            </div>
+                        </aside>                            
+                    </div>      
+                </div>
+            </div>
+        </section>
+{% endblock %}
+    </div>

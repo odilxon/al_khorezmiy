@@ -10,12 +10,14 @@ class User(db.Model):
     password = db.Column(db.String(30), nullable=False)
     role = db.Column(db.String(30), nullable=False)
     phone = db.Column(db.String(30), nullable=False)
+    articles = db.relationship
     
 class Issues(db.Model):
     __tablename__ = 'issues'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     release = db.Column(db.Integer, nullable=False)
+    articles = db.relationship
 
 class Article(db.Model):
     __tablename__ = 'article'
