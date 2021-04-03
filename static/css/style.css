@@ -58,6 +58,8 @@ li:first-child::after{
     padding: 0;
 }
 .subbtn {
+    border-color: #5E9CEA;
+    background-color: #5E9CEA;
     padding: 0 20px 0 20px;
     border-radius: 5px;
     text-align: center;
@@ -83,7 +85,7 @@ li:first-child::after{
 
 .widget-content {
     text-align: center;
-    border: 1px solid #4d14e9;
+    border: 1px solid #636c77;
     border-radius: 6px;    
     padding: 5vh 5vh 0 5vh;
 }
@@ -188,6 +190,7 @@ li:first-child::after{
     margin: 10px;
     margin-top: 10pt;
     color: grey;
+    line-height: 35px;
 }
 .autoriz:hover{
     color: grey;
@@ -219,7 +222,7 @@ address {
     color: rgb(195, 194, 193);
     position: absolute;
     left: 1100px;
-    top: -23px;
+    top: -22px;
 }
 /* .strelkaone {
     background: #636C77;
@@ -431,7 +434,7 @@ transition: .3s;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 40px;
-    border: 2px solid green;
+    border: 1px solid #b3afaf;
 }
 .uploadcontent {
     text-align: center;
@@ -452,7 +455,6 @@ transition: .3s;
 .centerbtn {
     color: #fff;
     padding: 8px 30px;
-    border: 1px solid rgb(57, 57, 168);
     border-radius: 3px;
     background-color: rgb(57, 57, 168);
 }
@@ -490,6 +492,7 @@ transition: .3s;
     text-transform: uppercase;
 }
 #nav-lang {
+    transition: .6s;
     min-width: 100px;
     border-radius: 6px;
     margin: 0;
@@ -790,18 +793,23 @@ p > .past-read {
 .widget-contentmas > ul {
     list-style: none;
 }
+.widget-contentmas ul li a {
+    color: #636c77;
+}
 li > a > em {
     padding-right: 8px;
     float: right;
 }
 #wid-li-a {
+    color: #636c77;
     text-decoration: none;
 }
 .widget-notice {
-    padding-left: 20px;
+    margin-left: 20px;
 }
 .widget-notice > ul > li > a {
     text-decoration: none;
+    color: #636c77;
 }
 #add-imge {
     width: 270px;
@@ -809,10 +817,15 @@ li > a > em {
     padding: 7px;
     border: 1px solid grey;
 }
+.whlast {
+    border-radius: 5px;
+    background: #636c77;
+
+}
 .widget-heading > h3 {
     font-size: 20px;
     padding: 10px;
-    color: #545759;
+    color: #fff;
     border-radius: 5px;
 }
 #last-que {
@@ -842,7 +855,7 @@ h3 > #left-widget {
 }
 .filter-btns > a {
     color: #fff;
-    background: #545759;
+    background: #636c77;
     padding: 5px 27px;
     font-size: 15px;
     text-decoration: none;
@@ -866,7 +879,11 @@ p > span {
     padding: 30px 0 0;
 }
 .panel h4 {
-    border: 1px solid grey;
+    border: 1px solid white;
+    
+}
+.panel h4:hover {
+    border-color: #b3afaf;
 }
 .panel-title {
     margin: 0;
@@ -884,18 +901,19 @@ a > #panel-head {
     transition: .6s;
 }
 .panel-title > a {
+    color: #636c77;
     display: block;
 }
 .panel-body {
     padding: 10px 0;
     min-width: 3rem;
-    background-color: #BDBCBB;
+    background-color: #d8d5d5;
 }
 .btnrecord {
     color: rgb(84, 87, 89);
     margin: 10px;
     padding: 5px;
-    border: 1px solid green;
+    border: 1px solid grey;
     background-color: #C3C2C1;
     border-radius: 5px;
 }
@@ -1121,6 +1139,9 @@ label {
 /* Login page styling end */
 
 /* Register page styling start */
+.formfieldset {
+    width: 360px;
+}
 .colregister {
     margin: 50px 0;
 }

@@ -30,8 +30,12 @@
                             
                 </div>
                 <div id="top-bar-right" class="col-6 top-bar-right">
+                    {% if current_user.is_anonymous %}
                     <a class='autoriz' href="{{ url_for('login') }}">Login</a>
-                    <a class='autoriz' href="{{ url_for('register') }}">Register</a>    
+                    <a class='autoriz' href="{{ url_for('register') }}">Register</a>
+                    {% else %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}     
                     <nav class="navbar navbar-expand-lg bg-light" id="topnav">
                         <li id="nav-lang1" class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>

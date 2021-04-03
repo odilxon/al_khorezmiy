@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base3.html' %}
 {% block title %} {% endblock %}
 {% block banner %} Submit Your Article {% endblock %}
 
@@ -12,7 +12,7 @@
                             <div class="widgetprofile">
                                 <div class="widgetcontent">
                                     <figure>
-                                        {% block profileimg %} <img src="/static/atom.png" alt="image"> {% endblock %}
+                                        {% block profileimg %} <img src="{{ url_for('static', filename='atom.png') }}" alt="image"> {% endblock %}
                                         <a href="javascript:void(0);"><i class="fa fa-pencil"></i></a>
                                     </figure>
                                     <div class="admininfo">
