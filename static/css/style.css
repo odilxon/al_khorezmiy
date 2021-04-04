@@ -213,7 +213,7 @@ address {
     padding-left: 10px;
 }
 .footer-line {
-    padding: 20px 0;
+    padding: 11px 0;
     border-bottom: 1px solid rgb(161 166 168);
 }
 .strelkacha {
@@ -223,6 +223,13 @@ address {
     position: absolute;
     left: 1100px;
     top: -22px;
+}
+.strelkacha1 {
+    background-image: url(../imgs/btnscroll-bg.png);
+    padding: 0;
+    color: rgb(195, 194, 193);
+    left: 1100px;
+    position: absolute;
 }
 /* .strelkaone {
     background: #636C77;
@@ -433,8 +440,10 @@ transition: .3s;
     background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 40px;
     border: 1px solid #b3afaf;
+}
+.upforissue {
+    margin-top: 40px;
 }
 .uploadcontent {
     text-align: center;
@@ -532,6 +541,8 @@ transition: .3s;
     padding: 0;
 }
 .dropdown-menu {
+    border-top-color: #105ebf;
+    border-top-width: 2px;
     border-radius: 10px;
 }
 .formsortitems {
@@ -746,6 +757,9 @@ p > .past-read {
 #issue {
     width: 100%;
 }
+.issue-index {
+    margin: 0 0 100px 0;
+}
 .issue-banner {
     background-color: #636c77;
     background-image: none;
@@ -819,7 +833,7 @@ li > a > em {
 }
 .whlast {
     border-radius: 5px;
-    background: #636c77;
+    background: #5E9CEA;
 
 }
 .widget-heading > h3 {
@@ -829,12 +843,14 @@ li > a > em {
     border-radius: 5px;
 }
 #last-que {
-    border: 1px solid rgb(65, 65, 155);
     border-radius: 5px;
-    background-color: rgb(65, 65, 155);
+    background-color: #636C77;
     color: #fff;
     margin-bottom: 10px;
     padding: 5px 15px;
+}
+#last-que:hover {
+    background-color: #105ebf;
 }
 /* Side bar */
 #left-widget {
@@ -890,7 +906,7 @@ p > span {
     padding: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    
+    transition: .3s;
 }
 a > #panel-head {
     float: right;
@@ -1167,3 +1183,21 @@ label {
     padding: 10px 0 0 0;
 }
 /* Register page styling end */
+/* logout */
+.logout {
+    text-decoration: none;
+    color: #636c77;
+    margin-right: 30px;
+}
+/* articles fieldset */
+.articlesfieldset {
+    display: flex;
+    justify-content: space-between;
+
+}
+.formarticles {
+    border: 1px solid #636c77;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+

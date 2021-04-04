@@ -32,7 +32,7 @@
                     <a class='autoriz' href="{{ url_for('login') }}">Login</a>
                     <a class='autoriz' href="{{ url_for('register') }}">Register</a>
                     {% else %}
-                    <a href="{{ url_for('logout') }}">Logout</a>
+                    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
                     {% endif %}
                     <nav class="navbar navbar-expand-lg bg-default" id="topnav">
                         <li id="nav-lang1" class="nav-item dropdown">
@@ -92,8 +92,10 @@
                                         <li class="nav-item dropdown btn">
                                             <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Pages  </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item bluetopborder" href="#"> Submenu item 1</a></li>
-                                                <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                                                <li><a class="dropdown-item" href="#"> News </a></li>                                                
+                                                <li><a class="dropdown-item" href="#"> Manageuser </a></li>
+                                                <li><a class="dropdown-item" href="#"> Settings </a></li>
+
                                             </ul>
                                         </li>
                                         <a href="#" class="searc"><i class="fa fa-search"></i></a>
@@ -127,11 +129,10 @@
         </div>
         {% block body %}
         {% endblock %}
-        <div class="footer-line"></div>
-        <a href="#" class="rasmstrelka"><i class="strelkacha fa fa-angle-up"></i></a>
+        <a href="#" class="rasmstrelka"><i class="strelkacha1 fa fa-angle-up"></i></a>
         <footer id="sj-footer" class="sj-footer sj-haslayout">
-            <a href="#" class="rasmstrelka"><i class="strelkacha fa fa-angle-up"></i></a>
-
+        <div class="footer-line"></div>
+            
             <div class="container">
                 <div class="row">
                     <div class="sj-footercolumns">

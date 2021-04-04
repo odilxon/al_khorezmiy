@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/css/style1.css">
-    <link rel="icon" href="../static/fav.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imgs/fav.png') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
     <div class="content-wrapper">
-        <img class='top-strip' src="https://raw.githubusercontent.com/odilxon/al_khorezmiy/main/top-strip.jpg" alt="top_strip">
+        <img class='top-strip' src="{{ url_for('static', filename='imgs/top-strip.jpg') }}" alt="top_strip">
         <div class="col-12 ccht">
             
             <div class="row teppa">
@@ -28,24 +28,23 @@
                             
                 </div>
                 <div id='top-bar-right' class="col-6 top-bar-right">
-                    <a class='autoriz' href="#">Login</a>
-                    <a class='autoriz' href="#">Register</a>
+                    {% if current_user.is_anonymous %}
+                    <a class='autoriz' href="{{ url_for('login') }}">Login</a>
+                    <a class='autoriz' href="{{ url_for('register') }}">Register</a>
+                    {% else %}
+                    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+                    {% endif %}
                     <nav class="navbar navbar-expand-lg bg-default" id="topnav">
-                        <li id="nav-lang" class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>
-                            <div id="nav-lang2" class="dropdown-menu" aria-labelledby="dropdown09">
-                                <a class="dropdown-item bluetopborder" href="#fr"><span class="flag-icon flag-icon-uz"> </span>  Uzb</a>
-                                <a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-us"> </span>  Eng</a>
-                                <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Rus</a>
-                            </div>
-                        </li>
-                    </nav>
-                    
-                    
-                
-                </div>
-                
-                
+                      <li id="nav-lang1" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>
+                        <div id="nav-lang" class="dropdown-menu" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="#uz"><span class="flag-icon flag-icon-uz"> </span>  Uzb</a>
+                            <a class="dropdown-item" href="#us"><span class="flag-icon flag-icon-us"> </span>  Eng</a>
+                            <a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru"> </span>  Rus</a>
+                        </div>
+                      </li>
+                    </nav>                
+                </div>                                
             </div>
         <div class="break-line">
             <hr>
@@ -58,51 +57,52 @@
                 <div class="navigation-bar">
                     <div class="row">
                         <div class="col-4">
-                            <a href="/"><img src="../static/logo.png" alt="our logo"></a>
+                            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="our logo"></a>
                         </div>
-                        <div class="col-8">
-                            <nav class="navbar navbar-expand-lg bg-default">
-                                <a class="navbar-brand" href="#">Navbar</a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
-                                    <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="main_nav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown btn">
-                                    <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  <i class="fa fa-home"></i>  </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item bluetopborder" href="/"> Home V-One </a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item active btn"> <a class="nav-link qora" href="about">About us </a> </li>
-                                <li class="nav-item dropdown btn">
-                                    <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Articles  </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item bluetopborder" href="articles"> Articles </a></li>
-                                        <li><a class="dropdown-item" href="/article-list"> Article-list </a></li>
-                                        <li><a class="dropdown-item" href="/article-detail"> Article Detail </a></li>
-                                        <li><a class="dropdown-item" href="#"> Submit Article </a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown btn">
-                                    <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Issues  </a>
-                                    <ul class="dropdown-menu">
-                                        <li btn><a class="dropdown-item bluetopborder" href="#"> Issues Weeks </a></li>
-                                        <li btn><a class="dropdown-item" href="#"> Issues Years </a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown btn">
-                                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Pages  </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item bluetopborder" href="#"> Submenu item 1</a></li>
-                                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-                                    </ul>
-                                </li>
-                                <a href="#" class="searc"><i class="fa fa-search"></i></a>
-                                <a href="#" class="btn btn-primary subbtn"> Submit Your Article</a>
-                            </ul>
-                                </div> <!-- navbar-collapse.// -->
-                            </nav>
+                        <div class="">
+                          <nav class="navbar navbar-expand-lg bg-default">
+                            <a class="navbar-brand" href="#">Navbar</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+                                <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="main_nav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown btn">
+                                        <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  <i class="fa fa-home"></i>  </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/"> Home V-One </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item active btn"> <a class="nav-link qora" href="{{ url_for('about') }}">About us </a> </li>
+                                    <li class="nav-item dropdown btn">
+                                        <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Articles  </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ url_for('articles') }}"> Articles </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('articlelist') }}"> Article-list </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('articledetail') }}"> Article Detail </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('submitarticle') }}"> Submit Article </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown btn">
+                                        <a class="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">  Issues  </a>
+                                        <ul class="dropdown-menu">
+                                            <li btn><a class="dropdown-item" href="{{ url_for('issueyears') }}"> Issues Years </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown btn">
+                                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Pages  </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#"> News </a></li>                                                
+                                            <li><a class="dropdown-item" href="#"> Manageuser </a></li>
+                                            <li><a class="dropdown-item" href="#"> Settings </a></li>
+
+                                        </ul>
+                                    </li>
+                                    <a href="#" class="searc"><i class="fa fa-search"></i></a>
+                                    <a href="{{ url_for('submitarticle') }}" class="btn btn-primary subbtn"> Submit Your Article</a>
+                                </ul>
+                            </div> <!-- navbar-collapse.// -->
+                          </nav>
                         </div>
                     </div>
                 </div>
@@ -120,30 +120,27 @@
                     </div>
                     <div class="col-6 right-b">
                         <ul class='top-right-home'>
-                            <li><a class="linke-top" href="#">  Home</a>
+                            <li><a class="linke-top" href="{{ url_for('index') }}">  Home</a>
                             <li><a class="linke-top" href="#"> {{ self._TemplateReference__context.name[:-5] }} </a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-            
-            
-    
-    
-    {% block body %}
-    {% endblock %}
-    
+        {% block body %}
+        {% endblock %}
+        <div class="footer-line"></div>
+        <a href="#" class="rasmstrelka"><i class="strelkacha fa fa-angle-up"></i></a>
         <footer id="sj-footer" class="sj-footer sj-haslayout">
+            <a href="#" class="rasmstrelka"><i class="strelkacha fa fa-angle-up"></i></a>
+
             <div class="container">
                 <div class="row">
-                    <a href="#"><i class="fa fa-angle-up"></i></a>
                     <div class="sj-footercolumns">
-                        
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 float-left">
                             <div class="sj-fcol sj-footeraboutus">
                                 <strong class="sj-logo">
-                                    <a href="index.html"><img src="../static/logo.png" alt="image description"></a>
+                                    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="image description"></a>
                                 </strong>
                                 <div class="sj-description">
                                     <p> <center> Eiusmod tempor incididunt ut labore etai dolore magna aliqua enim nostrud exercitation... <a href="javascript:void(0);">Read More</a></center></p>
@@ -196,7 +193,7 @@
                                     <h3>Get In Touch</h3>
                                 </div>
                                 <div class="sj-widgetcontent">
-                                    <ul>
+                                    <ul id="link-no">
                                         <li><address> <i class="fa fa-home"></i>123 Office St, ABC Building, Melbourne, Australia. </address></li>
                                         <li><a class="linke" href="tel:(+4)123456789101"><i class="fa fa-phone"></i><span>(+4) 1234 5678 9101</span></a></li>
                                         <li><a class="linke" href="tel:(+4)123456789101"><i class="fa fa-television"></i><span>(+4) 4321 8765 1019</span></a></li>
