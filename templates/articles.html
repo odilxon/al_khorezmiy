@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Articles {% endblock %}
+{% block title %} {{ Capi(self._TemplateReference__context.name) }} {% endblock %}
 {% block banner %} Our material {% endblock %}
 {% block body %} 
 <div class="container">
@@ -121,6 +121,7 @@
                                 <span>Do You Want To Upload Your Article?</span>
                                 <h3>Submit Now &amp; Make Your Online Presence</h3>
                                 <a class="sj-btn centerbtn" href="javascript:void(0);">Submit Now</a>
+                                <a class="btn btn-secondary" href="javascript:void(0);">Submit Now</a>
                             </div>
                         </figcaption>
                     </figure>
@@ -132,6 +133,7 @@
                         <div class="form-group formarticles">
                             <em>Sort By: <i class="fa fa-angle-down"></i></em> 
                             <span class="select">
+                                
                                 <select>
                                     <option>Name 1</option>
                                     <option>Name 2</option>
@@ -220,9 +222,49 @@
                 <div class="widgetcontent">
                     <figure class="addimage">
                         <a href="javascript:void(0);">
-                            <img src="https://ipfs.koreus.com/ipfs/QmXdwUfdnzS7GdNTSRbaznMgmM4sBtEUqXrwczgM1cGTCe" alt="image">
+                            <img src="https://ipfs.koreus.com/ipfs/QmXdwUfdnzS7GdNTSRbaznMgmM4sBtEUqXrwczgM1cGTCe" alt="image" width="239" height="239">
                         </a>
                     </figure>
+                </div>
+            </div>
+            <div class="widgetquestions widget">
+                <div class="widgetheading">
+                    <h3>Question of the week</h3>
+                </div>
+                <div class="widgetcontent">
+                    <div class="description">
+                        <p>Consectetur adipisicing elit, sed aeiuse tempor incididunt ut labore etamiudon magna aliqua enim ad minim?</p>
+                    </div>
+                    <div class="questions">
+                        <div class="selectgroup">
+                            <span class="radio">
+                                <input id="qone" type="radio" name="question" value="qone" checked="">
+                                <label for="qone">Sputum stain for acid-fast bacilli</label>
+                            </span>
+                            <span class="radio">
+                                <input id="qtwo" type="radio" name="question" value="qtwo" checked="">
+                                <label for="qtwo">Sputum stain for acid-fast bacilli</label>
+                            </span>
+                            <span class="radio">
+                                <input id="qthree" type="radio" name="question" value="qthree" checked="">
+                                <label for="qthree">Sputum stain for acid-fast bacilli</label>
+                            </span>
+                            <span class="radio">
+                                <input id="qfour" type="radio" name="question" value="qfour" checked="">
+                                <label for="qfour">Sputum stain for acid-fast bacilli</label>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Submit Now</a>
+                    </div>
+                </div>
+                <div class="widgetadd widget">
+                    <div class="widgetcontent" id="imgzero">
+                        <figure class="addimage">
+                            <a href="javascript:void(0);">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/58e1017f-3b13-4edc-81a9-371022459e38/dcl1yw9-3c274f72-27aa-41e5-98b4-42c15656da0d.jpg/v1/fill/w_239,h_192,q_75,strp/sub_zero_mka_versus_pose_by_deathcoldua_dcl1yw9-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xOTIiLCJwYXRoIjoiXC9mXC81OGUxMDE3Zi0zYjEzLTRlZGMtODFhOS0zNzEwMjI0NTllMzhcL2RjbDF5dzktM2MyNzRmNzItMjdhYS00MWU1LTk4YjQtNDJjMTU2NTZkYTBkLmpwZyIsIndpZHRoIjoiPD0yMzkifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YEh0tCSiXqPKODB5PjL4Og6n2WbJouT6lEINvrt2JYw" alt="image">
+                            </a>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>

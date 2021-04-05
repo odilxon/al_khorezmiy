@@ -1,0 +1,619 @@
+{% extends 'base.html' %}
+{% block title %} {{ Capi(self._TemplateReference__context.name) }} {% endblock %}
+{% block banner %} Submit Your Article {% endblock %}
+
+{% block body %} 
+<div class="sectionspace">
+    <div class="container">
+        <div class="arow row">
+            <div class="twocolumns">
+                <div class="col-3">
+                    <aside id="asidebar" class="asidebar widgetbox">
+                        <div class="widgetprofile">
+                            <div class="widgetcontent">
+                                <figure>
+                                    <img src="/static/atom.png" alt="image">
+                                    <a href="javascript:void(0);"><i class="fa fa-pencil"></i></a>
+                                </figure>
+                                <div class="admininfo">
+                                    <h3>Rachael Maresca</h3>
+                                    <h4>Author</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widgetdashboard">
+                            <nav id="dashboardnav" class="dashboardnav">
+                                <ul>
+                                    <li><a href="underreview.html"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                                    <li><a href="addtemplates.html"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                                    <li><a href="aticle-list.html"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                                    <li><a href="generalsettings.html"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                                    <li><a href="manageuser.html"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                                    <li><a href="manageeditions.html"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                                    <li><a href="emailtemplates.html"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                                    <li><a href="accountsettings.html"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                                    <li><a href="loginregister.html"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right">
+                    <div id="content" class="content addarticleholdcontent">
+                        <div class="dashboardboxtitle titlewithform">
+                            <h2>Articles Under Review</h2>
+                            <form class="formtheme formsearchvtwo">
+                                <div class="sortupdown">
+                                    <a href="javascript:void(0);"><i class="fa  fa-sort-amount-desc"></i></a>
+                                </div>
+                                <fieldset>
+                                    <input type="search" name="search" class="form-control" placeholder="Search here">
+                                    <button type="submit" class="btnsearch"><i class="fa fa-search"></i></button>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <ul id="accordion" class="articledetails articledetailsvtwo">
+                            <li id="headingOne" class="articleheader" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="detailstime">
+                                    <span><i class="fa fa-calendar-o ti-"></i>Jun 27, 2018 11:30</span>
+                                    <span><i class="fa fa-window-restore ti-"></i>Category Title</span>
+                                    <span><i class="fa fa-bookmark-o ti-"></i>ID: KW7Q3fxfAB</span>
+                                    <span><i class="fa fa-book ti-"></i>Edition</span>
+                                    <h4>4 Ways You Can Grow Your Creativity Using technology</h4>
+                                </div>
+                                <div class="nameandmail">
+                                    <span>Corresponding Author</span>
+                                    <h4>Aleen Mosour</h4>
+                                    <span class="mailinfo">aleen@domainurl.com</span>
+                                </div>
+                            </li>
+                            <li id="collapseOne" class="collapse active userinfohold" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="userinfoimgname">
+                                    <figure class="userinfimg">
+                                        <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-02.jpg" alt="img description">
+                                    </figure>
+                                    <div class="userinfoname">
+                                        <span>04 days ago on Monday at 14:49</span>
+                                        <h3>Aleen Monsour (You)</h3>
+                                    </div>
+                                    <div class="userbtnarea">
+                                        <button type="button" class="j-btn j-btnactive" data-toggle="modal" data-target="#reviewermodal">Assign Reviewer<em class="notificationtag">01</em></button>
+                                        <button type="submit" class="j-btn" data-toggle="modal" data-target="#feedbackmodal">Send Feedback</button>
+                                    </div>
+                                    <div class="description">
+                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etnalo doloreae magna aliqua enim ad minim veniam quis natrud exercitation ullamco laboris nisi utna aliquip  amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                    </div>
+                                    <div class="downloadheader">
+                                        <div class="title">
+                                            <h3>Attached Document</h3>
+                                            <a href="javascript:void(0);"><i class="fa fa-download"></i>Download</a>
+                                        </div>
+                                        <div class="docdetails">
+                                            <figure class="docimg">
+                                                <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/doc-img.jpg" alt="img description">
+                                            </figure>
+                                            <div class="docdescription">
+                                                <h4>Document Ph...01.docx</h4>
+                                                <span>File Size 500kb</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedbacktitle">
+                                    <h2>Reviewer’s Feedback</h2>
+                                </div>
+                                <div id="subaccordion" class="statusholder">
+                                    <div id="subheadingOne" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapseOne" aria-expanded="true" aria-controls="subcollapseOne" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Minor Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapseOne" class="statusdescription collapse active" aria-labelledby="subheadingOne" data-parent="#subaccordion">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingtwo" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsetwo" aria-expanded="true" aria-controls="subcollapsetwo" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Jhon Doe</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Major Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsetwo" class="statusdescription collapse active" aria-labelledby="subheadingtwo" data-parent="#subaccordion">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingthree" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsethree" aria-expanded="true" aria-controls="subcollapsethree" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Pending</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsethree" class="statusdescription collapse active" aria-labelledby="subheadingthree" data-parent="#subaccordion">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="headingtwo" class="articleheader" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                                <div class="detailstime">
+                                    <span><i class="fa fa-calendar-o ti-"></i>Jun 27, 2018 11:30</span>
+                                    <span><i class="fa fa-window-restore ti-"></i>Category Title</span>
+                                    <span><i class="fa fa-bookmark-o ti-"></i>ID: KW7Q3fxfAB</span>
+                                    <span><i class="fa fa-book ti-"></i>Edition</span>
+                                    <h4>4 Ways You Can Grow Your Creativity Using technology</h4>
+                                </div>
+                                <div class="nameandmail">
+                                    <span>Corresponding Author</span>
+                                    <h4>Aleen Mosour</h4>
+                                    <span class="mailinfo">aleen@domainurl.com</span>
+                                </div>
+                            </li>
+                            <li id="collapsetwo" class="collapse active userinfohold" aria-labelledby="headingtwo" data-parent="#accordion">
+                                <div class="userinfoimgname">
+                                    <figure class="userinfimg">
+                                        <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-02.jpg" alt="img description">
+                                    </figure>
+                                    <div class="userinfoname">
+                                        <span>04 days ago on Monday at 14:49</span>
+                                        <h3>Aleen Monsour (You)</h3>
+                                    </div>
+                                    <div class="userbtnarea">
+                                        <button type="button" class="j-btn j-btnactive" data-toggle="modal" data-target="#reviewermodal">Assign Reviewer</button>
+                                        <button type="submit" class="j-btn" data-toggle="modal" data-target="#feedbackmodal">Send Feedback</button>
+                                    </div>
+                                    <div class="description">
+                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etnalo doloreae magna aliqua enim ad minim veniam quis natrud exercitation ullamco laboris nisi utna aliquip  amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                    </div>
+                                    <div class="downloadheader">
+                                        <div class="title">
+                                            <h3>Attached Document</h3>
+                                            <a href="javascript:void(0);"><i class="fa fa-download"></i>Download</a>
+                                        </div>
+                                        <div class="docdetails">
+                                            <figure class="docimg">
+                                                <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/doc-img.jpg" alt="img description">
+                                            </figure>
+                                            <div class="docdescription">
+                                                <h4>Document Ph...01.docx</h4>
+                                                <span>File Size 500kb</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedbacktitle">
+                                    <h2>Reviewer’s Feedback</h2>
+                                </div>
+                                <div id="subaccordionb" class="statusholder">
+                                    <div id="subheadingOneb" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapseOneb" aria-expanded="true" aria-controls="subcollapseOneb" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Minor Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapseOneb" class="statusdescription collapse active" aria-labelledby="subheadingOneb" data-parent="#subaccordionb">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingtwob" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsetwob" aria-expanded="true" aria-controls="subcollapsetwob" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Jhon Doe</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Major Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsetwob" class="statusdescription collapse active" aria-labelledby="subheadingtwob" data-parent="#subaccordionb">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingthreeb" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsethreeb" aria-expanded="true" aria-controls="subcollapsethreeb" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Pending</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsethreeb" class="statusdescription collapse active" aria-labelledby="subheadingthreeb" data-parent="#subaccordionb">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="headingthree" class="articleheader" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">
+                                <div class="detailstime">
+                                    <span><i class="fa fa-calendar-o ti-"></i>Jun 27, 2018 11:30</span>
+                                    <span><i class="fa fa-window-restore ti-"></i>Category Title</span>
+                                    <span><i class="fa fa-bookmark-o ti-"></i>ID: KW7Q3fxfAB</span>
+                                    <span><i class="fa fa-book ti-"></i>Edition</span>
+                                    <h4>4 Ways You Can Grow Your Creativity Using technology</h4>
+                                </div>
+                                <div class="nameandmail">
+                                    <span>Corresponding Author</span>
+                                    <h4>Aleen Mosour</h4>
+                                    <span class="mailinfo">aleen@domainurl.com</span>
+                                </div>
+                            </li>
+                            <li id="collapsethree" class="collapse active userinfohold" aria-labelledby="headingthree" data-parent="#accordion">
+                                <div class="userinfoimgname">
+                                    <figure class="userinfimg">
+                                        <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-02.jpg" alt="img description">
+                                    </figure>
+                                    <div class="userinfoname">
+                                        <span>04 days ago on Monday at 14:49</span>
+                                        <h3>Aleen Monsour (You)</h3>
+                                    </div>
+                                    <div class="userbtnarea">
+                                        <button type="button" class="j-btn j-btnactive" data-toggle="modal" data-target="#reviewermodal">Assign Reviewer</button>
+                                        <button type="submit" class="j-btn" data-toggle="modal" data-target="#feedbackmodal">Send Feedback</button>
+                                    </div>
+                                    <div class="description">
+                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etnalo doloreae magna aliqua enim ad minim veniam quis natrud exercitation ullamco laboris nisi utna aliquip  amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                    </div>
+                                    <div class="downloadheader">
+                                        <div class="title">
+                                            <h3>Attached Document</h3>
+                                            <a href="javascript:void(0);"><i class="fa fa-download"></i>Download</a>
+                                        </div>
+                                        <div class="docdetails">
+                                            <figure class="docimg">
+                                                <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/doc-img.jpg" alt="img description">
+                                            </figure>
+                                            <div class="docdescription">
+                                                <h4>Document Ph...01.docx</h4>
+                                                <span>File Size 500kb</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedbacktitle">
+                                    <h2>Reviewer’s Feedback</h2>
+                                </div>
+                                <div id="subaccordionc" class="statusholder">
+                                    <div id="subheadingOnec" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapseOnec" aria-expanded="true" aria-controls="subcollapseOnec" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Minor Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapseOnec" class="statusdescription collapse active" aria-labelledby="subheadingOnec" data-parent="#subaccordionc">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingtwoc" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsetwoc" aria-expanded="true" aria-controls="subcollapsetwoc" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Jhon Doe</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Major Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsetwoc" class="statusdescription collapse active" aria-labelledby="subheadingtwoc" data-parent="#subaccordionc">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingthreec" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsethreec" aria-expanded="true" aria-controls="subcollapsethreec" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Pending</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsethreec" class="statusdescription collapse active" aria-labelledby="subheadingthreec" data-parent="#subaccordionc">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="headingfour" class="articleheader" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
+                                <div class="detailstime">
+                                    <span><i class="fa fa-calendar-o ti-"></i>Jun 27, 2018 11:30</span>
+                                    <span><i class="fa fa-window-restore ti-"></i>Category Title</span>
+                                    <span><i class="fa fa-bookmark-o ti-"></i>ID: KW7Q3fxfAB</span>
+                                    <span><i class="fa fa-book ti-"></i>Edition</span>
+                                    <h4>4 Ways You Can Grow Your Creativity Using technology</h4>
+                                </div>
+                                <div class="nameandmail">
+                                    <span>Corresponding Author</span>
+                                    <h4>Aleen Mosour</h4>
+                                    <span class="mailinfo">aleen@domainurl.com</span>
+                                </div>
+                            </li>
+                            <li id="collapsefour" class="collapse active userinfohold" aria-labelledby="headingfour" data-parent="#accordion">
+                                <div class="userinfoimgname">
+                                    <figure class="userinfimg">
+                                        <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-02.jpg" alt="img description">
+                                    </figure>
+                                    <div class="userinfoname">
+                                        <span>04 days ago on Monday at 14:49</span>
+                                        <h3>Aleen Monsour (You)</h3>
+                                    </div>
+                                    <div class="userbtnarea">
+                                        <button type="button" class="j-btn j-btnactive" data-toggle="modal" data-target="#reviewermodal">Assign Reviewer</button>
+                                        <button type="submit" class="j-btn" data-toggle="modal" data-target="#feedbackmodal">Send Feedback</button>
+                                    </div>
+                                    <div class="description">
+                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etnalo doloreae magna aliqua enim ad minim veniam quis natrud exercitation ullamco laboris nisi utna aliquip  amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                    </div>
+                                    <div class="downloadheader">
+                                        <div class="title">
+                                            <h3>Attached Document</h3>
+                                            <a href="javascript:void(0);"><i class="fa fa-download"></i>Download</a>
+                                        </div>
+                                        <div class="docdetails">
+                                            <figure class="docimg">
+                                                <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/doc-img.jpg" alt="img description">
+                                            </figure>
+                                            <div class="docdescription">
+                                                <h4>Document Ph...01.docx</h4>
+                                                <span>File Size 500kb</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedbacktitle">
+                                    <h2>Reviewer’s Feedback</h2>
+                                </div>
+                                <div id="subaccordiond" class="statusholder">
+                                    <div id="subheadingOned" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapseOned" aria-expanded="true" aria-controls="subcollapseOned" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Minor Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapseOned" class="statusdescription collapse active" aria-labelledby="subheadingOned" data-parent="#subaccordiond">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingtwod" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsetwod" aria-expanded="true" aria-controls="subcollapsetwod" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Jhon Doe</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Major Rivision</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsetwod" class="statusdescription collapse active" aria-labelledby="subheadingtwod" data-parent="#subaccordiond">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                    <div id="subheadingthreed" class="statusheaderholder statuspadding" data-toggle="collapse" data-target="#subcollapsethreed" aria-expanded="true" aria-controls="subcollapsethreed" role="button">
+                                        <figure class="statusimg">
+                                            <img src="http://amentotech.com/htmls/amentojourn/images/thumbnails/img-03.jpg" alt="img description">
+                                        </figure>
+                                        <div class="statusheader">
+                                            <div class="statusasidetitle">
+                                                <span>September 27, 2018</span>
+                                                <h4>Smit Ryan</h4>
+                                            </div>
+                                            <div class="statusasidetitle statusasidetitlevtwo">
+                                                <span>Status</span>
+                                                <h4>Pending</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subcollapsethreed" class="statusdescription collapse active" aria-labelledby="subheadingthreed" data-parent="#subaccordiond">
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                        <ul class="statusdescriptionpoints">
+                                            <li><span>Nemo enim ipsam voluptatem quia</span></li>
+                                            <li><span>Adipisci velit, sed quia non numquam eius modi tempora</span></li>
+                                            <li><span>Qui dolorem ipsum quia dolor sit amet</span></li>
+                                        </ul>
+                                        <div class="description">
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laudantium, aiam  sunt voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <nav class="pagination">
+                            <ul>
+                                <li class="prevpage"><a href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
+                                <li class="active"><a href="#">01</a></li>
+                                <li><a href="#">02</a></li>
+                                <li><a href="#">03</a></li>
+                                <li><a href="#">04</a></li>
+                                <li><a href="#">05</a></li>
+                                <li class="nextpage"><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 from forms import *
 
+
 posts = [
     {
         'author': 'Sherlock Holmes',
@@ -14,6 +15,7 @@ posts = [
         'datepased': 'March 25 2021'
     }
 ]
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -49,6 +51,7 @@ def register():
         return redirect(url_for('login'))
     print("dd")
     return render_template('register.html', title='Register', form=form)
+
 
 @app.context_processor
 def utility_processor():
@@ -97,6 +100,30 @@ def submitarticle():
 @app.route('/foraccount')
 def foraccount():
     return render_template('foraccount.html')
+
+
+
+@app.route('/register', methods=['GET','POST'])
+def register():
+    form = RegisterationForm()
+    return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
+    if request.method == 'POST':
+        if  login(request.form['username'],
+                  request.form['password']):
+            return user(request.form['blabla'])
+        else:
+            error = 'Invalid username/password'
+    return render_template('foraccount.html', error=error)
+
+
+    
+
 
 
 
