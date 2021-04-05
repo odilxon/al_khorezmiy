@@ -3,3 +3,6 @@ Flask-SQLAlchemy
 flask_wtf
 gunicorn
 pytest
+email_validator
+flask_login
+wtforms
