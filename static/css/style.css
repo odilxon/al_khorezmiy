@@ -2,7 +2,7 @@
     display: block;
 }
 body{
-font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
+    font: 400 14px/23px Quicksand, Arial, Helvetica, sans-serif;
 }
 #top-bar {
     margin-top: 10px;
@@ -208,7 +208,7 @@ address {
     width: 30px;
     text-align: center;
     text-decoration: none;
-  }
+}
 .fabot {
     padding-left: 10px;
 }
@@ -345,31 +345,31 @@ hr {
     text-align: center;
 }
 .sj-footercolumns {
-padding: 60px 10px ;
+    padding: 60px 10px ;
 }
 .row-top {
     margin-right: 10px;
     margin-left: 10px;
 }
 .ccht {
-margin: 0;
-max-width: 100%;
-padding-left: 50px;
-padding-right: 50px;
+    margin: 0;
+    max-width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .topmenu > li {
     display: inline-block;
     position: relative;
-  }
-  .topmenu > li > a {
+}
+.topmenu > li > a {
     position: relative;
     padding: 10px 15px;
     font-family: 'Kaushan Script', cursive;
     font-size: 1em;
     line-height: 1;
     letter-spacing: 3px;
-  }
-  .topmenu > li > a:before {
+}
+.topmenu > li > a:before {
     content: "";
     position: absolute;
     z-index: 5;
@@ -382,28 +382,28 @@ padding-right: 50px;
     transform: translate(-50%, 20px);
     opacity: 0;
     transition: .3s;
-  }
-  .topmenu li:hover a:before {
+}
+.topmenu li:hover a:before {
     transform: translate(-50%, 0);
     opacity: 1;
-  }
+}
 
 .submenu {
-position: absolute;
-z-index: 4;
-left: 50%;
-top: 100%;
-width: 150px;
-padding: 15px 0 15px;
-margin-top: 5px;
-background: white;
-border-radius: 5px;
-box-shadow: 0 0 30px rgba(0,0,0,.2);
-box-sizing: border-box;
-visibility: hidden;
-opacity: 0;
-transform: translate(-50%, 20px);
-transition: .3s;
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 100%;
+    width: 150px;
+    padding: 15px 0 15px;
+    margin-top: 5px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    transition: .3s;
 }
 
 .checkbox {
@@ -1217,10 +1217,10 @@ label {
     border: 1px solid #636c77;
     border-radius: 5px;
     padding: 5px 10px;
-
+}
 @media (min-width: 1200px) { 
     .container {max-width: 1140px;
-    }
+}
 .arow {
     display: flex;
     -ms-flex-wrap: wrap;
@@ -1987,9 +1987,10 @@ img {
 .pagination ul li.prevpage a i {
     margin: 0 4px 0 0;
 }
+/* shu joyii tekshir chi */
 .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px/1 'FontAwesome';
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -2128,7 +2129,7 @@ ul {
 }
 .downloadprint li a .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px/1 'FontAwesome';
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -2212,4 +2213,3 @@ ul {
     position: relative;
     -webkit-transform: translate3d(0px, 0px, 0px);
 }
-
