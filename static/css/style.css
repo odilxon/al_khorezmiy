@@ -541,9 +541,10 @@ hr {
     padding: 0;
 }
 .dropdown-menu {
+    padding: 0;
     border-top-color: #105ebf;
     border-top-width: 2px;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 .formsortitems {
     width: 100%;
@@ -1187,11 +1188,19 @@ label {
     padding: 10px 0 0 0;
 }
 /* Register page styling end */
-/* logout */
+
+/* logout and myaccount */
 .logout {
+    line-height: 40px;
     text-decoration: none;
     color: #636c77;
     margin-right: 30px;
+}
+.logout:hover {
+    color: rgb(245, 41, 41);
+}
+.myaccount:hover {
+    color: blue;
 }
 /* articles fieldset */
 .articlesfieldset {

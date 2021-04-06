@@ -97,15 +97,35 @@ def issueyears():
 def submitarticle():
     return render_template('submitarticle.html')
 
-@app.route('/foraccount')
-def foraccount():
-    return render_template('foraccount.html')
+
+@app.route('/addtemplates')
+def addtemplates():
+    return render_template('addtemplates.html')
 
 
+@app.route('/generalsettings')
+def generalsettings():
+    return render_template('generalsettings.html')
 
 
+@app.route('/manageuser')
+def manageuser():
+    return render_template('manageuser.html')
 
 
+@app.route('/manageeditions')
+def manageeditions():
+    return render_template('manageeditions.html')
+
+
+@app.route('/emailtemplates')
+def emailtemplates():
+    return render_template('emailtemplates.html')
+
+
+@app.route('/accountsettings')
+def accountsettings():
+    return render_template('accountsettings.html')
 
 
 @app.route("/tests")
