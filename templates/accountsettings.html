@@ -1,0 +1,144 @@
+{% extends 'base3.html' %}
+{% block title %} {% endblock %}
+{% block banner %} Submit Your Article {% endblock %}
+
+{% block body %} 
+  <div class="sectionspace">
+    <div class="container">
+      <div class="arow row">
+        <div class="twocolumns">
+          <div class="col-3">
+            <aside id="asidebar" class="asidebar widgetbox">
+              <div class="widgetprofile">
+                <div class="widgetcontent">
+                  <figure>
+                    {% block profileimg %} <img src="{{ url_for('static', filename='atom.png') }}" alt="image"> {% endblock %}
+                    <a href="javascript:void(0);"><i class="fa fa-pencil"></i></a>
+                  </figure>
+                  <div class="admininfo">
+                    <h3>Rachael Maresca</h3>
+                    <h4>Author</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="widgetdashboard">
+                <nav id="dashboardnav" class="dashboardnav">
+                  <ul>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                    <li><a href="{{ url_for('addtemplates') }}"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                    <li><a href="{{ url_for('generalsettings') }}"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                    <li><a href="{{ url_for('manageuser') }}"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                    <li><a href="{{ url_for('manageeditions') }}"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                    <li><a href="{{ url_for('emailtemplates') }}"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                    <li><a href="{{ url_for('accountsettings') }}"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </aside>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
+            <div id="content" class="content addarticleholdcontent managecategory">
+              <div class="dashboardboxtitle titlewithform">
+                <h2>Account Settings</h2>
+              </div>
+              <div class="dashboardboxtitle titlewithform">
+                <ul class="sj-accountinfo">
+                  <li class="sj-settingsinfo">
+                    <span>Consectetur adipisicing elit sed do</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="sj-settingsinfo">
+                    <span>Aesse cillum dolore eu fugiat nulla pariatur</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="sj-settingsinfo">
+                    <span>Eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="sj-settingsinfo">
+                    <span>Excepteur sint occaecat cupidatat non proident</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                </ul>   
+              </div>    
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                        
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
+            <div id="content" class="content addarticleholdcontent managecategory">
+              <div class="dashboardboxtitle titlewithform">
+                <h2>Change Password</h2>
+              </div>
+              <div class="dashboardboxtitle titlewithform">
+                <form action="" class="sj-formtheme sj-formpassword">
+                  <fieldset class="fsetforpassword">
+                    <div class="form-group sj-inputwithicon sj-password">
+                      <i class="fa fa-lock"></i>
+                      <input type="password" name="" class="form-control fcforsjpassword" placeholder="Old Password">
+                    </div>
+                    <div class="form-group sj-inputwithicon sj-password">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="" class="form-control fcforsjpassword" placeholder="New Password">                       
+                    </div>
+                    <div class="form-group sj-inputwithicon sj-password">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="" class="form-control fcforsjpassword" placeholder="Confirm Password">                       
+                    </div>
+                  </fieldset>
+                </form>                
+              </div>    
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                        
+            </div>
+          </div>  
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
+            <div id="content" class="content addarticleholdcontent managecategory">
+              <div class="dashboardboxtitle titlewithform">
+                <h2>Profile Photo</h2>
+              </div>
+              <div class="dashboardboxtitle titlewithform">
+                <div class="sj-title titleforpphoto">
+                  <h5>Upload Profile Photo</h5>
+                  <label for="sj-uploadfiletwo">
+                    <span><i class="fa fa-link"></i>Attach File(s)</span>
+                  </label>
+                </div>              
+              </div> 
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                           
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

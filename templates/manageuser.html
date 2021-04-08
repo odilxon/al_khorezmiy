@@ -1,0 +1,123 @@
+{% extends 'base3.html' %}
+{% block title %} {% endblock %}
+{% block banner %} Submit Your Article {% endblock %}
+
+{% block body %} 
+  <div class="sectionspace">
+    <div class="container">
+      <div class="arow row">
+        <div class="twocolumns">
+          <div class="col-3">
+            <aside id="asidebar" class="asidebar widgetbox">
+              <div class="widgetprofile">
+                <div class="widgetcontent">
+                  <figure>
+                    {% block profileimg %} <img src="{{ url_for('static', filename='atom.png') }}" alt="image"> {% endblock %}
+                    <a href="javascript:void(0);"><i class="fa fa-pencil"></i></a>
+                  </figure>
+                  <div class="admininfo">
+                    <h3>Rachael Maresca</h3>
+                    <h4>Author</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="widgetdashboard">
+                <nav id="dashboardnav" class="dashboardnav">
+                  <ul>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                    <li><a href="{{ url_for('addtemplates') }}"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                    <li><a href="{{ url_for('generalsettings') }}"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                    <li><a href="{{ url_for('manageuser') }}"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                    <li><a href="{{ url_for('manageeditions') }}"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                    <li><a href="{{ url_for('emailtemplates') }}"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                    <li><a href="{{ url_for('accountsettings') }}"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </aside>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right">
+            <div id="content" class="content addarticleholdcontent managecategory">
+              <div class="dashboardboxtitle titlewithform">
+                <h2>Manage Editions</h2>
+                <form class="formtheme formsearchvtwo">
+                  <div class="sortupdown">
+                    <a href="javascript:void(0);"><i class="fa  fa-sort-amount-desc"></i></a>
+                  </div>
+                  <fieldset>
+                    <input type="search" name="search" class="form-control" placeholder="Search here">
+                    <button type="submit" class="btnsearch"><i class="fa fa-search"></i></button>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="dashboardboxtitle titlewithform">
+                <form class="sj-formtheme sj-formaddtemplates" action="">
+                  <fieldset>
+                    <div class="form-group fgforgsettings">
+                      <a href="" class="sj-btn btnupnow">Add New Edition</a>
+                    </div>
+                    <div class="form-group general-main">
+                      <i class="fa fa-refresh forrefright"></i>
+                      <span class="sj-select"></span>
+                      <span class="form-select">
+                        <select name="" id="first-sel">
+                          <option value="">Sort by </option>
+                          <option value="">Name 1</option>
+                          <option value="">Name 2</option>
+                          <option value="">Name 3</option>
+                        </select>
+                      </span>
+                    </div>
+                  </fieldset>
+                </form>                
+              </div> 
+              <div class="dashboardboxtitle titlewithform">
+                <ul class="sj-allcategorys foralluserman">
+                  <li class="sj-categorysinfo">
+                    <div class="sj-title formanuser">
+                      <i class="fa fa-user"></i>
+                      <h5>Ismail Span bla bla</h5>
+                    </div>
+                    <div class="categorysrightarea">
+                      <ul class="sj-userdropdown">
+                        <li class="checkbtnbox">
+                          <i class="fa fa-user forfauser"></i>
+                          <span class="form-select">
+                            <select name="" id="afirst-sel">
+                              <option value=""></option>
+                              <option value="">Name 1</option>
+                              <option value="">Name 2</option>
+                              <option value="">Name 3</option>
+                            </select>
+                          </span>                                                  
+                        </li>
+                      </ul>
+                      <div class="addremove">
+                        <a href="" class="sj-pencilbtn"><i class="fa fa-pencil"></i></a>
+                        <a href="" class="sj-trashbtn"><i class="fa fa-trash"></i></a>
+                      </div>
+                    </div>
+                  </li>                  
+                  <li class="sj-categorysinfo"></li>
+                </ul>
+              </div>             
+              <nav class="pagination">
+                <ul>
+                  <li class="prevpage"><a href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
+                  <li class="active"><a href="#">01</a></li>
+                  <li><a href="#">02</a></li>
+                  <li><a href="#">03</a></li>
+                  <li><a href="#">04</a></li>
+                  <li><a href="#">05</a></li>
+                  <li class="nextpage"><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

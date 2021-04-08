@@ -541,9 +541,10 @@ hr {
     padding: 0;
 }
 .dropdown-menu {
+    padding: 0;
     border-top-color: #105ebf;
     border-top-width: 2px;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 .formsortitems {
     width: 100%;
@@ -858,6 +859,7 @@ li > a > em {
 }
 /* Side bar */
 #left-widget {
+    color: #636c77;
     border: none;
 }
 h3 > #left-widget {
@@ -1150,6 +1152,9 @@ label {
     margin: 4px 0;
 
 }
+.labellogin {
+    margin-left: 10px;
+}
 .checkember {
     display: flex;
 }
@@ -1187,11 +1192,19 @@ label {
     padding: 10px 0 0 0;
 }
 /* Register page styling end */
-/* logout */
+
+/* logout and myaccount */
 .logout {
+    line-height: 40px;
     text-decoration: none;
     color: #636c77;
     margin-right: 30px;
+}
+.logout:hover {
+    color: rgb(245, 41, 41);
+}
+.myaccount:hover {
+    color: blue;
 }
 /* articles fieldset */
 .articlesfieldset {
@@ -1203,4 +1216,7 @@ label {
     border: 1px solid #636c77;
     border-radius: 5px;
     padding: 5px 10px;
+}
+.btn-secondary:hover {
+    background-color: rgb(34, 81, 236);
 }

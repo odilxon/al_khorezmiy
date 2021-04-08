@@ -8,26 +8,26 @@
           {{ form.csrf_token }}
           <fieldset class="formfieldset">
             <div class="form-group">
-              <span>Username: </span> {{ form.username(class = 'form-control registerform', autofocus = true, placeholder="Lastname") }}
+              <span>Username: </span> {{ form.username(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
               <!-- <input type="text" name="yourname" class="form-control registerform" placeholder="Firstname"> -->
             </div>
             <div class="form-group">
-              Lastname: {{ form.lastname(class = 'form-control registerform', autofocus = true, placeholder="Lastname") }}
+              Lastname: {{ form.lastname(class = 'form-control registerform', autofocus = true, placeholder = 'Lastname') }}
               <!-- <input type="text" name="Lastname" class="form-control registerform" placeholder="Lastname"> -->
             </div>
             <div class="form-group">
-              E-mail: {{ form.email(class = 'form-control registerform', autofocus = true, placeholder="Email") }}
+              E-mail: {{ form.email(class = 'form-control registerform', autofocus = true, placeholder = 'Email') }}
             </div>
             <div class="form-group">
               <label for="phonenumber"> Phone</label>
-              {{ form.phone(class = 'form-control registerform', autofocus = true, placeholder="Phone number") }}
+              {{ form.phone(class = 'form-control registerform', autofocus = true, placeholder = 'Phone number') }}
             </div>
             <div class="form-group">
-              Password{{ form.password(class = 'form-control registerform', autofocus = true, placeholder="Password") }}
+              Password{{ form.password(class = 'form-control registerform', autofocus = true, placeholder = 'Password') }}
               <!-- <input type="email" name="email" class="form-control registerform" placeholder="Email"> -->
             </div>
             <div class="form-group">
-              Repeat Password{{ form.password2(class = 'form-control registerform', autofocus = true, placeholder="Confirm Passoword") }}
+              Repeat Password{{ form.password2(class = 'form-control registerform', autofocus = true, placeholder = 'Confirm Passoword') }}
               <!-- <input type="password" name="password" class="form-control registerform" placeholder="password"> -->
             </div>
             <div class="checkbox">

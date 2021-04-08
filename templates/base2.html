@@ -34,6 +34,7 @@
                     <a class='autoriz' href="{{ url_for('login') }}">Login</a>
                     <a class='autoriz' href="{{ url_for('register') }}">Register</a>
                     {% else %}
+                    <a href="{{ url_for('articlelist') }}" class="logout myaccount">My Account</a>
                     <a href="{{ url_for('logout') }}" class="logout">Logout</a>
                     {% endif %}     
                     <nav class="navbar navbar-expand-lg bg-light" id="topnav">

@@ -46,6 +46,6 @@ class Article(db.Model):
     issue_id = db.Column(db.Integer, db.ForeignKey('issues.id'))
     status = db.Column(db.String, nullable=False)
     category = db.Column(db.String, nullable=False)
-    
+
     def __repr__(self):
         return '<Article %r>' %self.id
