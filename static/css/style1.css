@@ -2098,13 +2098,13 @@ hr {
     
 } */
 .dropdown-item {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: white;
     padding: 5px 15px;
     text-align: left;
 }
 .dropdown-item:hover {
-    background-color: rgb(238, 234, 230);
-}
+    background-color: rgb(122, 122, 122);}
 #topnav {
     padding: 0;
 }

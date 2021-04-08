@@ -530,12 +530,13 @@ hr {
     border-radius: 6px;
 }
 .dropdown-item {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: white;
     padding: 5px 15px;
     text-align: left;
 }
 .dropdown-item:hover {
-    background-color: rgb(238, 234, 230);
+    background-color: rgb(192, 205, 221);
 }
 #topnav {
     padding: 0;
@@ -723,8 +724,9 @@ a:hover {
     padding: 0 0 0 70px;
 }
 #journal-1 {
-    border-right: solid rgb(128, 121, 121);
-    border-width: 10px;
+    /* border-right: solid rgb(128, 121, 121); */
+
+    border-width: 6px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-right-style:groove;
