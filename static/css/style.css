@@ -859,6 +859,7 @@ li > a > em {
 }
 /* Side bar */
 #left-widget {
+    color: #636c77;
     border: none;
 }
 h3 > #left-widget {
@@ -1212,4 +1213,7 @@ label {
     border: 1px solid #636c77;
     border-radius: 5px;
     padding: 5px 10px;
+}
+.btn-secondary:hover {
+    background-color: rgb(34, 81, 236);
 }

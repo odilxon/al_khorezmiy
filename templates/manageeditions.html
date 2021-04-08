@@ -24,15 +24,15 @@
               <div class="widgetdashboard">
                 <nav id="dashboardnav" class="dashboardnav">
                   <ul>
-                    <li><a href="underreview"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
-                    <li><a href="addtemplates.html"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
-                    <li><a href="aticle-list.html"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
-                    <li><a href="generalsettings.html"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
-                    <li><a href="manageuser.html"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
-                    <li><a href="manageeditions.html"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
-                    <li><a href="emailtemplates.html"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
-                    <li><a href="accountsettings.html"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
-                    <li><a href="loginregister.html"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                    <li><a href="{{ url_for('addtemplates') }}"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                    <li><a href="{{ url_for('generalsettings') }}"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                    <li><a href="{{ url_for('manageuser') }}"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                    <li><a href="{{ url_for('manageeditions') }}"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                    <li><a href="{{ url_for('emailtemplates') }}"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                    <li><a href="{{ url_for('accountsettings') }}"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
                   </ul>
                 </nav>
               </div>
@@ -59,7 +59,7 @@
                       <a href="" class="sj-btn btnupnow">Add New Edition</a>
                     </div>
                     <div class="form-group general-main">
-                      <i class="fa fa-refresh"></i>
+                      <i class="fa fa-refresh forrefright"></i>
                       <span class="sj-select"></span>
                       <span class="form-select">
                         <select name="" id="first-sel">

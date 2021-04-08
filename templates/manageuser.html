@@ -24,15 +24,15 @@
               <div class="widgetdashboard">
                 <nav id="dashboardnav" class="dashboardnav">
                   <ul>
-                    <li><a href="underreview"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
-                    <li><a href="addtemplates.html"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
-                    <li><a href="aticle-list.html"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
-                    <li><a href="generalsettings.html"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
-                    <li><a href="manageuser.html"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
-                    <li><a href="manageeditions.html"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
-                    <li><a href="emailtemplates.html"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
-                    <li><a href="accountsettings.html"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
-                    <li><a href="loginregister.html"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                    <li><a href="{{ url_for('addtemplates') }}"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                    <li><a href="{{ url_for('generalsettings') }}"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                    <li><a href="{{ url_for('manageuser') }}"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                    <li><a href="{{ url_for('manageeditions') }}"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                    <li><a href="{{ url_for('emailtemplates') }}"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                    <li><a href="{{ url_for('accountsettings') }}"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
                   </ul>
                 </nav>
               </div>
@@ -59,11 +59,11 @@
                       <a href="" class="sj-btn btnupnow">Add New Edition</a>
                     </div>
                     <div class="form-group general-main">
-                      <i class="fa fa-refresh"></i>
+                      <i class="fa fa-refresh forrefright"></i>
                       <span class="sj-select"></span>
                       <span class="form-select">
                         <select name="" id="first-sel">
-                          <option value="">Select category (Optional)</option>
+                          <option value="">Sort by </option>
                           <option value="">Name 1</option>
                           <option value="">Name 2</option>
                           <option value="">Name 3</option>
@@ -72,31 +72,34 @@
                     </div>
                   </fieldset>
                 </form> 
-                <ul class="allcategorys">
-                  <form class="formtheme formsearchvtwo">
-                    <fieldset>
-                      <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="Add edition Title Here">
+                <ul class="sj-allcategorys foralluserman">
+                  <li class="sj-categorysinfo">
+                    <div class="sj-title formanuser">
+                      <i class="fa fa-user"></i>
+                      <h5>Ismail Span bla bla</h5>
+                    </div>
+                    <div class="categorysrightarea">
+                      <ul class="sj-userdropdown">
+                        <li class="checkbtnbox">
+                          <i class="fa fa-user forfauser"></i>
+                          <span class="form-select">
+                            <select name="" id="afirst-sel">
+                              <option value=""></option>
+                              <option value="">Name 1</option>
+                              <option value="">Name 2</option>
+                              <option value="">Name 3</option>
+                            </select>
+                          </span>                                                  
+                        </li>
+                      </ul>
+                      <div class="addremove">
+                        <a href="" class="sj-pencilbtn"><i class="fa fa-pencil"></i></a>
+                        <a href="" class="sj-trashbtn"><i class="fa fa-trash"></i></a>
                       </div>
-                      <div class="form-group">
-                        <input type="date" name="Day" class="form-control" placeholder="DD">
-                      </div>
-                      <div class="form-group categorysbtn">
-                        <a href="#" class="checkbtn"><i class="fa fa-check-square"></i></a>
-                        <a href="#" class="btndecline">Cancel</a>
-                      </div>                                   
-                    </fieldset>
-                  </form>
-                  <li class="categorysinfo">
-                    <div class="title catgory">
-                      <h5>Edition Title 02 ( June, 27, 2018 )</h5>
-                      <div class="forbtngright">
-                        <a href="" class="btncgright trashbtn"><i class="fa fa-trash"></i></a>  
-                        <a href="" class="btncgright pencilbtn"><i class="fa fa-pencil"></i></a>
-                      </div>
-                    </div>                  
-                  </li>
-                </ul>  
+                    </div>
+                  </li>                  
+                  <li class="sj-categorysinfo"></li>
+                </ul>
               </div>              
               <nav class="pagination">
                 <ul>

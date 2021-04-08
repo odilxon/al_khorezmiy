@@ -24,194 +24,119 @@
               <div class="widgetdashboard">
                 <nav id="dashboardnav" class="dashboardnav">
                   <ul>
-                    <li><a href="underreview"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
-                    <li><a href="addtemplates.html"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
-                    <li><a href="aticle-list.html"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
-                    <li><a href="generalsettings.html"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
-                    <li><a href="manageuser.html"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
-                    <li><a href="manageeditions.html"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
-                    <li><a href="emailtemplates.html"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
-                    <li><a href="accountsettings.html"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
-                    <li><a href="loginregister.html"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Articles Under Review</span></a></li>
+                    <li><a href="{{ url_for('addtemplates') }}"><i class="fa fa-briefcase"></i> <span>Add Templates</span></a></li>
+                    <li><a href="{{ url_for('articlelist') }}"><i class="fa fa-refresh"></i> <span>Aticle List</span></a></li>
+                    <li><a href="{{ url_for('generalsettings') }}"><i class="fa fa-tasks"></i> <span>General Settings</span></a></li>
+                    <li><a href="{{ url_for('manageuser') }}"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+                    <li><a href="{{ url_for('manageeditions') }}"><i class="fa fa-tag"></i> <span>Manage Editions</span></a></li>
+                    <li><a href="{{ url_for('emailtemplates') }}"><i class="fa fa-envelope"></i> <span>Email Templates</span></a></li>
+                    <li><a href="{{ url_for('accountsettings') }}"><i class="fa fa-lock"></i> <span>Account Settings</span></a></li>
+                    <li><a href="{{ url_for('login') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
                   </ul>
                 </nav>
               </div>
             </aside>
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
             <div id="content" class="content addarticleholdcontent managecategory">
               <div class="dashboardboxtitle titlewithform">
-                <h2>Manage Category</h2>
-                <form class="formtheme formsearchvtwo">
-                  <div class="sortupdown">
-                    <a href="javascript:void(0);"><i class="fa  fa-sort-amount-desc"></i></a>
-                  </div>
-                  <fieldset>
-                    <input type="search" name="search" class="form-control" placeholder="Search here">
-                    <button type="submit" class="btnsearch"><i class="fa fa-search"></i></button>
-                  </fieldset>
-                </form>
+                <h2>Account Settings</h2>
               </div>
               <div class="dashboardboxtitle titlewithform">
-                <form class="sj-formtheme sj-formaddtemplates" action="">
-                  <fieldset>
-                    <div class="form-group fgforgsettings">
-                      <a href="" class="sj-btn btnupnow">Add New Category</a>
-                    </div>
-                    <div class="form-group general-main">
-                      <i class="fa fa-refresh"></i>
-                      <span class="sj-select"></span>
-                      <span class="form-select">
-                        <select name="" id="first-sel">
-                          <option value="">Select category (Optional)</option>
-                          <option value="">Name 1</option>
-                          <option value="">Name 2</option>
-                          <option value="">Name 3</option>
-                        </select>
-                      </span>
-                    </div>
-                  </fieldset>
-                </form> 
-                <ul class="allcategorys">
-                  <li class="daddcategorys">
-                    <form class="formtheme formsearchvtwo">
-                      <fieldset>
-                        <div class="form-group">
-                          <input type="text" name="title" class="form-control" placeholder="Add edition Title Here">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Day" class="form-control" placeholder="DD">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Month" class="form-control" placeholder="MM">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Year" class="form-control" placeholder="YYYY">
-                        </div>
-                        <div class="form-group categorysbtn">
-                          <a href="#" class="checkbtn"><i class="fa fa-check"></i></a>
-                          <a href="#" class="btndecline">Cancel</a>
-                        </div>                                   
-                      </fieldset>
-                    </form>
-                  </li>
-                  <li class="categorysinfo">
-                    <div class="title">
-                      <h3>Category Title 02</h3>
-                    </div>
-                    <div class="categorysrightarea">
-                      <a href="" class="pencilbtn"><i class="fa fa-pencil"></i></a>
-                      <a href="" class="trashbtn"><i class="fa fa-trash"></i></a>
+                <ul class="sj-accountinfo">
+                  <li class="sj-settingsinfo">
+                    <span>Consectetur adipisicing elit sed do</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
                     </div>
                   </li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-
-                </ul>  
-              </div>
-              
-              <nav class="pagination">
-                <ul>
-                  <li class="prevpage"><a href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
-                  <li class="active"><a href="#">01</a></li>
-                  <li><a href="#">02</a></li>
-                  <li><a href="#">03</a></li>
-                  <li><a href="#">04</a></li>
-                  <li><a href="#">05</a></li>
-                  <li class="nextpage"><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
-                </ul>
-              </nav>
+                  <li class="sj-settingsinfo">
+                    <span>Aesse cillum dolore eu fugiat nulla pariatur</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="sj-settingsinfo">
+                    <span>Eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="sj-settingsinfo">
+                    <span>Excepteur sint occaecat cupidatat non proident</span>
+                    <div class="sj-on-off pull-right">
+                      <input type="checkbox" name="contact_form">
+                      <label for="hide-on">
+                        <i></i>
+                      </label>
+                    </div>
+                  </li>
+                </ul>   
+              </div>    
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                        
             </div>
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right gsrightpas">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
             <div id="content" class="content addarticleholdcontent managecategory">
               <div class="dashboardboxtitle titlewithform">
-                <h2>Manage Category</h2>
-                <form class="formtheme formsearchvtwo">
-                  <div class="sortupdown">
-                    <a href="javascript:void(0);"><i class="fa  fa-sort-amount-desc"></i></a>
-                  </div>
-                  <fieldset>
-                    <input type="search" name="search" class="form-control" placeholder="Search here">
-                    <button type="submit" class="btnsearch"><i class="fa fa-search"></i></button>
-                  </fieldset>
-                </form>
+                <h2>Change Password</h2>
               </div>
               <div class="dashboardboxtitle titlewithform">
-                <form class="sj-formtheme sj-formaddtemplates" action="">
-                  <fieldset>
-                    <div class="form-group fgforgsettings">
-                      <a href="" class="sj-btn btnupnow">Add New Category</a>
+                <form action="" class="sj-formtheme sj-formpassword">
+                  <fieldset class="fsetforpassword">
+                    <div class="form-group sj-inputwithicon sj-password">
+                      <i class="fa fa-lock"></i>
+                      <input type="password" name="" class="form-control fcforsjpassword" placeholder="Old Password">
                     </div>
-                    <div class="form-group general-main">
-                      <i class="fa fa-refresh"></i>
-                      <span class="sj-select"></span>
-                      <span class="form-select">
-                        <select name="" id="first-sel">
-                          <option value="">Select category (Optional)</option>
-                          <option value="">Name 1</option>
-                          <option value="">Name 2</option>
-                          <option value="">Name 3</option>
-                        </select>
-                      </span>
+                    <div class="form-group sj-inputwithicon sj-password">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="" class="form-control fcforsjpassword" placeholder="New Password">                       
+                    </div>
+                    <div class="form-group sj-inputwithicon sj-password">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="" class="form-control fcforsjpassword" placeholder="Confirm Password">                       
                     </div>
                   </fieldset>
-                </form> 
-                <ul class="allcategorys">
-                  <li class="daddcategorys">
-                    <form class="formtheme formsearchvtwo">
-                      <fieldset>
-                        <div class="form-group">
-                          <input type="text" name="title" class="form-control" placeholder="Add edition Title Here">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Day" class="form-control" placeholder="DD">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Month" class="form-control" placeholder="MM">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="Year" class="form-control" placeholder="YYYY">
-                        </div>
-                        <div class="form-group categorysbtn">
-                          <a href="#" class="checkbtn"><i class="fa fa-check"></i></a>
-                          <a href="#" class="btndecline">Cancel</a>
-                        </div>                                   
-                      </fieldset>
-                    </form>
-                  </li>
-                  <li class="categorysinfo">
-                    <div class="title">
-                      <h3>Category Title 02</h3>
-                    </div>
-                    <div class="categorysrightarea">
-                      <a href="" class="pencilbtn"><i class="fa fa-pencil"></i></a>
-                      <a href="" class="trashbtn"><i class="fa fa-trash"></i></a>
-                    </div>
-                  </li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-                  <li class="categorysinfo"></li>
-
-                </ul>  
-              </div>
-              
-              <nav class="pagination">
-                <ul>
-                  <li class="prevpage"><a href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
-                  <li class="active"><a href="#">01</a></li>
-                  <li><a href="#">02</a></li>
-                  <li><a href="#">03</a></li>
-                  <li><a href="#">04</a></li>
-                  <li><a href="#">05</a></li>
-                  <li class="nextpage"><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
-                </ul>
-              </nav>
+                </form>                
+              </div>    
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                        
             </div>
           </div>  
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 float-right manage">
+            <div id="content" class="content addarticleholdcontent managecategory">
+              <div class="dashboardboxtitle titlewithform">
+                <h2>Profile Photo</h2>
+              </div>
+              <div class="dashboardboxtitle titlewithform">
+                <div class="sj-title titleforpphoto">
+                  <h5>Upload Profile Photo</h5>
+                  <label for="sj-uploadfiletwo">
+                    <span><i class="fa fa-link"></i>Attach File(s)</span>
+                  </label>
+                </div>              
+              </div> 
+              <div class="dashboardboxtitle titlewithform">
+                <a href="" class="sj-btn sj-btnactive">Update Now</a>
+                <a href="" class="sj-btncancel">Cancel</a>
+              </div>                           
+            </div>
+          </div> 
         </div>
       </div>
     </div>

@@ -588,6 +588,9 @@ p {
     padding: 0 25px;
     line-height: 30px;
 }
+.btn-secondar:hover {
+    background-color: rgb(61, 61, 240);
+}
 .radio label + input {
     margin: 0;
     width: 100%;
@@ -2033,6 +2036,7 @@ hr {
     user-select: none;
     color: white;
 }
+
 .fbtn:hover {
     background-color: red;
     color: white;
@@ -2075,6 +2079,16 @@ hr {
     text-align: center;
     box-shadow: 0px 0px 2px grey;
     border-radius: 6px;
+}
+.dropdown-item {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: auto 0;
+    line-height: 20px;
+    column-span: initial;
+    background-position: repeat initial;
+    
 }
 .dropdown-item {
     background-color: #f8f9fa;
@@ -2173,6 +2187,7 @@ form {
     color: white;
     
 }
+
 .widgetheading {
     background: #5e9cea;
     width: 100%;
@@ -2506,6 +2521,7 @@ a > #panel-head {
     border-radius: 5px;
 }
 #first-sel {
+    padding: 0 0 0 30px;
     height: 40px;
     width: 100%;
 }
@@ -2654,6 +2670,7 @@ label {
 #select-left {
     height: 40px;
 }
+
 .addbtn {
     color: rgb(34, 243, 34);
 }
@@ -2768,6 +2785,9 @@ label {
     background-color: #5E9CEA;
     
 }
+.btnupnow:hover {
+    color: #fff;
+}
 .btncancel {
     color: #767676;
     padding: 10px 20px;
@@ -2806,3 +2826,98 @@ label {
     color: red;
 }
 /* generalsettings styling end */
+
+/* accountsittengs page styling start */
+.titlewithform a {
+    text-decoration: none;
+}
+.sj-btnactive {
+    border-radius: 5px;
+    background-color: #5E9CEA;
+    margin-right: 20px;
+    padding: 10px 40px;
+    font-weight: 800;
+    color: white;
+}
+.sj-btnactive:hover {
+    color: white;
+}
+.sj-btncncel {
+    padding: 10px 40px;
+    font-weight: 800;
+    color: #636c77;
+}
+.manage {
+    margin-bottom: 30px;
+}
+.dashboardboxtitle {
+    background-color: #F7F7F7;
+}
+.sj-password {
+    display: flex;
+    align-items: center;
+}
+.fcforsjpassword {
+    margin-right: 30px;
+    width: 200px;
+}
+.fa-lock {
+    color: grey;
+}
+.fsetforpassword {
+    display: flex;
+}
+.titleforpphoto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sj-accountinfo {
+    list-style-type: none;
+}
+/* accountsettings page styling end */
+/* manage editions styling start */
+.forrefright {
+    position: absolute;
+    color: grey;
+}
+#first-sel {
+    border-radius: 5px;
+    border-color: grey;
+}
+.allcategorysvtwo {
+    list-style-type: none;
+
+}
+.checkbtnbox {
+    display: flex;
+}
+.categorysrightarea {
+    align-items: center;
+    display: flex;
+}
+.addremove {
+    display: flex;
+}
+.forfauser {
+    color: grey;
+    position: absolute;
+}
+.sj-categorysinfo {
+    display: flex;
+    justify-content: space-between;
+}
+.formanuser {
+    display: flex;
+    align-items: center;
+}
+#afirst-sel {
+    width: 50px;
+    border-radius: 5px;
+    border-color: grey;
+    height: 40px;
+}
+.foralluserman{
+    margin-top: 20px;
+}
+/* end */
