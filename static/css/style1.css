@@ -707,7 +707,8 @@ p {
     line-height: 14px;
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
-    color: #636c77;
+    /* color: #636c77; */
+    color: black;
     margin: 0 0 8px;
     font-weight: 400;
     line-height: 1.5;
@@ -766,7 +767,8 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
     color: #5e9cea; */
 }
 .dashboardnav > ul > li > a > span, .dashboardnav > ul > li > a > i {
-    color: #636c77;
+    color: black;
+    font-size: 16px;
 }
 .dashboardnav ul li a span, .dashboardnav ul li a i {
     vertical-align: middle;
@@ -807,7 +809,8 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 }
 
 .dashboardboxtitle h2 {
-    color: #222;
+    /* color: #222; */
+    color: black;
     font-size: 20px;
     line-height: 18px;
 }
@@ -851,7 +854,8 @@ fieldset {
     padding: 10px 45px 10px 15px;
 }
 .formtheme fieldset input {
-    color: #636c77;
+    /* color: #636c77; */
+    color: black;
     outline: none;
     height: 42px;
     background: #fff;
@@ -941,7 +945,8 @@ button {
     padding-left: 0;
 }
 .detailstime span {
-    color: #767676;
+    /* color: #767676; */
+    color: black;
     margin: 0 0 7px;
     font-size: 13px;
     line-height: 16px;
@@ -1051,14 +1056,16 @@ figure {
 }
 .userinfoname span {
     display: block;
-    color: #767676;
+    /* color: #767676; */
+    color: black;
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 8px;
 }
 .userinfoname h3 {
     margin: 0;
-    color: #222;
+    /* color: #222; */
+    color: black;
     font-size: 16px;
     line-height: 16px;
 }
@@ -1195,7 +1202,8 @@ img {
 }
 .docdescription span {
     font-size: 13px;
-    color: #55acee;
+    /* color: #55acee; */
+    color: black;
     display: block;
     line-height: 14px;
 }
@@ -1784,7 +1792,7 @@ address {
 }
 .footer-line {
     padding: 11px 0;
-    border-bottom: 1px solid rgb(161 166 168);
+    border-bottom: 1px solid rgb(219 224 226);
 }
 .strelkacha {
     background-image: url(../imgs/btnscroll-bg.png);
@@ -2781,6 +2789,7 @@ label {
     margin: 0;
 }
 .btnupnow {
+    font-weight: 800;
     color: #fff;
     padding: 15px 25px;
     border-radius: 5px;
