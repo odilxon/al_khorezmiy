@@ -12,16 +12,16 @@
               {{ form.csrf_token }}
               <fieldset>
                 <div class="form-group">
-                  {{ form.username(class_ = 'form-control loginform', autofocus = true) }}
+                  {{ form.username(class_ = 'form-control loginform', autofocus = true, placeholder = 'Username') }}
                 </div>
                 <div class="form-group">
-                  {{ form.password(class_ = 'form-control loginform', autofocus = true) }}                  
+                  {{ form.password(class_ = 'form-control loginform', autofocus = true, placeholder = 'Passoword') }}                  
                 </div>
                 <div class="form-check forgotpass">
                   <div class="checkboxa">
                     <div class="checkember">
                       {{ form.remember(class_ = 'form-control', autofocus = true) }}                      
-                    <label for="login">
+                    <label for="login" class="labellogin">
                       Remember Me
                     </label>
                     </div>

@@ -1152,6 +1152,9 @@ label {
     margin: 4px 0;
 
 }
+.labellogin {
+    margin-left: 10px;
+}
 .checkember {
     display: flex;
 }
