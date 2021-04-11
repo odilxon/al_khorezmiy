@@ -136,7 +136,7 @@ class Field(db.Model):
     __tablename__ = 'field'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    userfields = db.realtionship("Userfield", backref="field", lazy=True)
+    userfields = db.relationship("Userfield", backref="field", lazy=True)
 
     def format(self):
         return {
