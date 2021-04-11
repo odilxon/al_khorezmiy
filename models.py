@@ -148,8 +148,8 @@ class Field(db.Model):
 class Paper_category(db.Model):
     __tablename__ = 'paper_category'
     id = db.Column(db.Integer, primary_key=True)
-    paper_id = db.Column(db.Integer, db.ForegnKey('paper.id'))
-    category_id = db.Column(db.Integer, db.ForegnKey('category.id'))
+    paper_id = db.Column(db.Integer, db.ForeignKey('paper.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
     def format(self):
         return {
