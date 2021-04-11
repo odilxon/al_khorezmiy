@@ -17,16 +17,18 @@ posts = [
 ]
 
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
+
     if form.validate_on_submit():
         print("vali")
+        
         user = User.query.filter_by(login=form.username.data).first()
         if user is None or not user.password == form.password.data:
-            
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
@@ -34,8 +36,8 @@ def login():
             next_page = url_for('index')
         return redirect(next_page)
     print(form.errors)
-    return render_template('login.html', title='Sign In', form=form)
-
+    return render_template('login.html', title='Sign In errorr', form=form, errors=form.errors)
+    
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -43,15 +45,12 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        print('val')
         user = User(login=form.username.data, email=form.email.data,name=form.username.data,role='admin', phone=form.phone.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    print("dd")
     return render_template('register.html', title='Register', form=form)
-
 
 @app.context_processor
 def utility_processor():
