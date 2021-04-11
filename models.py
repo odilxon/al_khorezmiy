@@ -1,7 +1,8 @@
 from flask_login import UserMixin, login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
-from flask import Flask, render_template, url_for, request, redirect
+
+from flask import Flask, render_template, url_for, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -14,24 +15,25 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 login = LoginManager(app)
 login.login_view = 'login'
-app.config['SECRET_KEY'] = '4079d33f50e34921722161947c3cab26'
+app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
 
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
+
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(30), nullable=False)
-    org_id=db.Column(db.Integer, db.ForeignKey('organisation.id'))
+    org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
     login = db.Column(db.String(30), nullable=False)
     password = db.Column(db.String(30), nullable=False)
     google_in = db.Column(db.String, nullable=True)
-    scolar_degree = db.Column(db.String, nullable=True)
-    user_lvl = db.Column(db.Integer, nullable=False)
+    scolar_degree = db.Column(db.String, nullable=False)
+    user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     articles = db.relationship("Article", backref="user", lazy=True)
     user_fields = db.relationship("Userfield", backref="user", lazy=True)
@@ -257,4 +259,16 @@ class Paper_statistic(db.Model):
             "type" : self.type,
             "date" : self.date
         }
-
+'''
+def GetToken():
+    Usr = User.query.all()
+    id = None
+    if len(Usr) == 0:
+        Usr = User(name="Usr1", login="Usr1", password="Usr1", info="Info", RFID="A76F773C", depart_id=Dp.id)
+        db.session.add(Usr)
+        db.session.commit()
+        Usr = User.query.first()
+        id = Usr.id
+    token = jwt.encode({'public_id': id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=3600)}, app.config['SECRET_KEY'], algorithm="HS256") 
+    return jsonify({"msg": "Success", "token": token})
+'''
