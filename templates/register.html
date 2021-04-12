@@ -8,18 +8,10 @@
           {{ form.csrf_token }}
           <fieldset class="formfieldset">
             
-            <div class="form-group">
-              <label for="googlein"> Google In</label>
-              {{ form.googlein(class = 'form-control registerform goglin', autofocus = true, placeholder = 'Google In') }}
-            </div>
 
             <div class="form-group">
-              <label for="firstname"> First name</label>
-              {{ form.firstname(class = 'form-control registerform', autofocus = true, placeholder='Firstname') }}
-            </div>
-            <div class="form-group">
-              <label for="lastname"> Last name</label>
-              {{ form.lastname(class = 'form-control registerform', autofocus = true, placeholder = 'Lastname') }}
+              <label for="name"> Name</label>
+              {{ form.name(class = 'form-control registerform', autofocus = true, placeholder='Name') }}
             </div>
            
             <div class="form-group">
@@ -28,8 +20,8 @@
             </div>
 
             <div class="form-group">
-              <label for="organizationId"> OrganizationId</label>
-              {{ form.organizationid(class = 'form-control registerform', autofocus = true, placeholder = 'Organization name') }}
+              <label for="org_id"> OrganizationId</label>
+              {{ form.org_id(class = 'form-control registerform', autofocus = true, placeholder = 'Organization name') }}
               <br>
               {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
               <select name="country" id="country">
@@ -302,7 +294,7 @@
 
             <div class="form-group">
               <label for="username"> Username</label>
-              {{ form.username(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
+              {{ form.login(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
             </div>
             
             <div class="form-group">
@@ -317,7 +309,7 @@
             
             <div class="form-group">
               <label for="sincedegree"> Sincedegree</label>
-              {{ form.sincedegree(class = 'form-control registerform', autofocus = true, placeholder = 'Since degree') }}
+              {{ form.scholar_degree(class = 'form-control registerform', autofocus = true, placeholder = 'Since degree') }}
             </div>
 
             <div class="form-group">
