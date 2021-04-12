@@ -28,7 +28,8 @@ def load_user(id):
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), nullable=False)
+    firstname = db.Column(db.String(30), nullable=False)
+    lastname = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(30), nullable=False)
     org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
     login = db.Column(db.String(30), nullable=False)
