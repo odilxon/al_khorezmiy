@@ -1,7 +1,7 @@
 from flask_login import UserMixin, login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, flash, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
