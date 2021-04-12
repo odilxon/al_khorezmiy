@@ -4,17 +4,14 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from models import *
 
 class RegistrationForm(FlaskForm):
-  firstname = StringField('Firstname', validators=[DataRequired()])
-  lastname = StringField('Lastname', validators=[DataRequired()])
+  name = StringField('name', validators=[DataRequired()])
   email = StringField('Email', validators=[DataRequired(), Email()])
-  organizationid = StringField('Organization ID', validators=[DataRequired()])
+  org_id = StringField('Organization ID', validators=[DataRequired()])
   country = StringField('Country', validators=[DataRequired()])
-  username = StringField('Username', validators=[DataRequired()])
+  login = StringField('Login', validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
-  password2 = PasswordField(
-      'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-  googlein = SubmitField('Google In', validators=[DataRequired()])
-  sincedegree = StringField('Since Degree', validators=[DataRequired()])
+  password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+  scholar_degree = StringField('Scholar Degree', validators=[DataRequired()])
   phone = IntegerField('Phonenumber', validators=[DataRequired()])
   userlevel = StringField('User Level', validators=[DataRequired()])
   submit = SubmitField('Register')
@@ -30,18 +27,11 @@ class RegistrationForm(FlaskForm):
           raise ValidationError('Please use a different email address.')
           
 class LoginForm(FlaskForm):
-  username = StringField('Username', validators=[DataRequired(), Length(min=6, max=20)])
+  username = StringField('Username', validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
   remember = BooleanField('Remember Me')
   submit = SubmitField('Login')
 
-class RegisterationForm(FlaskForm):
-  username = StringField('Username',validators=[DataRequired(), Length(min=6, max=20)])
-  email = StringField('Email', validators=[DataRequired(), Email()])
-  phone = IntegerField('Phonenumber', validators=[DataRequired()])
-  password = PasswordField('Password', validators=[DataRequired()])
-  confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-  submit = SubmitField('Sign up')
 
 class SubmitYourArticleForm(FlaskForm):
   submit = SubmitField('SubmitYourArticle')
