@@ -12,7 +12,6 @@ posts = [
         'author': 'Djhon Watson',
         'title': 'Blog Post 2',
         'content': 'Second post',
-        'datepased': 'March 25 2021'
     }
 ]
 
