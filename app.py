@@ -61,6 +61,7 @@ def register():
         db.session.commit()
         print('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
+    print(form.errors)
     return render_template('register.html', title='Register', form=form)
 
 @app.context_processor
@@ -142,6 +143,7 @@ def accountsettings():
 def test():
     return "Works!"
     
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

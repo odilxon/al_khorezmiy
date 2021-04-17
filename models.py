@@ -103,7 +103,8 @@ class Organisation(db.Model):
     name = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(30), nullable=False)
     users = db.relationship("User", backref="organisatoin", lazy=True)
-
+    def __repr__(self):
+        return self.name
     def format(self):
         return {
             "id" : self.id,
