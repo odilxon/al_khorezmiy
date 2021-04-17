@@ -27,7 +27,7 @@ def login():
     if form.validate_on_submit():
         print("vali")
         
-        user = User.query.filter_by(login=form.username.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.password == form.password.data:
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
@@ -45,7 +45,18 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(login=form.username.data, email=form.email.data,name=form.username.data,role='admin', phone=form.phone.data, password=form.password.data)
+        user = User(    
+                        country=form.country.data, 
+                        email=form.email.data,
+                        firstname=form.firstname.data,
+                        lastname=form.lastname.data,
+                        username=form.username.data,
+                        org_id=form.organizationid.data, 
+                        phone=form.phone.data, 
+                        sciencedegree=form.sciencedegree.data, 
+                        user_lvl=0, 
+                        password=form.password.data
+                    )
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')

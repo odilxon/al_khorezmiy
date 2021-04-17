@@ -30,12 +30,12 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(30), nullable=False)
     lastname = db.Column(db.String(30), nullable=False)
-    email = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(30), unique=True, nullable=False)
     org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
-    login = db.Column(db.String(30), nullable=False)
+    username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
-    google_in = db.Column(db.String, nullable=True)
-    scolar_degree = db.Column(db.String, nullable=False)
+    country = db.Column(db.String, nullable=True)
+    sciencedegree = db.Column(db.String, nullable=False)
     user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     articles = db.relationship("Article", backref="user", lazy=True)
@@ -46,13 +46,14 @@ class User(UserMixin, db.Model):
     def format(self):
         return {
             "id" : self.id,
-            "name" : self.name,
+            "firstname" : self.firstname,
+            "lastname" : self.lastname,
             "email" : self.email,
             "org_id" : self.org_id,
-            "login" : self.login,
+            "username" : self.username,
             "password" : self.password,
-            "google_in" : self.google_in,
-            "scolar_degree" : self.scolar_degree,
+            "country" : self.country,
+            "sciencedegree" : self.sciencedegree,
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
         }
@@ -77,7 +78,7 @@ class Article(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     content = db.Column(db.String, nullable=False)
     file = db.Column(db.String, nullable=False)
-    issue_id = db.Column(db.Integer, db.ForeignKey('issues.id'))
+    issue_id = db.Column(db.Integer, db.ForeignKey('issue.id'))
     status = db.Column(db.String, nullable=False)
     category = db.Column(db.String, nullable=False)
 
@@ -114,7 +115,7 @@ class Category(db.Model):
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    page_categories = db.relationship("Page_category", backref="category", lazy=True)
+    paper_categories = db.relationship("Paper_category", backref="category", lazy=True)
 
     def format(self):
         return {
@@ -190,7 +191,7 @@ class Paper(db.Model):
     paper_status = db.Column(db.String, nullable=False)
     paper_actions = db.relationship("Paper_action", backref='paper', lazy=True)
     paper_statistics = db.relationship("Paper_statistic", backref='paper', lazy=True)
-    page_categories = db.relationship("Page_category", backref='paper', lazy=True)
+    paper_categories = db.relationship("Paper_category", backref='paper', lazy=True)
 
     def format(self):
         return {
@@ -230,7 +231,6 @@ class Paper_action(db.Model):
     action_type = db.Column(db.String, nullable=False)
     action_time = db.Column(db.DateTime, nullable=False)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     report_text = db.Column(db.String, nullable=False)
     action_status = db.Column(db.String, nullable=False)
     scores = db.relationship("Score", backref="paper_action", lazy=True)
