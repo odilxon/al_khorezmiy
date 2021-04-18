@@ -232,6 +232,7 @@ class Paper_action(db.Model):
     action_type = db.Column(db.String, nullable=False)
     action_time = db.Column(db.DateTime, nullable=False)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     report_text = db.Column(db.String, nullable=False)
     action_status = db.Column(db.String, nullable=False)
     scores = db.relationship("Score", backref="paper_action", lazy=True)
@@ -243,7 +244,7 @@ class Paper_action(db.Model):
             "action_type" : self.action_type,
             "action_time" : self.action_time,
             "sender_id" : self.sender_id,
-            "receiver_id" : self.receiver_id,
+            #"receiver_id" : self.receiver_id,
             "report_text" : self.report_text,
             "action_status" : self.action_status,
         }
