@@ -32,7 +32,7 @@ body{
     background-color: #636c77;
 }
 .right-b {
-    font-weight: 500;
+    font-weight: 600;
     padding-top: 8px 0 0 0;
     text-align: right;
 }
@@ -96,7 +96,7 @@ li:first-child::after{
 #conname {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     color: rgb(20, 20, 18);
     text-align: left;
 }
@@ -172,7 +172,7 @@ li:first-child::after{
 #banner-style {
     color: #fff;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 13px 0;
 }
 .navigation-bar{
@@ -312,6 +312,7 @@ address {
     
 }
 * {
+    font-weight: 600;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -522,7 +523,7 @@ hr {
     color: #666;
     display: block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 22px;
     text-transform: capitalize;
     text-align: center;
@@ -624,7 +625,7 @@ form {
 .widgetheading h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     color: white;
     
@@ -1082,7 +1083,7 @@ label span {
 }
 label {
     display: block;
-    font-weight: 400;
+    font-weight: 600;
 }
 .iclose-right {
     float: right;
