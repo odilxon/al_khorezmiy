@@ -143,7 +143,17 @@ def accountsettings():
 def test():
     return "Works!"
     
-
+@app.route("/livesearch", methods=['POST'])
+def livesearch():
+    searchbox = request.form.get("text")
+    data = Organisation.query.all()
+    lol = []
+    for org in data:
+        org_name = org.name.lower()
+        if searchbox.lower() in org_name:
+            lol.append(org.format())
+    return jsonify(lol)
+        
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

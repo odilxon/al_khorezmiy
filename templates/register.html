@@ -11,7 +11,7 @@
         {% endfor %}
         <form class="formtheme" method="POST" autocomplete='off'>
           {{ form.csrf_token }}
-          {{ form.hidden_tag() }}
+       
           <fieldset class="formfieldset">
             <div class="form-group">
               <label for="firstname"> First name</label>
@@ -30,7 +30,7 @@
 
             <div class="form-group">
               <label for="organizationId"> Organisation Id</label>
-              {{ form.organizationid(class = 'form-control registerform', autofocus = true, placeholder = 'Organization name') }}
+              {{ form.organizationid(class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
               <br>
               <label for="country"> Organisation Country</label>
               {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
@@ -102,4 +102,25 @@
       </div>
     </div>
   </div>
+
+  
+{% endblock %}
+
+{% block js %}
+<script>
+  $(document).ready(function() {
+    var url = 
+    $(".livesearch").on("input",function(e){
+      textin = $(".livesearch").val();
+      $.ajax({
+        method: "post",
+        url: "/livesearch",
+        data:{text:textin},
+        success:function(res){
+          console.log(res);
+      }
+      })
+    })
+  })
+</script>
 {% endblock %}
