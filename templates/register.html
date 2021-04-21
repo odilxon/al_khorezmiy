@@ -30,13 +30,14 @@
 
             <div class="form-group">
               <label for="organizationId"> Organisation Id</label>
-              {{ form.organizationid(class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
+              {{ form.organizationid(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
               {% if data %}
-              <select id='select' class="form-control">    
+              
+              <datalist id="select">
               {% for i in data %}
-                    <option value="{{i}}">{{i}}</option>
+                    <option value="{{i['name']}}"></option>
                   {% endfor%}
-                </select>
+                </datalist>
               {% endif %}
               <br>
               <label for="country"> Organisation Country</label>
@@ -125,10 +126,9 @@
         data:{text:textin},
         success:function(res){
           $("#select").empty()
-          console.log(res)
           if (res.length != 0) {
             for(var i=0; i<res.length; i++) {
-          $("#select").append('<option value=' + res[i]["id"] + '>' + res[i]["name"] + '</option>');;
+          $("#select").append('<option value=' + res[i]["name"] + '></option>');
         }
       };}
       })

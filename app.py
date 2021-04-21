@@ -58,6 +58,12 @@ def register():
                         user_lvl=0, 
                         password=form.password.data
                     )
+        if form.organizationid.data not in Organisation.query.all():
+            new_org = Organisation(
+                name=form.organizationid.data,
+                country=form.country.data)
+            db.session.add(new_org)
+            db.session.commit()
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
