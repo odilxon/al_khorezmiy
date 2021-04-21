@@ -16,7 +16,7 @@ class RegistrationForm(FlaskForm):
     firstname = StringField('Firstname', validators=[DataRequired()])
     lastname = StringField('Lastname', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    organizationid = SelectField('Organization ID', choices=or_ch, validators=[DataRequired()])
+    organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])

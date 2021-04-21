@@ -37,10 +37,11 @@ def login():
         return redirect(next_page)
     print(form.errors)
     return render_template('login.html', title='Sign In errorr', form=form, errors=form.errors)
-#123 
+    
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    data = Organisation.query.all()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = RegistrationForm()
@@ -57,12 +58,18 @@ def register():
                         user_lvl=0, 
                         password=form.password.data
                     )
+        if form.organizationid.data not in Organisation.query.all():
+            new_org = Organisation(
+                name=form.organizationid.data,
+                country=form.country.data)
+            db.session.add(new_org)
+            db.session.commit()
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     print(form.errors)
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form, data=data)
 
 @app.context_processor
 def utility_processor():
@@ -143,7 +150,17 @@ def accountsettings():
 def test():
     return "Works!"
     
-
+@app.route("/livesearch", methods=['POST'])
+def livesearch():
+    searchbox = request.form.get("text")
+    data = Organisation.query.all()
+    lol = []
+    for org in data:
+        org_name = org.name.lower()
+        if searchbox.lower() in org_name:
+            lol.append(org.format())
+    return jsonify(lol)
+        
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

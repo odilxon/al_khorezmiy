@@ -11,7 +11,7 @@
         {% endfor %}
         <form class="formtheme" method="POST" autocomplete='off'>
           {{ form.csrf_token }}
-          {{ form.hidden_tag() }}
+       
           <fieldset class="formfieldset">
             <div class="form-group">
               <label for="firstname"> First name</label>
@@ -29,10 +29,18 @@
             </div>
 
             <div class="form-group">
-              <label for="organizationId"> Organization Id</label>
-              {{ form.organizationid(class = 'form-control registerform', autofocus = true, placeholder = 'Organization name') }}
+              <label for="organizationId"> Organisation Id</label>
+              {{ form.organizationid(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
+              {% if data %}
+              
+              <datalist id="select">
+              {% for i in data %}
+                    <option value="{{i['name']}}"></option>
+                  {% endfor%}
+                </datalist>
+              {% endif %}
               <br>
-              <label for="country"> Country</label>
+              <label for="country"> Organisation Country</label>
               {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
             </div>
 
@@ -102,4 +110,29 @@
       </div>
     </div>
   </div>
+
+  
+{% endblock %}
+
+{% block js %}
+<script>
+  $(document).ready(function() {
+    var url = 
+    $(".livesearch").on("input",function(e){
+      textin = $(".livesearch").val();
+      $.ajax({
+        method: "post",
+        url: "/livesearch",
+        data:{text:textin},
+        success:function(res){
+          $("#select").empty()
+          if (res.length != 0) {
+            for(var i=0; i<res.length; i++) {
+          $("#select").append('<option value=' + res[i]["name"] + '></option>');
+        }
+      };}
+      })
+    })
+  })
+</script>
 {% endblock %}
