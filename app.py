@@ -41,6 +41,7 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    data = Organisation.query.all()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = RegistrationForm()
@@ -62,7 +63,7 @@ def register():
         print('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     print(form.errors)
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form, data=data)
 
 @app.context_processor
 def utility_processor():

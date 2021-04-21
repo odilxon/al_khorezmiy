@@ -31,6 +31,13 @@
             <div class="form-group">
               <label for="organizationId"> Organisation Id</label>
               {{ form.organizationid(class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
+              {% if data %}
+              <select id='select' class="form-control">    
+              {% for i in data %}
+                    <option value="{{i}}">{{i}}</option>
+                  {% endfor%}
+                </select>
+              {% endif %}
               <br>
               <label for="country"> Organisation Country</label>
               {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
@@ -117,8 +124,13 @@
         url: "/livesearch",
         data:{text:textin},
         success:function(res){
-          console.log(res);
-      }
+          $("#select").empty()
+          console.log(res)
+          if (res.length != 0) {
+            for(var i=0; i<res.length; i++) {
+          $("#select").append('<option value=' + res[i]["id"] + '>' + res[i]["name"] + '</option>');;
+        }
+      };}
       })
     })
   })
