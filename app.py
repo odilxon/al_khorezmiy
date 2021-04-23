@@ -69,6 +69,7 @@ def register():
         db.session.commit()
         print('Congratulations, you are now a registered user!')
         token = generate_confirmation_token(user.email)
+        
         return redirect(url_for('login'))
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)
