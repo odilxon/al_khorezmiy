@@ -1,5 +1,5 @@
 from forms import *
-from token import generate_confirmation_token, confirm_token
+from hashlib import sha256
 
 posts = [
     {
@@ -162,9 +162,44 @@ def livesearch():
         if searchbox.lower() in org_name:
             lol.append(org.format())
     return jsonify(lol)
+
+def tt(user):
+    st = user.email + user.login + user.password
+    return sha256(st)
+@app.route("confirm/<str:token>")       
+def conf(token):
+    users = User.query.filter(User.confirmed==0).all()
+    exists = False
+    for user in users:
+        t = tt(user)
+        if t == token:
+            user.confirmed = 1
+            exists = True
+            db.session.commit()
+    if exists:
+        return redirect(url_for('index'))
+    else:
+        return jsonify({"success":False})
+
         
-
-
+'''
+@user_blueprint.route('/confirm/<token>')
+@login_required
+def confirm_email(token):
+    try:
+        email = confirm_token(token)
+    except:
+        flash('The confirmation link is invalid or has expired.', 'danger')
+    user = User.query.filter_by(email=email).first_or_404()
+    if user.confirmed:
+        flash('Account already confirmed. Please login.', 'success')
+    else:
+        user.confirmed = True
+        db.session.add(user)
+        db.session.commit()
+        flash('You have confirmed your account. Thanks!', 'success')
+    return redirect(url_for('main.home'))
+'''
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
 
