@@ -1,5 +1,6 @@
 from forms import *
 from hashlib import sha256
+from api import Send_EMAIL
 
 posts = [
     {
@@ -68,7 +69,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
-        token = generate_confirmation_token(user.email)
+        st, msg = Send_EMAIL(form.email.data, "Congratulations, you are now a registered user!")
         
         return redirect(url_for('login'))
     print(form.errors)
