@@ -2,71 +2,145 @@
 {% block body %}
   <div class="container">
     <div class="row">
-      <div class="colregister registerleft">
+      <div class="col-7 colregister registerleft">
         <h5>Register Now</h5>
-        {% for field, errors in form.errors.items() %}
+        <!-- {% for field, errors in form.errors.items() %}
         <div class="alert alert-error">
             {{ form[field].label }}: {{ ', '.join(errors) }}
         </div>
-        {% endfor %}
+        {% endfor %} -->
         <form class="formtheme" method="POST" autocomplete='off'>
           {{ form.csrf_token }}
-       
+
           <fieldset class="formfieldset">
-            <div class="form-group">
-              <label for="firstname"> First name</label>
-              {{ form.firstname(class = 'form-control registerform', autofocus = true, placeholder='Firstname') }}
+            <div class="form-group fgname">
+              <div class="fornameonly">
+                <label for="firstname"> First name</label>
+                {{ form.firstname(class = 'form-control registerform', autofocus = true, placeholder='Firstname') }}
+                <div class="form-group forerrorsonly name">
+                  {% if "firstname" in form.errors %}
+                    {{ form.errors['firstname'][0] }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="fornameonly">
+                <label for="lastname"> Last name</label>
+                {{ form.lastname(class = 'form-control registerform', autofocus = true, placeholder = 'Lastname') }}
+                <div class="form-group forerrorsonly">
+                  {% if "lastname" in form.errors %}
+                    {{ form.errors['lastname'][0] }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="lastname"> Last name</label>
               {{ form.lastname(class = 'form-control registerform', autofocus = true, placeholder = 'Lastname') }}
-            </div>
+              <div class="form-group forerrorsonly">
+                {% if "lastname" in form.errors %}
+                  {{ form.errors['lastname'][0] }}
+                {% endif %}
+              </div>
+            </div> -->
            
-            <div class="form-group">
-              <label for="Email"> Email</label>
-              {{ form.email(class = 'form-control registerform', autofocus = true, placeholder = 'Email') }}
-              
+            <div class="form-group fgemail">
+              <div class="foremailonly">
+                <label for="Email"> Email</label>
+                {{ form.email(class = 'form-control registerform', autofocus = true, placeholder = 'Email') }}
+                <div class="form-group forerrorsonly">
+                  {% if "email" in form.errors %}
+                    {{ form.errors['email'][0] }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="organizationId"> Organisation Id</label>
-              {{ form.organizationid(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
-              {% if data %}
-              
-              <datalist id="select">
-              {% for i in data %}
-                    <option value="{{i['name']}}"></option>
-                  {% endfor%}
-                </datalist>
-              {% endif %}
-              <br>
-              <label for="country"> Organisation Country</label>
-              {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
+            <div class="form-group fgname">
+              <div class="fornameonly">  
+                <label for="organizationId"> Organisation Id</label>
+                {{ form.organizationid(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
+                {% if data %}
+                
+                <datalist id="select">
+                {% for i in data %}
+                      <option value="{{i['name']}}"></option>
+                    {% endfor%}
+                  </datalist>
+                {% endif %}
+                <br>
+              </div>
+              <div class="fornameonly">
+                <label for="country"> Organisation Country</label>
+                {{ form.country(class = 'form-control registerform', autofocus = true, placeholder = 'Country') }}
+                <div class="forerrorsonly">
+                  {% if "email" in form.errors %}
+                    {{ form.errors['country'] }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
               <label for="username"> Username</label>
               {{ form.username(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
+              <div class="forerrorsonly">
+                {% if "username" in form.errors %}
+                  {{ form.errors['username'][0] }}
+                {% endif %}
+              </div>
             </div>
             
-            <div class="form-group">
-              <label for="password"> Password</label>
-              {{ form.password(class = 'form-control registerform', autofocus = true, placeholder = 'Password') }}
+            <div class="form-group fgname">
+              <div class="fornameonly">  
+                <label for="password"> Password</label>
+                {{ form.password(class = 'form-control registerform', autofocus = true, placeholder = 'Password') }}
+                <div class="forerrorsonly">
+                  {% if "password" in form.errors %}
+                    {{ form.errors['password'][0] }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="fornameonly">
+                <label for="confirmpassword"> Confirm Password</label>
+                {{ form.password2(class = 'form-control registerform', autofocus = true, placeholder = 'Confirm Passoword') }}
+                <div class="forerrorsonly">
+                  {% if "password2" in form.errors %}
+                    {{ form.errors['password2'][0] }}
+                  {% endif %}
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="confirmpassword"> Confirm Password</label>
-              {{ form.password2(class = 'form-control registerform', autofocus = true, placeholder = 'Confirm Passoword') }}
-            </div>
+            <!-- <div class="form-group">
+              <div class="fornameonly">
+                <label for="confirmpassword"> Confirm Password</label>
+                {{ form.password2(class = 'form-control registerform', autofocus = true, placeholder = 'Confirm Passoword') }}
+                <div class="forerrorsonly">
+                  {% if "password2" in form.errors %}
+                    {{ form.errors['password2'][0] }}
+                  {% endif %}
+                </div>
+              </div>
+            </div> -->
             
             <div class="form-group">
               <label for="sincedegree"> Science Degree</label>
               {{ form.sciencedegree(class = 'form-control registerform', autofocus = true, placeholder = 'Science Degree') }}
+              <div class="forerrorsonly">
+                {% if "sciencedegree" in form.errors %}
+                  {{ form.errors['sciencedegree'][0] }}
+                {% endif %}
+              </div>
             </div>
 
             <div class="form-group">
               <label for="phonenumber"> Phone</label>
               {{ form.phone(class = 'form-control registerform', autofocus = true, placeholder = 'Phone number') }}
+              <div class="forerrorsonly">
+                {% if "phone" in form.errors %}
+                  {{ form.errors['phone'][0] }}
+                {% endif %}
+              </div>
             </div>
             
             <div class="form-group">
@@ -83,7 +157,7 @@
           </fieldset>
         </form>
       </div>
-      <div class="colregister registerright">
+      <div class="col-5 colregister registerright">
         <div class="howtoregister">
           <h5>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</h5>
           <div class="description">

@@ -1,4 +1,7 @@
-from forms import *
+from api import *
+
+# import smtplib
+# from email.message import EmailMessage
 
 
 posts = [
@@ -16,7 +19,25 @@ posts = [
     }
 ]
 
-
+# @app.route('/email', methods=['GET', 'POST'])
+# def send_email():
+#     print('1sendemail')
+#     email = request.json.get('email', None)
+#     s = smtplib.SMTP(host="@gmail.com", port=5001)
+#     s.starttls()
+#     s.login('easysend1@gmail.com', 'test1234')
+    
+#     msg = EmailMessage()
+#     msg.set_content('if this is worked i will be happy')
+#     print('outsendemail')
+#     msg['Subject'] = 'A hello from a far'
+#     msg['From'] = 'Jack <jack@gmail.com>'
+#     msg['To'] = f'{email}'
+#     print('quitdan oldin')
+#     s.send_message(msg)
+#     s.quit()
+    
+#     return 'Email send!'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

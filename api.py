@@ -1,5 +1,18 @@
-from models import *
+from forms import *
 from flask import jsonify, redirect
+from flask_mail import Mail, Message
+
+import smtplib
+from email.message import EmailMessage
+
+
+
+app.config["MAIL_SERVER"] = "server2.ahost.uz"
+app.config["MAIL_PORT"] = 125
+app.config['MAIL_USE_TLS'] = True
+app.config["MAIL_USERNAME"] = 'odya@ladymarykay.uz'
+app.config["MAIL_PASSWORD"] = 'Odilxon030101!'
+mail = Mail(app)
 
 # @app.route("/api/gettoken", methods=["GET"])
 # def gettoken():
@@ -72,3 +85,14 @@ def del_user(id):
     except Exception as E:
         return jsonify({"msg" : str(E)}), 400
     return jsonify({"msg" : "Success"}), 200
+
+
+@app.route('/api/email', methods=['GET', 'POST'])
+def send_email():
+    print('1sendemail')
+    email = request.args.get('email')
+    msg = Message('Test',recipients=[email])
+    msg.html = "<b>testing</b>"
+    mail.send(msg)
+    
+    return 'Email send!'

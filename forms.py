@@ -13,13 +13,13 @@ def Get_C():
     return data
 
 class RegistrationForm(FlaskForm):
-    firstname = StringField('Firstname', validators=[DataRequired()])
-    lastname = StringField('Lastname', validators=[DataRequired()])
+    firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true xD!')])
+    lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true xD')])
     email = StringField('Email', validators=[DataRequired(), Email()])
     organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=16, message='*Password need minimum 8 characters!')])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     sciencedegree = StringField('Science Degree', validators=[DataRequired()])
