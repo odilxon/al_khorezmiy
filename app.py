@@ -1,5 +1,5 @@
 from forms import *
-
+from token import generate_confirmation_token, confirm_token
 
 posts = [
     {
@@ -56,6 +56,7 @@ def register():
                         phone=form.phone.data, 
                         sciencedegree=form.sciencedegree.data, 
                         user_lvl=0, 
+                        confirmed=False,
                         password=form.password.data
                     )
         if form.organizationid.data not in Organisation.query.all():
@@ -67,6 +68,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
+        token = generate_confirmation_token(user.email)
         return redirect(url_for('login'))
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)
@@ -161,6 +163,7 @@ def livesearch():
             lol.append(org.format())
     return jsonify(lol)
         
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
