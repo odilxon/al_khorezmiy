@@ -2,8 +2,7 @@ from forms import *
 from flask import jsonify, redirect
 from flask_mail import Mail, Message
 
-import smtplib
-from email.message import EmailMessage
+
 
 
 
