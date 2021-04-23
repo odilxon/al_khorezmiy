@@ -7,10 +7,13 @@ from flask_mail import Mail, Message
 
 
 app.config["MAIL_SERVER"] = "server2.ahost.uz"
-app.config["MAIL_PORT"] = 125
-app.config['MAIL_USE_TLS'] = True
+app.config["MAIL_PORT"] = 465
+#app.config['MAIL_USE_TLS'] = True
 app.config["MAIL_USERNAME"] = 'odya@ladymarykay.uz'
 app.config["MAIL_PASSWORD"] = 'Odilxon030101!'
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_DEFAULT_SENDER'] = 'no-reply@ladymarykay.uz'
+
 mail = Mail(app)
 
 # @app.route("/api/gettoken", methods=["GET"])
@@ -86,12 +89,25 @@ def del_user(id):
     return jsonify({"msg" : "Success"}), 200
 
 
+def Send_EMAIL(email, txt):
+    try:
+        msg = Message('Test',recipients=[email])
+        msg.sender=("Al-Khorezmiy", "no-reply@ladymarykay.uz")
+        msg.html = '<h3>%s</h3>'%txt
+        mail.send(msg)
+    except Exception as E:
+        return False, str(E)
+    return True, True
+
 @app.route('/api/email', methods=['GET', 'POST'])
 def send_email():
     print('1sendemail')
     email = request.args.get('email')
-    msg = Message('Test',recipients=[email])
-    msg.html = "<b>testing</b>"
-    mail.send(msg)
     
-    return 'Email send!'
+    st, msg = Send_EMAIL(email, 'Hello')
+
+    if st:
+        return jsonify({"Success" : True})
+    else:
+        return jsonify(msg)
+    

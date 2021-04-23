@@ -88,6 +88,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
+        st, msg = Send_EMAIL(form.email.data, "Congratulations, you are now a registered user!")
         return redirect(url_for('login'))
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)
