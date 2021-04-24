@@ -168,7 +168,7 @@ def livesearch():
 def tt(user):
     st = user.email + user.login + user.password
     return sha256(st)
-@app.route("confirm/<str:token>")       
+@app.route("/confirm/<string:token>")       
 def conf(token):
     users = User.query.filter(User.confirmed==0).all()
     exists = False
@@ -177,6 +177,7 @@ def conf(token):
         if t == token:
             user.confirmed = 1
             exists = True
+            db.session.add(user)
             db.session.commit()
     if exists:
         return redirect(url_for('index'))

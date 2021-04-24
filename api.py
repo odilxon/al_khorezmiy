@@ -104,9 +104,7 @@ def Send_EMAIL(email, txt):
 def send_email():
     print('1sendemail')
     email = request.args.get('email')
-    
     st, msg = Send_EMAIL(email, 'Hello')
-
     if st:
         return jsonify({"Success" : True})
     else:
