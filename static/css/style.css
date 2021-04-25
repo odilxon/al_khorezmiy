@@ -96,7 +96,7 @@ li:first-child::after{
 #conname {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     color: rgb(20, 20, 18);
     text-align: left;
 }
@@ -172,7 +172,7 @@ li:first-child::after{
 #banner-style {
     color: #fff;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 13px 0;
 }
 .navigation-bar{
@@ -187,8 +187,7 @@ li:first-child::after{
 }
 
 .autoriz{
-    margin: 10px;
-    margin-top: 10pt;
+    margin-right: 25px;
     color: grey;
     line-height: 35px;
 }
@@ -312,6 +311,7 @@ address {
     
 }
 * {
+    font-weight: 600;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -522,7 +522,7 @@ hr {
     color: #666;
     display: block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 22px;
     text-transform: capitalize;
     text-align: center;
@@ -534,6 +534,7 @@ hr {
     background-color: white;
     padding: 5px 15px;
     text-align: left;
+    font-weight: 600;
 }
 .dropdown-item:hover {
     background-color: rgb(192, 205, 221);
@@ -624,7 +625,7 @@ form {
 .widgetheading h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     color: white;
     
@@ -1082,7 +1083,7 @@ label span {
 }
 label {
     display: block;
-    font-weight: 400;
+    font-weight: 600;
 }
 .iclose-right {
     float: right;
@@ -1124,6 +1125,7 @@ label {
 
 /* Login page styling start */
 .form-group {
+    margin-bottom: 5px;
     padding: 5px 0;
 }
 .loginpage {
@@ -1167,18 +1169,30 @@ label {
 
 /* Register page styling start */
 .formfieldset {
-    width: 360px;
+    width: 280px;
+}
+.forerrorsonly {
+    color: red;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.fgname {
+    display: flex;
+}
+.fornameonly {
+    margin: 0 40px 0 0;
 }
 .colregister {
     margin: 50px 0;
 }
-.registerleft {
+/* .registerleft {
     width: 400px;
 }
 .registerright {
     width: 600px;
     padding: 35px 0;
-}
+} */
 .form-groups {
     padding: 5px 0;
 }
@@ -1186,7 +1200,7 @@ label {
     margin: 10px 0;
 }
 .registerform {
-    width: 350px;
+    width: 280px;
     height: 40px;
 }
 .liststyle {

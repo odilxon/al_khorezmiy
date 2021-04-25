@@ -139,11 +139,10 @@ li:first-child::after{
     margin-top: 8px;
 }
 
-.autoriz{
+/* .autoriz{
     margin: 10px;
-    margin-top: 10pt;
     color: grey;
-}
+} */
 .autoriz:hover{
     color: grey;
     text-decoration: none;
@@ -548,7 +547,7 @@ form {
 .widgetheading h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     color: white;
     
@@ -703,14 +702,14 @@ p {
 .admininfo h3 {
     margin: 0 0 8px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 14px;
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
     /* color: #636c77; */
     color: black;
     margin: 0 0 8px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.5;
     font-style: normal;
     text-transform: capitalize;
@@ -1431,7 +1430,7 @@ img {
 .widgetheading h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     color: #636c77;
 }
@@ -1680,7 +1679,7 @@ li:first-child::after{
 #conname {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     color: rgb(20, 20, 18);
     text-align: left;
 }
@@ -1756,7 +1755,7 @@ li:first-child::after{
 #banner-style {
     color: #fff;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 13px 0;
 }
 .navigation-bar{
@@ -1765,8 +1764,7 @@ li:first-child::after{
     margin-bottom: 20px;
 }
 .autoriz{
-    margin: 10px;
-    margin-top: 10pt;
+    margin-right: 25px;
     color: grey;
     line-height: 35px;
 }
@@ -1890,6 +1888,7 @@ address {
     
 }
 * {
+    font-weight: 600;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -2081,7 +2080,7 @@ hr {
     color: #666;
     display: block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 22px;
     text-transform: capitalize;
     text-align: center;
@@ -2102,6 +2101,7 @@ hr {
     background-color: white;
     padding: 5px 15px;
     text-align: left;
+    font-weight: 600;
 }
 .dropdown-item:hover {
     background-color: rgb(122, 122, 122);}
@@ -2189,7 +2189,7 @@ form {
 .widgetheading h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     color: white;
     
@@ -2645,7 +2645,7 @@ label span {
 }
 label {
     display: block;
-    font-weight: 400;
+    font-weight: 600;
 }
 .iclose-right {
     float: right;
@@ -2750,7 +2750,7 @@ label {
     margin: 10px 0;
 }
 .registerform {
-    width: 350px;
+    width: 280px;
     height: 40px;
 }
 .liststyle {

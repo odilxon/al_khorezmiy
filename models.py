@@ -18,6 +18,7 @@ db = SQLAlchemy(app)
 login = LoginManager(app)
 login.login_view = 'login'
 app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
+app.config['SECURITY_PASSWORD_SALT'] = 'hpqohang;jgbiu2ug5t23bl4vrqwy'
 
 
 @login.user_loader
@@ -28,12 +29,19 @@ def load_user(id):
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), nullable=False)
+
+    firstname = db.Column(db.String(30), nullable=False)
+    lastname = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(30), unique=True, nullable=False)
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
+
     org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
-    login = db.Column(db.String(30), nullable=False)
+    username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
-    scholar_degree = db.Column(db.String, nullable=False)
+
+    country = db.Column(db.String, nullable=True)
+    sciencedegree = db.Column(db.String, nullable=False)
+
     user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     articles = db.relationship("Article", backref="user", lazy=True)
@@ -44,15 +52,21 @@ class User(UserMixin, db.Model):
     def format(self):
         return {
             "id" : self.id,
-            "name" : self.name,
+            "firstname" : self.firstname,
+            "lastname" : self.lastname,
             "email" : self.email,
             "org_id" : self.org_id,
-            "login" : self.login,
+            "username" : self.username,
             "password" : self.password,
-            "scholar_degree" : self.scholar_degree,
+
+            "country" : self.country,
+            "sciencedegree" : self.sciencedegree,
+
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
         }
+    def __repr__(self):
+        return '<User %r>' % self.email
     
 class Issue(db.Model):
     __tablename__ = 'issue'
@@ -98,7 +112,10 @@ class Organisation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(30), nullable=False)
-    users = db.relationship("User", backref="organisation", lazy=True)
+
+    users = db.relationship("User", backref="organisatoin", lazy=True)
+    def __repr__(self):
+        return self.name
 
     def format(self):
         return {
@@ -227,6 +244,7 @@ class Paper_action(db.Model):
     action_type = db.Column(db.String, nullable=False)
     action_time = db.Column(db.DateTime, nullable=False)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
     report_text = db.Column(db.String, nullable=False)
     action_status = db.Column(db.String, nullable=False)
     scores = db.relationship("Score", backref="paper_action", lazy=True)
@@ -238,7 +256,7 @@ class Paper_action(db.Model):
             "action_type" : self.action_type,
             "action_time" : self.action_time,
             "sender_id" : self.sender_id,
-            "receiver_id" : self.receiver_id,
+            #"receiver_id" : self.receiver_id,
             "report_text" : self.report_text,
             "action_status" : self.action_status,
         }

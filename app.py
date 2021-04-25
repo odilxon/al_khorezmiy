@@ -1,5 +1,5 @@
-from forms import *
-
+from api import *
+from hashlib import sha256
 
 posts = [
     {
@@ -16,7 +16,6 @@ posts = [
 ]
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -26,7 +25,7 @@ def login():
     if form.validate_on_submit():
         print("vali")
         
-        user = User.query.filter_by(login=form.username.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.password == form.password.data:
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
@@ -40,25 +39,45 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+
+    # token = s.dumps(email, salt='email_confirm')
+    # link = url_for('confirm_email', token=token, _exturnal=True)
+
+    data = Organisation.query.all()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(
-            login=form.username.data,
-            email=form.email.data,
-            name=form.name.data,
-            user_lvl='0', 
-            phone=form.phone.data, 
-            password=form.password.data, 
-            scholar_degree=form.scholar_degree.data, 
-            org_id=form.org_id.data
-            )
+
+        user = User(    
+                        country=form.country.data, 
+                        email=form.email.data,
+                        firstname=form.firstname.data,
+                        lastname=form.lastname.data,
+                        username=form.username.data,
+                        org_id=form.organizationid.data, 
+                        phone=form.phone.data, 
+                        sciencedegree=form.sciencedegree.data, 
+                        user_lvl=0, 
+                        confirmed=False,
+                        password=form.password.data
+                    )
+        if form.organizationid.data not in Organisation.query.all():
+            new_org = Organisation(
+                name=form.organizationid.data,
+                country=form.country.data)
+            db.session.add(new_org)
+            db.session.commit()
+
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
+        token = generate_confirmation_token(form.email.data)
+        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {token}")
+        
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+    print(form.errors)
+    return render_template('register.html', title='Register', form=form, data=data)
 
 @app.context_processor
 def utility_processor():
@@ -139,7 +158,18 @@ def accountsettings():
 def test():
     return "Works!"
     
+@app.route("/livesearch", methods=['POST'])
+def livesearch():
+    searchbox = request.form.get("text")
+    data = Organisation.query.all()
+    lol = []
+    for org in data:
+        org_name = org.name.lower()
+        if searchbox.lower() in org_name:
+            lol.append(org.format())
+    return jsonify(lol)
+        
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5000)
 
