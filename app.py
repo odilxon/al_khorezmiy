@@ -73,7 +73,8 @@ def register():
         db.session.commit()
         print('Congratulations, you are now a registered user!')
         token = generate_confirmation_token(form.email.data)
-        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {token}")
+        s = request.host_url + "confirm/" + token
+        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {s}")
         
         return redirect(url_for('login'))
     print(form.errors)

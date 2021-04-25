@@ -23,7 +23,6 @@ mail = Mail(app)
 #     return GetToken()
 @app.route("/api", methods=["GET"])
 def main_api():
-    token = "sdasdasdweqasdf"
     s = request.host_url + "confirm/" + token
     return jsonify({"msg" : "Hello World"})
 
@@ -149,19 +148,3 @@ def confirm_email(token):
     except:
         print('The confirmation link is invalid or has expired.')
     return redirect(url_for('index'))
-    
-# def require_api_token(func):
-#     @wraps(func)
-#     def check_token(*args, **kwargs):
-#         if 'api_session_token' not in session:
-#             return Response("Access denied")
-#         return func(*args, **kwargs)
-
-#     return check_token
-# @app.route('/api/confirm_email/<token>', methods=['GET', 'POST'])
-# def confirm_email(token):
-#     try: 
-#         email = s.loads(token, salt='email_confirm', max_age=300)
-#     except SignatureExpired:
-#         return '<h1>Token is expired!</h1>'
-#     return '<h1>Token is works!</h1>'
