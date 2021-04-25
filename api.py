@@ -23,6 +23,8 @@ mail = Mail(app)
 #     return GetToken()
 @app.route("/api", methods=["GET"])
 def main_api():
+    token = "sdasdasdweqasdf"
+    s = request.host_url + "confirm/" + token
     return jsonify({"msg" : "Hello World"})
 
 @app.route("/api/user", methods=["GET", "POST"])
@@ -132,21 +134,20 @@ def confirm_token(token, expiration=3600):
         return False
     return email
 
-@app.route('/confirm/<token>')
+@app.route('/confirm/<string:token>')
 def confirm_email(token):
     try:
         email = confirm_token(token)
+        user = User.query.filter_by(email=email).first_or_404()
+        if user.confirmed:
+            print('Account already confirmed. Please login.')
+        else:
+            user.confirmed = True
+            db.session.add(user)
+            db.session.commit()
+            print('You have confirmed your account. Thanks!')
     except:
-
         print('The confirmation link is invalid or has expired.')
-    user = User.query.filter_by(email=email).first_or_404()
-    if user.confirmed:
-        print('Account already confirmed. Please login.')
-    else:
-        user.confirmed = True
-        db.session.add(user)
-        db.session.commit()
-        print('You have confirmed your account. Thanks!')
     return redirect(url_for('index'))
     
 # def require_api_token(func):
