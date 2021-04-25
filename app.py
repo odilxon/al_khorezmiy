@@ -12,7 +12,6 @@ posts = [
         'author': 'Djhon Watson',
         'title': 'Blog Post 2',
         'content': 'Second post',
-        'datepased': 'March 25 2021'
     }
 ]
 
@@ -49,6 +48,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
+
         user = User(    
                         country=form.country.data, 
                         email=form.email.data,
@@ -68,6 +68,7 @@ def register():
                 country=form.country.data)
             db.session.add(new_org)
             db.session.commit()
+
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')

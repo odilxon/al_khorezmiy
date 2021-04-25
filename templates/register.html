@@ -12,6 +12,7 @@
         <form class="formtheme" method="POST" autocomplete='off'>
           {{ form.csrf_token }}
           <fieldset class="formfieldset">
+
             <div class="form-group fgname">
               <div class="fornameonly">
                 <label for="firstname"> First name</label>
@@ -41,6 +42,7 @@
                 {% endif %}
               </div>
             </div> -->
+
            
             <div class="form-group fgemail">
               <div class="foremailonly">
@@ -53,6 +55,7 @@
                 </div>
               </div>
             </div>
+
 
             <div class="form-group fgname">
               <div class="fornameonly">  
@@ -77,16 +80,19 @@
                   {% endif %}
                 </div>
               </div>
+
             </div>
 
             <div class="form-group">
               <label for="username"> Username</label>
+
               {{ form.username(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
               <div class="forerrorsonly">
                 {% if "username" in form.errors %}
                   {{ form.errors['username'][0] }}
                 {% endif %}
               </div>
+
             </div>
             
             <div class="form-group fgname">
@@ -123,6 +129,7 @@
             </div> -->
             
             <div class="form-group">
+
               <label for="sincedegree"> Science Degree</label>
               {{ form.sciencedegree(class = 'form-control registerform', autofocus = true, placeholder = 'Science Degree') }}
               <div class="forerrorsonly">
@@ -130,6 +137,7 @@
                   {{ form.errors['sciencedegree'][0] }}
                 {% endif %}
               </div>
+
             </div>
 
             <div class="form-group">

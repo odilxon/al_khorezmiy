@@ -13,6 +13,7 @@ def Get_C():
     return data
 
 class RegistrationForm(FlaskForm):
+
     firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true xD!')])
     lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true xD')])
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -26,6 +27,7 @@ class RegistrationForm(FlaskForm):
     phone = IntegerField('Phonenumber', validators=[DataRequired()])
     tos = BooleanField('tos',validators=[DataRequired()])
     submit = SubmitField('Register')
+
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -44,6 +46,7 @@ class LoginForm(FlaskForm):
   password = PasswordField('Password', validators=[DataRequired()])
   remember = BooleanField('Remember Me')
   submit = SubmitField('Login')
+
 
 class SubmitYourArticleForm(FlaskForm):
   submit = SubmitField('SubmitYourArticle')

@@ -46,9 +46,9 @@ def users():
             return jsonify({"msg" : str(E)}), 400
         return jsonify({"msg" : "Success"}), 200
     else:
-        if request.args.get('og_id') is not None:
-            og_id = request.args.get('org_id')
-            data = db.session.query(User, Organisation.name).filter_by(org_id=og_id).join(Organisation, Organisation.id==User.org_id).all()
+        if request.args.get('org_id') is not None:
+            org_id = request.args.get('org_id')
+            data = db.session.query(User, Organisation.name).filter_by(org_id=org_id).join(Organisation, Organisation.id==User.org_id).all()
         else:
             data = db.session.query(User, Organisation.name).join(Organisation, Organisation.id==User.org_id).all()
         d = []

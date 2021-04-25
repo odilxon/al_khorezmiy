@@ -29,15 +29,19 @@ def load_user(id):
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
+
     firstname = db.Column(db.String(30), nullable=False)
     lastname = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(30), unique=True, nullable=False)
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
+
     org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
+
     country = db.Column(db.String, nullable=True)
     sciencedegree = db.Column(db.String, nullable=False)
+
     user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     articles = db.relationship("Article", backref="user", lazy=True)
@@ -54,8 +58,10 @@ class User(UserMixin, db.Model):
             "org_id" : self.org_id,
             "username" : self.username,
             "password" : self.password,
+
             "country" : self.country,
             "sciencedegree" : self.sciencedegree,
+
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
         }
@@ -106,9 +112,11 @@ class Organisation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(30), nullable=False)
+
     users = db.relationship("User", backref="organisatoin", lazy=True)
     def __repr__(self):
         return self.name
+
     def format(self):
         return {
             "id" : self.id,
@@ -236,7 +244,7 @@ class Paper_action(db.Model):
     action_type = db.Column(db.String, nullable=False)
     action_time = db.Column(db.DateTime, nullable=False)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
     report_text = db.Column(db.String, nullable=False)
     action_status = db.Column(db.String, nullable=False)
     scores = db.relationship("Score", backref="paper_action", lazy=True)
