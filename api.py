@@ -1,3 +1,4 @@
+
 from forms import *
 from flask import jsonify, redirect, url_for
 from flask_mail import Mail, Message
@@ -5,6 +6,7 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 
 # s = URLSafeTimedSerializer('This is a secret')
+
 
 app.config["MAIL_SERVER"] = "server2.ahost.uz"
 app.config["MAIL_PORT"] = 465

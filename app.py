@@ -1,4 +1,5 @@
 from api import *
+from hashlib import sha256
 
 posts = [
     {
@@ -58,6 +59,7 @@ def register():
                         phone=form.phone.data, 
                         sciencedegree=form.sciencedegree.data, 
                         user_lvl=0, 
+                        confirmed=False,
                         password=form.password.data
                     )
         if form.organizationid.data not in Organisation.query.all():
