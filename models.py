@@ -59,6 +59,8 @@ class User(UserMixin, db.Model):
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
         }
+    def __repr__(self):
+        return '<User %r>' % self.email
     
 class Issue(db.Model):
     __tablename__ = 'issue'

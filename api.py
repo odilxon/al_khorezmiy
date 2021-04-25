@@ -133,7 +133,6 @@ def confirm_token(token, expiration=3600):
     return email
 
 @app.route('/confirm/<token>')
-@login_required
 def confirm_email(token):
     try:
         email = confirm_token(token)
