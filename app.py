@@ -1,9 +1,5 @@
 from api import *
 
-# import smtplib
-# from email.message import EmailMessage
-
-
 posts = [
     {
         'author': 'Sherlock Holmes',
@@ -19,25 +15,6 @@ posts = [
     }
 ]
 
-# @app.route('/email', methods=['GET', 'POST'])
-# def send_email():
-#     print('1sendemail')
-#     email = request.json.get('email', None)
-#     s = smtplib.SMTP(host="@gmail.com", port=5001)
-#     s.starttls()
-#     s.login('easysend1@gmail.com', 'test1234')
-    
-#     msg = EmailMessage()
-#     msg.set_content('if this is worked i will be happy')
-#     print('outsendemail')
-#     msg['Subject'] = 'A hello from a far'
-#     msg['From'] = 'Jack <jack@gmail.com>'
-#     msg['To'] = f'{email}'
-#     print('quitdan oldin')
-#     s.send_message(msg)
-#     s.quit()
-    
-#     return 'Email send!'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -62,6 +39,10 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+
+    # token = s.dumps(email, salt='email_confirm')
+    # link = url_for('confirm_email', token=token, _exturnal=True)
+
     data = Organisation.query.all()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -88,7 +69,9 @@ def register():
         db.session.add(user)
         db.session.commit()
         print('Congratulations, you are now a registered user!')
-        st, msg = Send_EMAIL(form.email.data, "Congratulations, you are now a registered user!")
+        token = generate_confirmation_token(form.email.data)
+        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {token}")
+        
         return redirect(url_for('login'))
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)

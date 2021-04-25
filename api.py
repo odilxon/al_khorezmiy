@@ -1,10 +1,10 @@
 from forms import *
-from flask import jsonify, redirect
+from flask import jsonify, redirect, url_for
 from flask_mail import Mail, Message
 
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 
-
-
+# s = URLSafeTimedSerializer('This is a secret')
 
 app.config["MAIL_SERVER"] = "server2.ahost.uz"
 app.config["MAIL_PORT"] = 465
@@ -103,7 +103,7 @@ def Send_EMAIL(email, txt):
 def send_email():
     print('1sendemail')
     email = request.args.get('email')
-    
+
     st, msg = Send_EMAIL(email, 'Hello')
 
     if st:
@@ -111,3 +111,55 @@ def send_email():
     else:
         return jsonify(msg)
     
+
+
+def generate_confirmation_token(email):
+    serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+    return serializer.dumps(email, salt=app.config['SECURITY_PASSWORD_SALT'])
+
+
+def confirm_token(token, expiration=3600):
+    serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+    try:
+        email = serializer.loads(
+            token,
+            salt=app.config['SECURITY_PASSWORD_SALT'],
+            max_age=expiration
+        )
+    except:
+        return False
+    return email
+
+@app.route('/confirm/<token>')
+@login_required
+def confirm_email(token):
+    try:
+        email = confirm_token(token)
+    except:
+
+        print('The confirmation link is invalid or has expired.')
+    user = User.query.filter_by(email=email).first_or_404()
+    if user.confirmed:
+        print('Account already confirmed. Please login.')
+    else:
+        user.confirmed = True
+        db.session.add(user)
+        db.session.commit()
+        print('You have confirmed your account. Thanks!')
+    return redirect(url_for('index'))
+    
+# def require_api_token(func):
+#     @wraps(func)
+#     def check_token(*args, **kwargs):
+#         if 'api_session_token' not in session:
+#             return Response("Access denied")
+#         return func(*args, **kwargs)
+
+#     return check_token
+# @app.route('/api/confirm_email/<token>', methods=['GET', 'POST'])
+# def confirm_email(token):
+#     try: 
+#         email = s.loads(token, salt='email_confirm', max_age=300)
+#     except SignatureExpired:
+#         return '<h1>Token is expired!</h1>'
+#     return '<h1>Token is works!</h1>'
