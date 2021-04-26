@@ -1169,15 +1169,16 @@ label {
 }
 
 .getmessages {
-    list-style-type: none;
-    background-color: red;
-    color: white;
+    color: black;
     font-weight: 600;
     text-align: center;
     line-height: 35px;
     border-radius: 8px;
+    transform: translate();
 }
-
+.getmessages ul {
+    list-style-type: none;
+}
 /* Login page styling end */
 
 /* Register page styling start */

@@ -61,7 +61,7 @@ def register():
 
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user! Check Email to confirm account' )
+        flash('Congratulations, you are now a registered user! Check Email to confirm account')
         token = generate_confirmation_token(form.email.data)
         s = request.host_url + "confirm/" + token
         st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {s}")
