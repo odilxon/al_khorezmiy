@@ -19,7 +19,7 @@ def login():
             flash('Email or password is invalid', 'error')
             return redirect(url_for('login'))
         if not user.confirmed:
-            flash('Please confirm email before login', 'error')
+            flash('Please confirm email before login', 'warning')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
