@@ -5,8 +5,6 @@ from flask_mail import Mail, Message
 
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 
-# s = URLSafeTimedSerializer('This is a secret')
-
 
 app.config["MAIL_SERVER"] = "server2.ahost.uz"
 app.config["MAIL_PORT"] = 465
@@ -139,12 +137,12 @@ def confirm_email(token):
         email = confirm_token(token)
         user = User.query.filter_by(email=email).first_or_404()
         if user.confirmed:
-            print('Account already confirmed. Please login.')
+            flash('Account already confirmed. Please login.')
         else:
             user.confirmed = True
             db.session.add(user)
             db.session.commit()
-            print('You have confirmed your account. Thanks!')
+            flash('You have confirmed your account. Thanks!')
     except:
-        print('The confirmation link is invalid or has expired.')
+        flash('The confirmation link is invalid or has expired.')
     return redirect(url_for('index'))

@@ -1133,7 +1133,7 @@ label {
     width: 100%;
     font-size: 16px;
     padding: 0 10px;
-    margin: 10px;
+
     border-radius: 6px;
 }
 .loginform {
@@ -1150,21 +1150,34 @@ label {
 .checkboxa {
     display: flex;
     justify-content: space-between;
-    width: 350px;
+    width: 100%;
 }
 #login {
     margin: 4px 0;
 
 }
-.labellogin {
-    margin-left: 10px;
-}
+
 .checkember {
     display: flex;
+}
+.forcheckonly {
+    width: 20px;
+    height: 20px;
 }
 .form-check {
     padding: 0;
 }
+
+.getmessages {
+    list-style-type: none;
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 8px;
+}
+
 /* Login page styling end */
 
 /* Register page styling start */

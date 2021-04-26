@@ -1,19 +1,19 @@
 from api import *
 from hashlib import sha256
 
-posts = [
-    {
-        'author': 'Sherlock Holmes',
-        'title': 'Blog Post 1',
-        'content': 'First post',
-        'datepased': 'March 24 2021'
-    },
-    {
-        'author': 'Djhon Watson',
-        'title': 'Blog Post 2',
-        'content': 'Second post',
-    }
-]
+# posts = [
+#     {
+#         'author': 'Sherlock Holmes',
+#         'title': 'Blog Post 1',
+#         'content': 'First post',
+#         'datepased': 'March 24 2021'
+#     },
+#     {
+#         'author': 'Djhon Watson',
+#         'title': 'Blog Post 2',
+#         'content': 'Second post',
+#     }
+# ]
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -26,7 +26,14 @@ def login():
         print("vali")
         
         user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.password == form.password.data:
+        if user is None:
+            flash('Email or password is invalid')
+            return redirect(url_for('login'))
+        if user.password != form.password.data:
+            flash('Email or password is invalid')
+            return redirect(url_for('login'))
+        if not user.confirmed:
+            flash('Please confirm email before login')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
@@ -39,9 +46,6 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-
-    # token = s.dumps(email, salt='email_confirm')
-    # link = url_for('confirm_email', token=token, _exturnal=True)
 
     data = Organisation.query.all()
     if current_user.is_authenticated:
@@ -71,7 +75,7 @@ def register():
 
         db.session.add(user)
         db.session.commit()
-        print('Congratulations, you are now a registered user!')
+        flash('Congratulations, you are now a registered user! Check Email to confirm account' )
         token = generate_confirmation_token(form.email.data)
         s = request.host_url + "confirm/" + token
         st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {s}")

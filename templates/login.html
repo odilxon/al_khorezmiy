@@ -6,6 +6,17 @@
         <div class="widget widgetlogin">
           <div class="widgethead loginpage">
             <h5>Login Now</h5>
+            <div class="getmessages">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class=flashes>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+            </div>
           </div>
           <div class="widgetcontent">
             <form class="formthem" method="POST">
@@ -20,7 +31,7 @@
                 <div class="form-check forgotpass">
                   <div class="checkboxa">
                     <div class="checkember">
-                      {{ form.remember(class_ = 'form-control', autofocus = true) }}                      
+                      {{ form.remember(class_ = 'forcheckonly', autofocus = true) }}                      
                     <label for="login" class="labellogin">
                       Remember Me
                     </label>
@@ -33,15 +44,6 @@
                 <div class="btnarea">
                   {{ form.submit(class='btn btn-primary btn-lg btn-block') }}
                 </div>
-                {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                    <ul class=flashes>
-                    {% for message in messages %}
-                      <li>{{ message }}</li>
-                    {% endfor %}
-                    </ul>
-                  {% endif %}
-                {% endwith %}
               </fieldset>
             </form>
           </div>
