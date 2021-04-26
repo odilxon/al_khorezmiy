@@ -1,20 +1,6 @@
 from api import *
 from hashlib import sha256
 
-# posts = [
-#     {
-#         'author': 'Sherlock Holmes',
-#         'title': 'Blog Post 1',
-#         'content': 'First post',
-#         'datepased': 'March 24 2021'
-#     },
-#     {
-#         'author': 'Djhon Watson',
-#         'title': 'Blog Post 2',
-#         'content': 'Second post',
-#     }
-# ]
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
