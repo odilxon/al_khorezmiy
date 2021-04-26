@@ -13,13 +13,13 @@ def login():
         
         user = User.query.filter_by(username=form.username.data).first()
         if user is None:
-            flash('Email or password is invalid')
+            flash('Email or password is invalid', 'error')
             return redirect(url_for('login'))
         if user.password != form.password.data:
-            flash('Email or password is invalid')
+            flash('Email or password is invalid', 'error')
             return redirect(url_for('login'))
         if not user.confirmed:
-            flash('Please confirm email before login')
+            flash('Please confirm email before login', 'error')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
@@ -61,7 +61,7 @@ def register():
 
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user! Check Email to confirm account')
+        flash('Congratulations, you are now a registered user! Check Email to confirm account', 'success')
         token = generate_confirmation_token(form.email.data)
         s = request.host_url + "confirm/" + token
         st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {s}")

@@ -1167,9 +1167,16 @@ label {
 .form-check {
     padding: 0;
 }
+.alert.success  {
+    background-color: #18c13c;
+    color: white;
+}
+.alert.error {
+    background-color: rgb(231, 56, 56);
+    color: white;
+}
 
 .getmessages {
-    color: black;
     font-weight: 600;
     text-align: center;
     line-height: 35px;

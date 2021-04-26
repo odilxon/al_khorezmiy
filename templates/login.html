@@ -6,12 +6,13 @@
         <div class="widget widgetlogin">
           <div class="widgethead loginpage">
             <h5>Login Now</h5>
-            <div class="getmessages alert-danger">
-              {% with messages = get_flashed_messages() %}
+            <div class="getmessages">
+              {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                   <ul class=flashes>
-                  {% for message in messages %}
-                    <li>{{ message }}</li>
+                  {% for category, message in messages %}
+                    <div class="alert {{ category }}"> {{ message|capitalize }} </div>
+                    <!-- <li>{{ message }}</li> -->
                   {% endfor %}
                   </ul>
                 {% endif %}
