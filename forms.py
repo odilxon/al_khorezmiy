@@ -14,9 +14,10 @@ def Get_C():
 
 class RegistrationForm(FlaskForm):
 
-    firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true xD!')])
-    lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true xD')])
+    firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true')])
+    lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true')])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    email1 = StringField('Email', validators=[DataRequired(), Email()])
     organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
@@ -42,14 +43,13 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
           
 class LoginForm(FlaskForm):
-  username = StringField('Username', validators=[DataRequired()])
-  password = PasswordField('Password', validators=[DataRequired()])
-  remember = BooleanField('Remember Me')
-  submit = SubmitField('Login')
-
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')   
 
 class SubmitYourArticleForm(FlaskForm):
-  submit = SubmitField('SubmitYourArticle')
+    submit = SubmitField('SubmitYourArticle')
 
 # class SubmitNow(FlaskForm):
 #   submitNow = SubmitField('Submit Now')

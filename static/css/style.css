@@ -1168,16 +1168,16 @@ label {
     padding: 0;
 }
 .alert.success  {
-    background-color: #18c13c;
-    color: white;
+    background-color: #60f07f;
+    color: rgb(60, 218, 12);
 }
 .alert.error {
     background-color: rgb(231, 56, 56);
-    color: white;
+    color: rgb(228, 12, 12);
 }
 .alert.warning {
-    background-color: rgb(248, 241, 4);
-    color: white;
+    background-color: rgb(241, 236, 76);
+    color: rgb(238, 241, 14);
 }
 .getmessages {
     font-weight: 600;

@@ -1,0 +1,22 @@
+{% extends 'base2.html' %}
+{% block body %}
+  <div class="container">
+    <div class="box">
+      <div class="box-inner">
+        <h3 class="box-text">Forgot your password?</h3>
+        <div class="user-auth">
+          <form action="" method="POST">
+            {{ form.csrf_token }}
+            
+            <label for="confirm-email">Email</label>
+            <input type="email">
+            <div class="form-group">
+              {{ form.email1(class_ = 'form-control loginform', autofocus = true, placeholder = 'Username') }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

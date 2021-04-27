@@ -144,6 +144,13 @@ def emailtemplates():
 def accountsettings():
     return render_template('accountsettings.html')
 
+@app.route('/forgotpassemail')
+def forgotpassemail():
+    return render_template('forgotpassemail.html')
+
+@app.route('/forgotpassnewpass')
+def forgotpassnewpass():
+    return render_template('forgotpassnewpass.html')
 
 @app.route("/tests")
 def test():
