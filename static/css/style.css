@@ -1168,23 +1168,23 @@ label {
     padding: 0;
 }
 .alert.success  {
-    background-color: #60f07f;
-    color: rgb(60, 218, 12);
+    background-color: rgb(62, 244, 103);
+    color: rgb(248, 248, 248);
 }
 .alert.error {
-    background-color: rgb(231, 56, 56);
-    color: rgb(228, 12, 12);
+    background-color: rgb(246, 120, 120);
+    color: rgb(248, 248, 248);
 }
 .alert.warning {
-    background-color: rgb(241, 236, 76);
-    color: rgb(238, 241, 14);
+    background-color: rgb(244, 237, 67);
+    color: rgb(248, 248, 248);
 }
+
 .getmessages {
     font-weight: 600;
     text-align: center;
     line-height: 35px;
     border-radius: 8px;
-    transform: translate();
 }
 .getmessages ul {
     list-style-type: none;

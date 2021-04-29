@@ -17,7 +17,7 @@ class RegistrationForm(FlaskForm):
     firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true')])
     lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true')])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    email1 = StringField('Email', validators=[DataRequired(), Email()])
+    # email1 = StringField('Email', validators=[DataRequired(), Email()])
     organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
@@ -42,6 +42,25 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
           
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError('There is no account with that email. you must register first', 'warning')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Reset Password', validators=[DataRequired(), Length(min=8, max=16, message='*Password need minimum 8 characters!')])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
+
+
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])

@@ -2,14 +2,16 @@ from flask_login import UserMixin, login_required, current_user, login_user, log
 from werkzeug.urls import url_parse
 
 
-from flask import Flask, flash, render_template, url_for, request, redirect, jsonify
+from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
 
 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user, login_required, login_user, logout_user
+
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired, Serializer
 
 
 app = Flask(__name__)
@@ -65,6 +67,16 @@ class User(UserMixin, db.Model):
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
         }
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try:
+            user.id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
+
     def __repr__(self):
         return '<User %r>' % self.email
     

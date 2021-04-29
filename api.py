@@ -113,7 +113,6 @@ def send_email():
         return jsonify(msg)
     
 
-
 def generate_confirmation_token(email):
     serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
     return serializer.dumps(email, salt=app.config['SECURITY_PASSWORD_SALT'])
@@ -137,12 +136,12 @@ def confirm_email(token):
         email = confirm_token(token)
         user = User.query.filter_by(email=email).first_or_404()
         if user.confirmed:
-            flash('Account already confirmed. Please login.')
+            flash('Account already confirmed. Please login.', 'warning')
         else:
             user.confirmed = True
             db.session.add(user)
             db.session.commit()
-            flash('You have confirmed your account. Thanks!')
+            flash('You have confirmed your account. Thanks!', 'success')
     except:
-        flash('The confirmation link is invalid or has expired.')
+        flash('The confirmation link is invalid or has expired.', 'error')
     return redirect(url_for('index'))

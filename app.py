@@ -70,6 +70,67 @@ def register():
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)
 
+def get_reset_token(self, expiration=1800):
+        s = Serializer(app.config['SECRET_KEY'], expiration)
+        return s.dumps({'user_id': self.id}).decode('utf-8')
+
+
+@app.route('/forgotpassemail', methods=['GET', 'POST'])
+def forgotpassemail():
+    if current_user.is_authenticated:
+        return redirect(url_for('login'))
+        flash('You are welcome', 'success')
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            flash('User not found', 'error')
+            return render_template('forgotpassemail.html', title='Reset Password', form=form)        
+        # Funksiya to send reset link
+        
+        token = generate_confirmation_token(form.email.data)
+        s = request.host_url + "resetpassword/" + token
+        st, msg = Send_EMAIL(form.email.data, f"You can do this by clicking below {s}")
+        
+        print('send a link your email')
+
+        flash('Reset password link was sent to Emal', 'success')
+        return render_template('forgotpassemail.html', title='Reset Password', form=form)
+    flash('Email is incorrect', 'error')
+    return render_template('forgotpassemail.html', title='Reset Password', form=form)
+
+
+@app.route('/resetpassword/<string:token>', methods=['GET', 'POST'])
+def resetpassword(token):
+    print(token)
+    if request.method == "POST":
+        print('post')
+        form = ResetPasswordForm()
+        if form.validate_on_submit():
+            new_password = request.form.get("password")
+            email = confirm_token(token)
+            user = User.query.filter_by(email=email).first_or_404()
+            if user.password == new_password:
+                flash('Type another password', 'danger')
+                return render_template('resetpassword.html', form=form)
+            user.password = new_password
+            db.session.commit()
+            return redirect(url_for('login'))
+        else:
+            print(form.errors)
+    try:
+        email = confirm_token(token)
+        print(email)
+        if email:
+            user = User.query.filter_by(email=email).first_or_404()
+            print(user)
+            form = ResetPasswordForm()
+            return render_template('resetpassword.html', form=form)
+    except:
+        pass
+    abort(404)
+    
+
 @app.context_processor
 def utility_processor():
     def Capi(name):
@@ -143,14 +204,6 @@ def emailtemplates():
 @app.route('/accountsettings')
 def accountsettings():
     return render_template('accountsettings.html')
-
-@app.route('/forgotpassemail')
-def forgotpassemail():
-    return render_template('forgotpassemail.html')
-
-@app.route('/forgotpassnewpass')
-def forgotpassnewpass():
-    return render_template('forgotpassnewpass.html')
 
 @app.route("/tests")
 def test():
