@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField,SelectField,StringField, PasswordField, SubmitField, BooleanField, IntegerField
+from wtforms import *
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from models import *
 import json, re
@@ -54,10 +54,10 @@ class RequestResetForm(FlaskForm):
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Reset Password', validators=[DataRequired(), Length(min=8, max=16, message='*Password need minimum 8 characters!')])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=16, message='*Password need minimum 8 characters!')])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')
+    submit = SubmitField('Reset Password')
 
 
 
@@ -66,6 +66,16 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')   
+
+class PapersForm(FlaskForm):
+    title = TextAreaField('Title', validators=[DataRequired()])
+    abstract = StringField('Abstract', validators=[DataRequired()])
+    keyword = StringField('Keyword', validators=[DataRequired()])
+    body = StringField('Body', validators=[DataRequired()])
+    reterence = StringField('Reterence', validators=[DataRequired()])
+    createdtime = TimeField('Created Time', validators=[DataRequired()])
+    updatedtime = TimeField('Updated Time', validators=[DataRequired()])
+    
 
 class SubmitYourArticleForm(FlaskForm):
     submit = SubmitField('SubmitYourArticle')

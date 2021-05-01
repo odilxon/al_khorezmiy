@@ -56,10 +56,18 @@
               <h5>Add A New Article</h5>
             </div>
             <div class="addarticlehold">
-              <form action="" class="formtheme formartcile">
+              <form action="" class="formtheme formartcile" method="POST">
+                {{ form.hidden_tag() }}
                 <fieldset>
                   <div class="form-group">
-                    <input type="text" name="" class="form-control" placeholder="Title of artcile">
+                    <label for="title">Title</label>
+                    {{ form.title(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "title" in form.errors %}
+                        {{ form.errors['title'][0] }}
+                      {% endif %}
+                    </div>    
+                    <!-- <input type="text" name="" class="form-control" placeholder="Title of artcile"> -->
                   </div>
                   <div class="form-group general-main">
                     <span class="form-select">
@@ -121,10 +129,50 @@
                     </div>
                   </div>  
                   <div class="form-group">
-                    <input type="text" name="" class="form-control" placeholder="Corresponding Author Title Here">
+                    <label for="abstract">Title</label>
+                    {{ form.abstract(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "title" in form.errors %}
+                        {{ form.errors['title'][0] }}
+                      {% endif %}
+                    </div>
+                    <!-- <input type="text" name="" class="form-control" placeholder="Corresponding Author Title Here"> -->
                   </div>                
                   <div class="form-group">
-                    <textarea placeholder="Add Your Abstract"></textarea>
+                    <label for="keyword">keyword</label>
+                    {{ form.keyword(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "keyword" in form.errors %}
+                        {{ form.errors['keyword'][0] }}
+                      {% endif %}
+                    <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
+                  </div>
+                  <div class="form-group">
+                    <label for="keyword">keyword</label>
+                    {{ form.keyword(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "keyword" in form.errors %}
+                        {{ form.errors['keyword'][0] }}
+                      {% endif %}
+                    <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
+                  </div>
+                  <div class="form-group">
+                    <label for="body">body</label>
+                    {{ form.body(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "body" in form.errors %}
+                        {{ form.errors['body'][0] }}
+                      {% endif %}
+                    <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
+                  </div>
+                  <div class="form-group">
+                    <label for="reterence">reterence</label>
+                    {{ form.reterence(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "reterence" in form.errors %}
+                        {{ form.errors['reterence'][0] }}
+                      {% endif %}
+                    <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
                   </div>                  
                 </fieldset>
               </form>

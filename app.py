@@ -70,6 +70,23 @@ def register():
     print(form.errors)
     return render_template('register.html', title='Register', form=form, data=data)
 
+
+@app.route('/submitarticle', methods=['GET', 'POST'])
+def submitarticle():
+        user = User(    
+                        title=form.title.data, 
+                        abstract=form.abstract.data,
+                        keyword=form.keyword.data,
+                        body=form.body.data,
+                        reterence=form.reterence.data,
+                        created_time=form.created_time.data, 
+                        updated_time=form.updated_time.data
+                    )
+        db.session.add(user)
+        db.session.commit()
+        return render_template('submitarticle.html', title='Register', form=form, data=data)
+
+
 def get_reset_token(self, expiration=1800):
         s = Serializer(app.config['SECRET_KEY'], expiration)
         return s.dumps({'user_id': self.id}).decode('utf-8')
@@ -81,25 +98,25 @@ def forgotpassemail():
         return redirect(url_for('login'))
         flash('You are welcome', 'success')
     form = RequestResetForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is None:
-            flash('User not found', 'error')
-            return render_template('forgotpassemail.html', title='Reset Password', form=form)        
-        # Funksiya to send reset link
-        
-        token = generate_confirmation_token(form.email.data)
-        s = request.host_url + "resetpassword/" + token
-        st, msg = Send_EMAIL(form.email.data, f"You can do this by clicking below {s}")
-        
-        print('send a link your email')
+    if request.method=='POST':      
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+            if user is None:
+                flash('User not found', 'error')
+                return render_template('forgotpassemail.html', title='Reset Password', form=form)        
+            # Funksiya to send reset link
+            token = generate_confirmation_token(form.email.data)
+            s = request.host_url + "resetpassword/" + token
+            st, msg = Send_EMAIL(form.email.data, f"You can do this by clicking below {s}")
+            
+            print('send a link your email')
 
-        flash('Reset password link was sent to Emal', 'success')
+            flash('Reset password link was sent to Emal', 'success')
+            return render_template('forgotpassemail.html', title='Reset Password', form=form)
+        flash('Email is incorrect', 'error')
         return render_template('forgotpassemail.html', title='Reset Password', form=form)
-    flash('Email is incorrect', 'error')
     return render_template('forgotpassemail.html', title='Reset Password', form=form)
-
-
+    
 @app.route('/resetpassword/<string:token>', methods=['GET', 'POST'])
 def resetpassword(token):
     print(token)
@@ -110,14 +127,17 @@ def resetpassword(token):
             new_password = request.form.get("password")
             email = confirm_token(token)
             user = User.query.filter_by(email=email).first_or_404()
+            print('first or 404')
             if user.password == new_password:
-                flash('Type another password', 'danger')
-                return render_template('resetpassword.html', form=form)
+                flash('Type another password', 'error')
+                return render_template('resetpassword.html', form=form)            
             user.password = new_password
             db.session.commit()
-            return redirect(url_for('login'))
+            flash('Now you change your Password', 'success')
+            return redirect(url_for('login'))            
         else:
             print(form.errors)
+            return render_template('resetpassword.html', form=form)
     try:
         email = confirm_token(token)
         print(email)
@@ -170,10 +190,9 @@ def issueyears():
     return render_template('issueyears.html')
 
 
-@app.route('/submitarticle')
-@login_required
-def submitarticle():
-    return render_template('submitarticle.html')
+# @app.route('/submitarticle')
+# def submitarticle():
+#     return render_template('submitarticle.html')
 
 
 @app.route('/addtemplates')
