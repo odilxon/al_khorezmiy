@@ -11,12 +11,12 @@ def login():
     if form.validate_on_submit():
         print("vali")
         
-        user = User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-            flash('Email or password is invalid', 'error')
+            flash('Email is invalid', 'error')
             return redirect(url_for('login'))
         if user.password != form.password.data:
-            flash('Email or password is invalid', 'error')
+            flash('Password is invalid', 'error')
             return redirect(url_for('login'))
         if not user.confirmed:
             flash('Please confirm email before login', 'warning')
