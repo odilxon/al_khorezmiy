@@ -37,6 +37,7 @@ def users():
             scolar_degree=data["scolar_degree"],
             user_lvl=data["user_lvl"],
             phone=data["phone"],
+            usfield=data["usfield"],
         )
         try:
             db.session.add(Usr)
@@ -57,6 +58,22 @@ def users():
             d.append(usr)
         return jsonify(d)
 
+        if request.args.get('usfield') is not None:
+            usfield = request.args.get('usfield')
+            data = db.session.query(User, Field.name).filter_by(usfield=usfield).join(Field, Field.id==User.usfield).all()
+        else:
+            data = db.session.query(User, Field.name).join(Field, Field.id==User.usfield).all()
+        d = []
+        for user, g_m in data:
+            usr = user.format()
+            usr["usfield"] = g_m
+            d.append(usr)
+        return jsonify(d)
+
+
+
+
+
 @app.route("/api/user/<int:id>", methods=["GET", "POST"])
 def userid(id):
     Usr = User.query.get_or_404(id)
@@ -74,6 +91,7 @@ def userid(id):
             Usr.scolar_degree = data["scolar_degree"]
             Usr.user_lvl = data["user_lvl"]
             Usr.phone = data["phone"]
+            Usr.usfield = data["usfield"]
             db.session.commit()
         except Exception as E:
             return jsonify({"msg": str(E)}), 400
@@ -90,9 +108,9 @@ def del_user(id):
     return jsonify({"msg" : "Success"}), 200
 
 
-def Send_EMAIL(email, txt):
+def Send_EMAIL(email, txt, title):
     try:
-        msg = Message('Test',recipients=[email])
+        msg = Message(title,recipients=[email])
         msg.sender=("Al-Khorezmiy", "no-reply@ladymarykay.uz")
         msg.html = '<h3>%s</h3>'%txt
         mail.send(msg)

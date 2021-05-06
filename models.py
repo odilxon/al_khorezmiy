@@ -3,7 +3,7 @@ from werkzeug.urls import url_parse
 
 
 from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
-
+from flask_admin import Admin
 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -38,18 +38,20 @@ class User(UserMixin, db.Model):
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
 
     org_id = db.Column(db.Integer, db.ForeignKey('organisation.id'))
+    usfield = db.Column(db.Integer, db.ForeignKey('field.id'))
+
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
-
     country = db.Column(db.String, nullable=True)
     sciencedegree = db.Column(db.String, nullable=False)
-
     user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
+
     articles = db.relationship("Article", backref="user", lazy=True)
     user_fields = db.relationship("Userfield", backref="user", lazy=True)
     papers = db.relationship("Paper", backref="user", lazy=True)
     paper_actions = db.relationship("Paper_action", backref="user", lazy=True)
+
 
     def format(self):
         return {
@@ -66,6 +68,7 @@ class User(UserMixin, db.Model):
 
             "user_lvl" : self.user_lvl,
             "phone" : self.phone,
+            "usfield": self.usfield,
         }
 
     @staticmethod
@@ -136,17 +139,6 @@ class Organisation(db.Model):
             "country" : self.country,
         }
 
-class Category(db.Model):
-    __tablename__ = 'category'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), nullable=False)
-    paper_categories = db.relationship("Paper_category", backref="category", lazy=True)
-
-    def format(self):
-        return {
-            "id" : self.id,
-            "name" : self.name,
-        }
 
 class Userfield(db.Model):
     __tablename__ = 'userfield'
@@ -166,6 +158,23 @@ class Field(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
     userfields = db.relationship("Userfield", backref="field", lazy=True)
+
+    # users = db.relationship("User", backref="usernamefield", lazy=True)
+    def __repr__(self):
+        return self.name    
+
+    def format(self):
+        return {
+            "id" : self.id,
+            "name" : self.name,
+        }
+
+
+class Category(db.Model):
+    __tablename__ = 'category'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), nullable=False)
+    paper_categories = db.relationship("Paper_category", backref="category", lazy=True)
 
     def format(self):
         return {

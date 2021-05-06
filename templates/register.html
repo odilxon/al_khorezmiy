@@ -52,7 +52,6 @@
                 <label for="organizationId"> Organisation Id</label>
                 {{ form.organizationid(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Organization name') }}
                 {% if data %}
-                
                 <datalist id="select">
                 {% for i in data %}
                       <option value="{{i['name']}}"></option>
@@ -75,14 +74,12 @@
 
             <div class="form-group">
               <label for="username"> Username</label>
-
               {{ form.username(class = 'form-control registerform', autofocus = true, placeholder='Username') }}
               <div class="forerrorsonly">
                 {% if "username" in form.errors %}
                   {{ form.errors['username'][0] }}
                 {% endif %}
               </div>
-
             </div>
             
             <div class="form-group fgname">
@@ -105,17 +102,27 @@
                 </div>
               </div>
             </div>
-            
-            <div class="form-group">
-
-              <label for="sincedegree"> Science Degree</label>
-              {{ form.sciencedegree(class = 'form-control registerform', autofocus = true, placeholder = 'Science Degree') }}
-              <div class="forerrorsonly">
-                {% if "sciencedegree" in form.errors %}
-                  {{ form.errors['sciencedegree'][0] }}
+            <div class="form-group fgname">
+              <div class="fornameonly">
+                <label for="sincedegree"> Science Degree</label>
+                {{ form.sciencedegree(class = 'form-control registerform', autofocus = true, placeholder = 'Science Degree') }}
+                <div class="forerrorsonly">
+                  {% if "sciencedegree" in form.errors %}
+                    {{ form.errors['sciencedegree'][0] }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="fornameonly">
+                <label for="userfield">  Userfield</label>
+                {{ form.usfieldsname(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Name') }}
+                {% if data %}
+                <datalist id="select">
+                {% for i in data %}
+                      <option value="{{i['name']}}"></option>
+                    {% endfor%}
+                  </datalist>
                 {% endif %}
               </div>
-
             </div>
 
             <div class="form-group">
@@ -127,7 +134,7 @@
                 {% endif %}
               </div>
             </div>
-            
+      
             <div class="form-group">
               <label for="tos">
                 {{ form.tos() }} By registering, you accpect our <a href="">Terms & Conditions</a>

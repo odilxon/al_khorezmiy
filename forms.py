@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from models import *
 import json, re
 or_ch = [(x.id, x.name) for x in Organisation.query.filter(Organisation.name != "Administration").all()]
+or_sh = [(x.id, x.name) for x in Field.query.filter(Field.name != "Administration").all()]
 
 def Get_C():
     a = []
@@ -12,12 +13,12 @@ def Get_C():
     data = [(x,x) for x in a]
     return data
 
+
 class RegistrationForm(FlaskForm):
 
     firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true')])
     lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true')])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    # email1 = StringField('Email', validators=[DataRequired(), Email()])
     organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
@@ -29,6 +30,7 @@ class RegistrationForm(FlaskForm):
     tos = BooleanField('tos',validators=[DataRequired()])
     submit = SubmitField('Register')
 
+    usfieldsname = StringField('User field Name', validators=[DataRequired()])
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -36,9 +38,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different username.')
 
     def validate_email(self, email):
-    
         user = User.query.filter_by(email=email.data).first()
-        
         if user is not None:
             raise ValidationError('Please use a different email address.')
           

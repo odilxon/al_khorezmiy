@@ -39,6 +39,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
 
+    
         user = User(    
                         country=form.country.data, 
                         email=form.email.data,
@@ -50,7 +51,8 @@ def register():
                         sciencedegree=form.sciencedegree.data, 
                         user_lvl=0, 
                         confirmed=False,
-                        password=form.password.data
+                        password=form.password.data,
+                        usfield=form.usfieldsname.data
                     )
         if form.organizationid.data not in Organisation.query.all():
             new_org = Organisation(
@@ -59,32 +61,24 @@ def register():
             db.session.add(new_org)
             db.session.commit()
 
+
+        if form.usfieldsname.data not in Field.query.all():
+            new_field = Field(
+                name=form.usfieldsname.data)
+            db.session.add(new_field)
+            db.session.commit()
+
+
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user! Check Email to confirm account', 'success')
         token = generate_confirmation_token(form.email.data)
         s = request.host_url + "confirm/" + token
-        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! {s}")
+        st, msg = Send_EMAIL(form.email.data, f"Congratulations, you are now a registered user! confirm account {s}", title='Register your account on Al-Khorezmi')
         
         return redirect(url_for('login'))
     print(form.errors)
-    return render_template('register.html', title='Register', form=form, data=data)
-
-
-@app.route('/submitarticle', methods=['GET', 'POST'])
-def submitarticle():
-        user = User(    
-                        title=form.title.data, 
-                        abstract=form.abstract.data,
-                        keyword=form.keyword.data,
-                        body=form.body.data,
-                        reterence=form.reterence.data,
-                        created_time=form.created_time.data, 
-                        updated_time=form.updated_time.data
-                    )
-        db.session.add(user)
-        db.session.commit()
-        return render_template('submitarticle.html', title='Register', form=form, data=data)
+    return render_template('register.html', form=form, data=data)
 
 
 def get_reset_token(self, expiration=1800):
@@ -103,19 +97,17 @@ def forgotpassemail():
             user = User.query.filter_by(email=form.email.data).first()
             if user is None:
                 flash('User not found', 'error')
-                return render_template('forgotpassemail.html', title='Reset Password', form=form)        
+                return render_template('forgotpassemail.html', form=form)        
             # Funksiya to send reset link
             token = generate_confirmation_token(form.email.data)
             s = request.host_url + "resetpassword/" + token
-            st, msg = Send_EMAIL(form.email.data, f"You can do this by clicking below {s}")
-            
-            print('send a link your email')
+            st, msg = Send_EMAIL(form.email.data, f"You can do this by clicking below {s}", title='Reset your Al-Khorezmi account Password')
 
-            flash('Reset password link was sent to Emal', 'success')
-            return render_template('forgotpassemail.html', title='Reset Password', form=form)
+            flash('Reset password link was sent to Email', 'success')
+            return render_template('forgotpassemail.html', form=form)
         flash('Email is incorrect', 'error')
-        return render_template('forgotpassemail.html', title='Reset Password', form=form)
-    return render_template('forgotpassemail.html', title='Reset Password', form=form)
+        return render_template('forgotpassemail.html', form=form)
+    return render_template('forgotpassemail.html', form=form)
     
 @app.route('/resetpassword/<string:token>', methods=['GET', 'POST'])
 def resetpassword(token):
@@ -133,7 +125,7 @@ def resetpassword(token):
                 return render_template('resetpassword.html', form=form)            
             user.password = new_password
             db.session.commit()
-            flash('Now you change your Password', 'success')
+            flash('Now you changed your Password', 'success')
             return redirect(url_for('login'))            
         else:
             print(form.errors)
@@ -151,6 +143,9 @@ def resetpassword(token):
     abort(404)
     
 
+
+
+
 @app.context_processor
 def utility_processor():
     def Capi(name):
@@ -166,6 +161,9 @@ def logout():
 def index():
     return render_template("index.html")
 
+@app.route('/submitarticle')
+def submitarticle():
+    return render_template("submitarticle.html")
 
 @app.route('/about')
 def about():
@@ -239,6 +237,19 @@ def livesearch():
             lol.append(org.format())
     return jsonify(lol)
         
+@app.route("/livesearch_field", methods=['POST'])
+def livesearch_field():
+    searchbox = request.form.get("text")
+    data = Field.query.all()
+    lol_1 = []
+    for org_1 in data:
+        usfield = org_1.name.lower()
+        if searchbox.lower() in usfield:
+            lol_1.append(org_1.format())
+    return jsonify(lol_1)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
