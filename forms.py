@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from models import *
 import json, re
 or_ch = [(x.id, x.name) for x in Organisation.query.filter(Organisation.name != "Administration").all()]
-or_sh = [(x.id, x.name) for x in Field.query.filter(Field.name != "Administration").all()]
+or_sh = [(y.id, y.name) for y in Field.query.filter(Field.name != "Administration").all()]
 
 def Get_C():
     a = []

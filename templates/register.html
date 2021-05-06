@@ -114,7 +114,7 @@
               </div>
               <div class="fornameonly">
                 <label for="userfield">  Userfield</label>
-                {{ form.usfieldsname(list='select',class = 'form-control registerform livesearch', autofocus = true, placeholder = 'Name') }}
+                {{ form.usfieldsname(list='select',class = 'form-control registerform livesearch_field', autofocus = true, placeholder = 'Name') }}
                 {% if data %}
                 <datalist id="select">
                 {% for i in data %}
@@ -200,6 +200,26 @@
       })
     })
   })
+
+  $(document).ready(function() {
+    var url = 
+    $(".livesearch_field").on("input",function(e){
+      textin = $(".livesearch_field").val();
+      $.ajax({
+        method: "post",
+        url: "/livesearch_field",
+        data:{text:textin},
+        success:function(res){
+          $("#select").empty()
+          if (res.length != 0) {
+            for(var i=0; i<res.length; i++) {
+          $("#select").append('<option value=' + res[i]["name"] + '></option>');
+        }
+      };}
+      })
+    })
+  })
+
 
 </script>
 {% endblock %}

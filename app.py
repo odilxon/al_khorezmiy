@@ -109,6 +109,7 @@ def forgotpassemail():
         return render_template('forgotpassemail.html', form=form)
     return render_template('forgotpassemail.html', form=form)
     
+    
 @app.route('/resetpassword/<string:token>', methods=['GET', 'POST'])
 def resetpassword(token):
     print(token)

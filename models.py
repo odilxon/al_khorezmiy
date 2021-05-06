@@ -3,7 +3,11 @@ from werkzeug.urls import url_parse
 
 
 from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
-from flask_admin import Admin
+from flask_admin import Admin, AdminIndexView
+from flask_admin.contrib.sqla import ModelView
+
+from flask_migrate import Migrate, MigrateCommand
+
 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -21,7 +25,6 @@ login = LoginManager(app)
 login.login_view = 'login'
 app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
 app.config['SECURITY_PASSWORD_SALT'] = 'hpqohang;jgbiu2ug5t23bl4vrqwy'
-
 
 @login.user_loader
 def load_user(id):
