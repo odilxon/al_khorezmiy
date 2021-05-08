@@ -16,6 +16,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'no-reply@ladymarykay.uz'
 
 mail = Mail(app)
 
+
 # @app.route("/api/gettoken", methods=["GET"])
 # def gettoken():
 #     return GetToken()

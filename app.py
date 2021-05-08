@@ -2,6 +2,16 @@ from api import *
 from hashlib import sha256
 
 
+
+# class MicroBlogModelView(sqla.ModelView):
+
+#     def is_accessible(self):
+#         return login.current_user.is_authenticated
+
+#     def inaccessible_callback(self, name, **kwargs):
+#         # redirect to login page if user doesn't have access
+#         return redirect(url_for('login', next=request.url))
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -109,7 +119,7 @@ def forgotpassemail():
         return render_template('forgotpassemail.html', form=form)
     return render_template('forgotpassemail.html', form=form)
     
-    
+
 @app.route('/resetpassword/<string:token>', methods=['GET', 'POST'])
 def resetpassword(token):
     print(token)

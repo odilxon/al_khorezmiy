@@ -1,21 +1,16 @@
 from flask_login import UserMixin, login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
-
-
+from werkzeug.security import generate_password_hash
 from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
-from flask_admin import Admin, AdminIndexView
-from flask_admin.contrib.sqla import ModelView
-
-from flask_migrate import Migrate, MigrateCommand
-
-
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
-
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
-
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, Serializer
+
+from flask_admin import Admin, BaseView, expose
+from flask_admin.contrib.sqla import ModelView
+from flask_admin.contrib.fileadmin import FileAdmin
+from os.path import dirname, join
 
 
 app = Flask(__name__)
@@ -25,6 +20,9 @@ login = LoginManager(app)
 login.login_view = 'login'
 app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
 app.config['SECURITY_PASSWORD_SALT'] = 'hpqohang;jgbiu2ug5t23bl4vrqwy'
+
+admin = Admin(app, template_mode='bootstrap4')
+
 
 @login.user_loader
 def load_user(id):
@@ -50,11 +48,11 @@ class User(UserMixin, db.Model):
     user_lvl = db.Column(db.Integer, default=0, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
 
+
     articles = db.relationship("Article", backref="user", lazy=True)
     user_fields = db.relationship("Userfield", backref="user", lazy=True)
     papers = db.relationship("Paper", backref="user", lazy=True)
     paper_actions = db.relationship("Paper_action", backref="user", lazy=True)
-
 
     def format(self):
         return {
@@ -85,7 +83,7 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.email
-    
+
 class Issue(db.Model):
     __tablename__ = 'issue'
     id = db.Column(db.Integer, primary_key=True)
@@ -313,3 +311,10 @@ def GetToken():
     token = jwt.encode({'public_id': id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=3600)}, app.config['SECRET_KEY'], algorithm="HS256") 
     return jsonify({"msg": "Success", "token": token})
 '''
+
+# class User(ModelView):
+#     column_exclude_list = ['password']
+
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Paper, db.session))
