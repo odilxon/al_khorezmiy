@@ -1,4 +1,5 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import *
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from models import *
@@ -26,12 +27,14 @@ class RegistrationForm(FlaskForm):
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     sciencedegree = StringField('Science Degree', validators=[DataRequired()])
+    usfieldsname = StringField('User field Name', validators=[DataRequired()])
+
     phone = IntegerField('Phonenumber', validators=[DataRequired()])
+    
     tos = BooleanField('tos',validators=[DataRequired()])
     submit = SubmitField('Register')
 
-    usfieldsname = StringField('User field Name', validators=[DataRequired()])
-
+    
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
@@ -42,6 +45,14 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
           
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
+    # recaptcha = RecaptchaField()   
+
 
 class RequestResetForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -60,21 +71,14 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField('Reset Password')
 
 
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')   
-
 class PapersForm(FlaskForm):
     title = TextAreaField('Title', validators=[DataRequired()])
     abstract = StringField('Abstract', validators=[DataRequired()])
     keyword = StringField('Keyword', validators=[DataRequired()])
-    body = StringField('Body', validators=[DataRequired()])
+    body = FileField('Body', validators=[FileRequired()])
     reterence = StringField('Reterence', validators=[DataRequired()])
-    createdtime = TimeField('Created Time', validators=[DataRequired()])
-    updatedtime = TimeField('Updated Time', validators=[DataRequired()])
+    createdtime = DateField('Created Time', validators=[DataRequired()])
+    updatedtime = DateField('Updated Time', validators=[DataRequired()])
     
 
 class SubmitYourArticleForm(FlaskForm):

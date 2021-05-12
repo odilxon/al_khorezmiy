@@ -1,17 +1,23 @@
-from flask_login import UserMixin, login_required, current_user, login_user, logout_user
+from flask_login import UserMixin, login_required, current_user, login_user, logout_user, LoginManager
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
 from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from flask_login import LoginManager, current_user, login_required, login_user, logout_user
+
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, Serializer
 
-from flask_admin import Admin, BaseView, expose
+from werkzeug.datastructures import CombinedMultiDict
+from werkzeug.utils import secure_filename
+from flask_admin import Admin, BaseView, expose, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.fileadmin import FileAdmin
 from os.path import dirname, join
+from flask_user import roles_required, roles_accepted, user_manager
+from flask_migrate import Migrate, MigrateCommand, Manager
+from flask_security import SQLAlchemySessionUserDatastore, SQLAlchemyUserDatastore, Security, current_user
 
+from flask_user import roles_accepted
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
@@ -21,7 +27,6 @@ login.login_view = 'login'
 app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
 app.config['SECURITY_PASSWORD_SALT'] = 'hpqohang;jgbiu2ug5t23bl4vrqwy'
 
-admin = Admin(app, template_mode='bootstrap4')
 
 
 @login.user_loader
@@ -45,12 +50,12 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String, nullable=True)
     sciencedegree = db.Column(db.String, nullable=False)
-    user_lvl = db.Column(db.Integer, default=0, nullable=False)
+    user_lvl = db.Column(db.Integer, default=[0,100], nullable=False)
     phone = db.Column(db.String(30), nullable=False)
 
 
     articles = db.relationship("Article", backref="user", lazy=True)
-    user_fields = db.relationship("Userfield", backref="user", lazy=True)
+    user_fields = db.relationship("Field", backref="user", lazy=True)
     papers = db.relationship("Paper", backref="user", lazy=True)
     paper_actions = db.relationship("Paper_action", backref="user", lazy=True)
 
@@ -81,10 +86,16 @@ class User(UserMixin, db.Model):
             return None
         return User.query.get(user_id)
 
+
     def __repr__(self):
         return '<User %r>' % self.email
 
-class Issue(db.Model):
+# class UserRoles(db.Model):
+#     id = db.Column(db.Integer(), primary_key=True)
+#     user_id = db.Column(db.Integer(), db.ForeignKey('user.id', ondelete='CASCADE'))
+#     role_id = db.Column(db.Integer(), db.ForeignKey('role.id', ondelete='CASCADE'))
+
+class Issue(db.Model, UserMixin):
     __tablename__ = 'issue'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
@@ -98,7 +109,7 @@ class Issue(db.Model):
             "release" : self.release,
         }
 
-class Article(db.Model):
+class Article(db.Model, UserMixin):
     __tablename__ = 'article'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -123,7 +134,7 @@ class Article(db.Model):
         }
 
 
-class Organisation(db.Model):
+class Organisation(db.Model, UserMixin):
     __tablename__ = 'organisation'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
@@ -141,7 +152,7 @@ class Organisation(db.Model):
         }
 
 
-class Userfield(db.Model):
+class Userfield(db.Model, UserMixin):
     __tablename__ = 'userfield'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -154,11 +165,12 @@ class Userfield(db.Model):
             "field_id" : self.field_id,
         }
 
-class Field(db.Model):
+class Field(db.Model, UserMixin):
     __tablename__ = 'field'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    userfields = db.relationship("Userfield", backref="field", lazy=True)
+    
+    users = db.relationship("Userfield", backref="field", lazy=True)
 
     # users = db.relationship("User", backref="usernamefield", lazy=True)
     def __repr__(self):
@@ -171,7 +183,7 @@ class Field(db.Model):
         }
 
 
-class Category(db.Model):
+class Category(db.Model, UserMixin):
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
@@ -184,7 +196,7 @@ class Category(db.Model):
         }
 
 
-class Paper_category(db.Model):
+class Paper_category(db.Model, UserMixin):
     __tablename__ = 'paper_category'
     id = db.Column(db.Integer, primary_key=True)
     paper_id = db.Column(db.Integer, db.ForeignKey('paper.id'))
@@ -197,7 +209,7 @@ class Paper_category(db.Model):
             "category_id" : self.category_id,
         }
 
-class Score(db.Model):
+class Score(db.Model, UserMixin):
     __tablename__ = 'score'
     id = db.Column(db.Integer, primary_key=True)
     fault_id = db.Column(db.Integer, db.ForeignKey('fault.id'))
@@ -212,14 +224,14 @@ class Score(db.Model):
             "paper_action_id" : self.paper_action_id,
         }
 
-class Paper(db.Model):
+class Paper(db.Model, UserMixin):
     __tablename__ = 'paper'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String, nullable=False)
     abstract = db.Column(db.String, nullable=False)
     keyword = db.Column(db.String, nullable=False)
-    body = db.Column(db.Text, nullable=False)
+    body = db.Column(db.String, nullable=False)
     referance = db.Column(db.String, nullable=False)
     created_time = db.Column(db.DateTime, nullable=False)
     updated_time = db.Column(db.DateTime, nullable=False)
@@ -245,7 +257,7 @@ class Paper(db.Model):
 
 
 
-class Fault(db.Model):
+class Fault(db.Model, UserMixin):
     __tablename__ = 'fault'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
@@ -259,7 +271,7 @@ class Fault(db.Model):
             "fault_lvl" : self.fault_lvl,
         }
 
-class Paper_action(db.Model):
+class Paper_action(db.Model, UserMixin):
     __tablename__ = 'paper_action'
     id = db.Column(db.Integer, primary_key=True)
     paper_id = db.Column(db.Integer, db.ForeignKey('paper.id'))
@@ -283,7 +295,7 @@ class Paper_action(db.Model):
             "action_status" : self.action_status,
         }
 
-class Paper_statistic(db.Model):
+class Paper_statistic(db.Model, UserMixin):
     __tablename__ = 'paper_statistic'
     id = db.Column(db.Integer, primary_key=True)
     paper_id = db.Column(db.Integer, db.ForeignKey('paper.id'))
@@ -312,9 +324,54 @@ def GetToken():
     return jsonify({"msg": "Success", "token": token})
 '''
 
+
+# class AdminView(ModelView):
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.static_folder = 'static'
+
+#     def is_accessible(self):
+#         return session.get('user') == 'Administrator'
+
+#     def inaccessible_callback(self, name, **kwargs):
+#         if not self.is_accessible():
+#             return redirect(url_for('home', next=request.url))
+
 # class User(ModelView):
 #     column_exclude_list = ['password']
 
 
+# admin = Admin(votr, name='Dashboard', index_view=AdminView(Topics, db.session, url='/admin', endpoint='admin'))
+
+# class AdminView(ModelView):
+#     def is_accessible(self):
+#         return current_user.has_role('admin')
+    
+#     def inaccessible_callback(self, name, **kwargs):
+#         return redirect( url_for('security.login', next=request.url))
+
+
+
+# class MyModelView(ModelView):
+#     def is_accessible(self):
+#         print("Qachon tugiidiii yoo mayoo")
+#         return current_user.is_authenticated()
+
+#     def inaccessible_callback(self, name, **kwargs):
+#         # redirect to login page if user doesn't have access
+#         return redirect(url_for('login.html', next=request.url))
+
+
+
+
+
+class MyAdminIndexView(AdminIndexView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+user_manager = ModelView(User, db.session)
+
+admin = Admin(app,  template_mode='bootstrap4')
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Paper, db.session))

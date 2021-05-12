@@ -11,7 +11,7 @@
                 {% if messages %}
                   <ul class=flashes>
                   {% for category, message in messages %}
-                    <div class="alert {{ category }}"> {{ message|capitalize }} </div>
+                    <div class="alert {{ category }}"> {{ message|capitalize }} &times; </div>
                     <!-- <li>{{ message }}</li> -->
                   {% endfor %}
                   </ul>
@@ -31,6 +31,7 @@
                   <label for="password">  Password</label>
                   {{ form.password(class_ = 'form-control loginform', autofocus = true, placeholder = 'Passoword') }}                  
                 </div>
+
                 <div class="form-check forgotpass">
                   <div class="checkboxa">
                     <div class="checkember">

@@ -13,9 +13,12 @@ from hashlib import sha256
 #         return redirect(url_for('login', next=request.url))
 
 @app.route('/login', methods=['GET', 'POST'])
+@roles_required('Admin', 'reviewer', 'editor')
 def login():
-    if current_user.is_authenticated:
+    if current_user.is_authenticated.user_lvl == 0:        
         return redirect(url_for('index'))
+        if current_user.is_authenticated.user_lvl == 100:
+            return redirect(url_for('adminpage'))    
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -232,6 +235,12 @@ def emailtemplates():
 @app.route('/accountsettings')
 def accountsettings():
     return render_template('accountsettings.html')
+
+
+@app.route('/adminpage', methods=['GET', 'POST'])
+def adminpage():
+    return render_template('adminpage.html')
+
 
 @app.route("/tests")
 def test():
