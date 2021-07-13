@@ -1,7 +1,9 @@
 from flask_login import UserMixin, login_required, current_user, login_user, logout_user, LoginManager
+from flask_security.core import RoleMixin
+from werkzeug.exceptions import default_exceptions
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
-from flask import Flask, flash, render_template, url_for, request, redirect, jsonify,abort
+from flask import Flask, flash, render_template, url_for, request, redirect, jsonify, abort, send_file, send_from_directory, safe_join
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -18,8 +20,11 @@ from flask_migrate import Migrate, MigrateCommand, Manager
 from flask_security import SQLAlchemySessionUserDatastore, SQLAlchemyUserDatastore, Security, current_user
 
 from flask_user import roles_accepted
+from authlib.integrations.flask_client import OAuth
+
 
 app = Flask(__name__)
+oauth = OAuth(app)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 login = LoginManager(app)
@@ -27,14 +32,17 @@ login.login_view = 'login'
 app.config['SECRET_KEY'] = '4079d33f50e3492uig172216ghjkfd1947c3cab26'
 app.config['SECURITY_PASSWORD_SALT'] = 'hpqohang;jgbiu2ug5t23bl4vrqwy'
 
-
+app.config['RECAPTCHA_USE_SSL']= False
+app.config['RECAPTCHA_PUBLIC_KEY']= '6Ldz8HcbAAAAADnc4uu76JZ7wqL7TC8UchuYV57E'
+app.config['RECAPTCHA_PRIVATE_KEY']='6Ldz8HcbAAAAACKEmYvWgj1bWkIltQ3vRedmpjMF'
+app.config['RECAPTCHA_OPTIONS'] = {'theme':'white'}
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
 
-class User(UserMixin, db.Model):
+class User(UserMixin,  RoleMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
 
@@ -50,7 +58,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String, nullable=True)
     sciencedegree = db.Column(db.String, nullable=False)
-    user_lvl = db.Column(db.Integer, default=[0,100], nullable=False)
+    user_lvl = db.Column(db.String, nullable=False)
     phone = db.Column(db.String(30), nullable=False)
 
 
@@ -76,6 +84,26 @@ class User(UserMixin, db.Model):
             "phone" : self.phone,
             "usfield": self.usfield,
         }
+    def is_admin(self):
+        print("is admin works")
+        try:
+            l = self.user_lvl
+            if int(l) == 100:
+                return True
+            else:
+                return False
+        except Exception:
+            return False
+
+    def is_editor(self):
+        print('lvl 1 kuu')
+        try:
+            l = self.user_lvl
+            if int(l) == 10 or int(l) == 100:
+                return True
+        except Exception:
+            pass
+        return False
 
     @staticmethod
     def verify_reset_token(token):
@@ -169,7 +197,6 @@ class Field(db.Model, UserMixin):
     __tablename__ = 'field'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    
     users = db.relationship("Userfield", backref="field", lazy=True)
 
     # users = db.relationship("User", backref="usernamefield", lazy=True)
@@ -232,7 +259,7 @@ class Paper(db.Model, UserMixin):
     abstract = db.Column(db.String, nullable=False)
     keyword = db.Column(db.String, nullable=False)
     body = db.Column(db.String, nullable=False)
-    referance = db.Column(db.String, nullable=False)
+    reference = db.Column(db.String, nullable=False)
     created_time = db.Column(db.DateTime, nullable=False)
     updated_time = db.Column(db.DateTime, nullable=False)
     paper_status = db.Column(db.String, nullable=False)
@@ -248,13 +275,11 @@ class Paper(db.Model, UserMixin):
             "abstract" : self.abstract,
             "keyword" : self.keyword,
             "body" : self.body,
-            "referance" : self.referance,
+            "reference" : self.reference,
             "created_time" : self.created_time,
             "updated_time" : self.updated_time,
             "paper_status" : self.paper_status,
         }
-
-
 
 
 class Fault(db.Model, UserMixin):
@@ -368,10 +393,37 @@ def GetToken():
 
 class MyAdminIndexView(AdminIndexView):
     def is_accessible(self):
-        return current_user.is_authenticated
+        print('I am hereeeee')
+        return current_user.is_authenticated and str(current_user.user.lvl) == 100
 
 user_manager = ModelView(User, db.session)
 
+from flask import Markup
+
+class MyView(ModelView):
+    def _user_formatter(view, context, model, name):
+        print(model)
+        if model.body:
+           markupstring = "<a href='/%s'>%s</a>" % (model.body, str(model.body).split('/')[-1])
+           return Markup(markupstring)
+        else:
+           return ""
+
+    column_formatters = {
+        'body': _user_formatter
+    }
+
+
 admin = Admin(app,  template_mode='bootstrap4')
 admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Paper, db.session))
+admin.add_view(MyView(Paper, db.session))
+
+
+
+# import enum
+
+# class Roles(enum.Enum):
+#     ADMIN = 100
+#     EDITOR = 50
+#     USER = 1
+    

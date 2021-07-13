@@ -113,7 +113,7 @@
                 </div>
               </div>
               <div class="fornameonly">
-                <label for="userfield">  Userfield</label>
+                <label for="userfield">  UserArea</label>
                 {{ form.usfieldsname(list='select',class = 'form-control registerform livesearch_field', autofocus = true, placeholder = 'Name') }}
                 {% if data %}
                 <datalist id="select">
@@ -140,7 +140,11 @@
                 {{ form.tos() }} By registering, you accpect our <a href="">Terms & Conditions</a>
               </label>
             </div>
-
+            <div class="form-group">
+              <label for="recaptcha">
+                {{ form.recaptcha }}
+              </label>
+            </div>
             <div class="bntarea registerarea">
               {{ form.submit(class='btn btn-primary btn-lg btn-block') }}          
             </div>

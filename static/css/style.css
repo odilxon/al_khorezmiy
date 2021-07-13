@@ -158,7 +158,7 @@ li:first-child::after{
     color: #000;
 }
 .top-right-home li:after {
-    top: 53%;
+    /* top: 53%; */
     left: 8px;
     width: 4px;
     height: 4px;
@@ -661,6 +661,7 @@ p {
 
 
 .btn-secondary {
+    margin-top: 80px;
     padding: 0 25px;
     line-height: 30px;
 }
@@ -1143,6 +1144,10 @@ label {
 .forgotpass a {
     text-decoration: none;
 }
+.lgsubmit {
+    width: 300px;
+    
+}
 .loginbtn {
     width: 150px;
     line-height: 40px;
@@ -1225,7 +1230,11 @@ label {
 }
 .registerform {
     width: 280px;
-    height: 40px;
+    /* height: 40px; */
+}
+.submit-body {
+    height: auto;
+    padding: 0;
 }
 .liststyle {
     margin-left: 20px;

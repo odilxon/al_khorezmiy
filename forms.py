@@ -1,4 +1,6 @@
-from flask_wtf import FlaskForm, RecaptchaField
+from os import name
+from flask_mail import Message
+from flask_wtf import FlaskForm, RecaptchaField, Form, recaptcha
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import *
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
@@ -17,8 +19,8 @@ def Get_C():
 
 class RegistrationForm(FlaskForm):
 
-    firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname not true')])
-    lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname not true')])
+    firstname = StringField('Firstname', validators=[DataRequired(), Length(min=3, max=16, message='*Firstname is less than 3 characters')])
+    lastname = StringField('Lastname', validators=[DataRequired(), Length(min=3, max=16, message='*Lastname is less than 3 characters')])
     email = StringField('Email', validators=[DataRequired(), Email()])
     organizationid = StringField('Organization ID', validators=[DataRequired()])
     country = SelectField('Country',choices=Get_C(), validators=[DataRequired()])
@@ -30,7 +32,7 @@ class RegistrationForm(FlaskForm):
     usfieldsname = StringField('User field Name', validators=[DataRequired()])
 
     phone = IntegerField('Phonenumber', validators=[DataRequired()])
-    
+    # recaptcha = RecaptchaField()
     tos = BooleanField('tos',validators=[DataRequired()])
     submit = SubmitField('Register')
 
@@ -50,8 +52,8 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
+    # recaptcha = RecaptchaField()
     submit = SubmitField('Login')
-    # recaptcha = RecaptchaField()   
 
 
 class RequestResetForm(FlaskForm):
@@ -72,33 +74,17 @@ class ResetPasswordForm(FlaskForm):
 
 
 class PapersForm(FlaskForm):
-    title = TextAreaField('Title', validators=[DataRequired()])
+    title = StringField('Title', validators=[DataRequired()])
     abstract = StringField('Abstract', validators=[DataRequired()])
     keyword = StringField('Keyword', validators=[DataRequired()])
-    body = FileField('Body', validators=[FileRequired()])
-    reterence = StringField('Reterence', validators=[DataRequired()])
-    createdtime = DateField('Created Time', validators=[DataRequired()])
-    updatedtime = DateField('Updated Time', validators=[DataRequired()])
-    
+    body = FileField('Body')
+    reference = StringField('Reference', validators=[DataRequired()])
+    submit = SubmitField('SubmitYourArticle')
+    # paperstatus = StringField('Paper Status', validators=[DataRequired()])
 
 class SubmitYourArticleForm(FlaskForm):
     submit = SubmitField('SubmitYourArticle')
 
-# class SubmitNow(FlaskForm):
-#   submitNow = SubmitField('Submit Now')
 
-# class ApllyFilter(FlaskForm):
-#   applyFilter = SubmitField('Apply Filter')
-
-# class ResetAll(FlaskForm):
-#   resetAll = SubmitField('Reset All')
-
-# class Addbtn(FlaskForm):
-#   addbtn = SubmitField('Add btn')
-
-# class Adddelbtn(FlaskForm):
-#   adddelbtn = SubmitField('Delete btn')
-
-
-
-
+class CategoryForm(FlaskForm):
+    name = SelectField('Type', choices=[('ML', 'DL', 'AI', 'NN')])

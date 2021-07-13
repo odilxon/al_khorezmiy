@@ -31,9 +31,14 @@
                     <a class='autoriz' href="{{ url_for('login') }}">Login</a>
                     <a class='autoriz' href="{{ url_for('register') }}">Register</a>
                     {% else %}
+                    {% if current_user.is_admin() %}
+                    <a href="{{ url_for('admin.index') }}" class="logout">Dashboard</a>
+                    {% endif %}
+                    
                     <a href="{{ url_for('articlelist') }}" class="logout myaccount">My Account</a>
                     <a href="{{ url_for('logout') }}" class="logout">Logout</a>
                     {% endif %}     
+                    
                     <nav class="navbar navbar-expand-lg bg-light" id="topnav">
                         <li id="nav-lang1" class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> <span> Eng</span></a>
@@ -78,8 +83,10 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="{{ url_for('articles') }}"> Articles </a></li>
                                             <li><a class="dropdown-item" href="{{ url_for('articlelist') }}"> Article-list </a></li>
-                                            <li><a class="dropdown-item" href="{{ url_for('articledetail') }}"> Article Detail </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('articledetail') }}"> Article Detail </a></li>                                            
+                                            {% if current_user.is_editor %}  
                                             <li><a class="dropdown-item" href="{{ url_for('submitarticle') }}"> Submit Article </a></li>
+                                            {% endif %}  
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown btn">
@@ -91,14 +98,16 @@
                                     <li class="nav-item dropdown btn">
                                         <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Pages  </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#"> News </a></li>                                                   
-                                            <li><a class="dropdown-item" href="#"> Manageuser </a></li>
-                                            <li><a class="dropdown-item" href="#"> Settings </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('index') }}"> News </a></li>                                                   
+                                            <li><a class="dropdown-item" href="{{ url_for('manageuser')}}"> Manageuser </a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('generalsettings') }}"> Settings </a></li>
 
                                         </ul>
                                     </li>
                                     <a href="#" class="searc"><i class="fa fa-search"></i></a>
+                                    {% if current_user.is_editor %}
                                     <a href="{{ url_for('submitarticle') }}" class="btn btn-primary subbtn"> Submit Your Article</a>
+                                    {% endif %}    
                                 </ul>
                                     </div> <!-- navbar-collapse.// -->
                                 </nav>

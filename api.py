@@ -14,13 +14,10 @@ app.config["MAIL_PASSWORD"] = 'Odilxon030101!'
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEFAULT_SENDER'] = 'no-reply@ladymarykay.uz'
 
+
+
 mail = Mail(app)
 
-
-@app.route('/admin/dashboard')    # @route() must always be the outer-most decorator
-@roles_required('Admin')
-def admin_dashboard():
-    pass
 
 @app.route("/api", methods=["GET"])
 def main_api():
@@ -167,8 +164,10 @@ def confirm_email(token):
         flash('The confirmation link is invalid or has expired.', 'error')
     return redirect(url_for('index'))
 
+
 # @user_registered.connect_via(app)     
 # def user_registered_sighandler(app, user, confirm_token):               
 #     default_role = user_datastore.find_role("user")         
 #     user_datastore.add_role_to_user(user, default_role)            
 #     db.session.commit()
+

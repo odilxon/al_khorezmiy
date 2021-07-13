@@ -45,7 +45,9 @@
                   <h5>I accept all the submiting article`s</h5>
                   <a href="#">Terms & Conditions</a>
                 </span>
-                <a href="#" class="btn-past">Submit Now</a>
+                <div class="btnarea registerarea">
+                            
+                </div>
               </div>
             </div>
           </aside>
@@ -56,32 +58,12 @@
               <h5>Add A New Article</h5>
             </div>
             <div class="addarticlehold">
-              <form action="" class="formtheme formartcile" method="POST">
+              <form action="" enctype="multipart/form-data" class="formtheme formartcile" id="paper-form" method="POST">
                 {{ form.hidden_tag() }}
                 <fieldset>
-                  <div class="form-group">
-                    <label for="title">Title</label>
-                    {{ form.title(class = 'form-control registerform', autofocus = true, placeholder='title') }}
-                    <div class="form-group forerrorsonly name">
-                      {% if "title" in form.errors %}
-                        {{ form.errors['title'][0] }}
-                      {% endif %}
-                    </div>    
-                    <!-- <input type="text" name="" class="form-control" placeholder="Title of artcile"> -->
-                  </div>
-                  <div class="form-group general-main">
-                    <span class="form-select">
-                      <select name="" id="first-sel">
-                        <option value="">Select category (Optional)</option>
-                        <option value="">Name 1</option>
-                        <option value="">Name 2</option>
-                        <option value="">Name 3</option>
-                      </select>
-                    </span>
-                  </div>
                   <div class="group">
                     <div class="form-group hleft-side">
-                      <div class="form-group left-side">
+                      <!-- <div class="form-group left-side">
                         <span class="form-select">
                           <select name="" id="select-left">
                             <option value="">Select category (Optional)</option>
@@ -100,7 +82,7 @@
                             <option value="">Name 3</option>
                           </select>
                         </span>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="form-group hright-side">
                       <div class="form-group right-side">
@@ -124,59 +106,59 @@
                           </select>
                         </span>
                         <div class="adddelbtns"><a href="#" class="delbtn"><i class="fa fa-close"></i></a></div>
-
                       </div>
                     </div>
                   </div>  
                   <div class="form-group">
-                    <label for="abstract">Title</label>
-                    {{ form.abstract(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <label for="title">Title</label>
+                    {{ form.title(class = 'form-control ', autofocus = true, placeholder='') }}
                     <div class="form-group forerrorsonly name">
                       {% if "title" in form.errors %}
                         {{ form.errors['title'][0] }}
                       {% endif %}
                     </div>
-                    <!-- <input type="text" name="" class="form-control" placeholder="Corresponding Author Title Here"> -->
+                  </div>  
+                  <div class="form-group">
+                    <label for="abstract">Abstract</label>
+                    {{ form.abstract(class = 'form-control', autofocus = true, placeholder='') }}
+                    <div class="form-group forerrorsonly name">
+                      {% if "abstract" in form.errors %}
+                        {{ form.errors['abstract'][0] }}
+                      {% endif %}
+                    </div>
                   </div>                
                   <div class="form-group">
-                    <label for="keyword">keyword</label>
-                    {{ form.keyword(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <label for="keyword">Keyword</label>
+                    {{ form.keyword(class = 'form-control ', autofocus = true, placeholder='') }}
                     <div class="form-group forerrorsonly name">
                       {% if "keyword" in form.errors %}
                         {{ form.errors['keyword'][0] }}
                       {% endif %}
                     <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
                   </div>
+                  
                   <div class="form-group">
-                    <label for="keyword">keyword</label>
-                    {{ form.keyword(class = 'form-control registerform', autofocus = true, placeholder='title') }}
-                    <div class="form-group forerrorsonly name">
-                      {% if "keyword" in form.errors %}
-                        {{ form.errors['keyword'][0] }}
-                      {% endif %}
-                    <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="body">body</label>
-                    {{ form.body(class = 'form-control registerform', autofocus = true, placeholder='title') }}
-                    <div class="form-group forerrorsonly name">
+                    <label for="body">Body</label>
+                    {{ form.body(class = 'form-control  submit-body', autofocus = true, placeholder='') }}
+                    <div class="form-group forerrorsonly name bodyuploadfile">
                       {% if "body" in form.errors %}
                         {{ form.errors['body'][0] }}
                       {% endif %}
                     <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
                   </div>
                   <div class="form-group">
-                    <label for="reterence">reterence</label>
-                    {{ form.reterence(class = 'form-control registerform', autofocus = true, placeholder='title') }}
+                    <label for="reterence">Reference</label>
+                    {{ form.reference(class = 'form-control ', autofocus = true, placeholder='') }}
                     <div class="form-group forerrorsonly name">
-                      {% if "reterence" in form.errors %}
-                        {{ form.errors['reterence'][0] }}
+                      {% if "reference" in form.errors %}
+                        {{ form.errors['reference'][0] }}
                       {% endif %}
                     <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
                   </div>                  
                 </fieldset>
+                {{ form.submit(class='btn btn-primary btn-lg btn-block registerform') }}
               </form>
-              <form action="" class="formtheme formaddproject">
+              <!-- <form action="" class="formtheme formaddproject">
                 <fieldset>
                   <div class="inputfile">
                     <h3>Upload Powerpoint</h3>
@@ -186,7 +168,7 @@
                       <input type="file" name="uploadimgtwo" id="uploadimgvtwo">
                     </label>
                     <div class="filedetails">
-                      <h3>bla bla bla</h3>
+                      <h3></h3>
                       <span>
                         <div class="rightic">
                           <i class="fa fa-exclamation"></i>
@@ -203,7 +185,7 @@
                       <input type="file" name="uploadimgtwo">
                     </label>
                     <div class="filedetails">
-                      <h3>bla bla bla</h3>
+                      <h3></h3>
                       <div class="rightic">
                         <span>
                           <i class="fa fa-check"></i>
@@ -213,7 +195,7 @@
                     </div>
                   </div>
                 </fieldset>
-              </form>
+              </form> -->
             </div>
           </div>
         </div>

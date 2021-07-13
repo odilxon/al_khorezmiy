@@ -1,24 +1,42 @@
+# from os import name, path
+from datetime import date, timedelta
+import os
+from flask.signals import message_flashed
+from werkzeug.datastructures import Authorization
+from wtforms import form
 from api import *
 from hashlib import sha256
+from flask_user import roles_required, roles_accepted
+from flask_user import user_manager
+from flask_admin.menu import MenuLink
+from werkzeug.utils import secure_filename
 
 
+UPLOAD_FOLDER = '/uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
-# class MicroBlogModelView(sqla.ModelView):
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
+app.config["CLIENT_PDF"] = "/uploads/pdf"
+app.config['UPLOAD_PATH'] = '/uploads'
 
-#     def is_accessible(self):
-#         return login.current_user.is_authenticated
+@app.route('/uploads/<name>')
+def download_file(name):
+    return send_from_directory('uploads', name)
 
-#     def inaccessible_callback(self, name, **kwargs):
-#         # redirect to login page if user doesn't have access
-#         return redirect(url_for('login', next=request.url))
 
 @app.route('/login', methods=['GET', 'POST'])
-@roles_required('Admin', 'reviewer', 'editor')
+# @roles_required('admin',['reviewer', 'editor'])
+# @roles_required('amdin')
 def login():
-    if current_user.is_authenticated.user_lvl == 0:        
-        return redirect(url_for('index'))
-        if current_user.is_authenticated.user_lvl == 100:
-            return redirect(url_for('adminpage'))    
+    # print('admin ttt')
+    # if current_user.is_authenticated.user_lvl == 'admin':
+    #     print('admin 222')
+    #     return redirect(url_for('admin'))
+    #     print('adminn 444')
+    # elif current_user.is_authenticated.user_lvl == 'editor':
+    #     return redirect(url_for('submitarticle'))
+    # elif current_user.is_authenticated.user_lvl == 'reviewer':
+    #     return redirect(url_for('index'))
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -51,7 +69,6 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-
     
         user = User(    
                         country=form.country.data, 
@@ -62,7 +79,7 @@ def register():
                         org_id=form.organizationid.data, 
                         phone=form.phone.data, 
                         sciencedegree=form.sciencedegree.data, 
-                        user_lvl=0, 
+                        user_lvl=1, 
                         confirmed=False,
                         password=form.password.data,
                         usfield=form.usfieldsname.data
@@ -157,14 +174,19 @@ def resetpassword(token):
     abort(404)
     
 
-
-
-
 @app.context_processor
 def utility_processor():
     def Capi(name):
         return name.split(".")[0][0].upper() + name.split(".")[0][1::] #returning name of the file name wo extension and w first letter uppercase
     return dict(Capi=Capi)
+
+@app.before_request
+def before_request():
+    print(request.url)
+
+    if 'admin' in request.url and int(current_user.user_lvl) != 100:
+        return redirect(url_for('index'))
+
 
 @app.route('/logout')
 def logout():
@@ -175,13 +197,51 @@ def logout():
 def index():
     return render_template("index.html")
 
-@app.route('/submitarticle')
+@app.route('/submitarticle', methods=['GET', 'POST'])
 def submitarticle():
-    return render_template("submitarticle.html")
+    form = PapersForm()
+    if request.method =='GET' and (int(current_user.user_lvl) == 10 or int(current_user.user_lvl) == 100):
+        return render_template("submitarticle.html", form=form)
+    #return redirect(url_for('index'))
+
+    if form.validate_on_submit():
+        f = form.body.data
+        filename = secure_filename(f.filename) 
+        f.save('uploads/' + filename)
+
+        file_url = "uploads/" + filename
+        print(file_url)
+        p  = Paper(
+            title = form.title.data,
+            user_id = current_user.id,
+            abstract = form.abstract.data,
+            keyword = form.keyword.data,
+            body = file_url,
+            reference = form.reference.data,
+            created_time = datetime.now(),
+            updated_time = datetime.now(),
+            paper_status = 'new'
+        )
+        db.session.add(p)
+        db.session.commit()
+    else:
+        print(form.errors)
+        file_url = None
+    return render_template('index.html', form=form)
 
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+@app.route("/get-pdf/<pdf_id>")
+def get_pdf(pdf_id):
+
+    filename = f"{pdf_id}.csv"
+
+    try:
+        return send_from_directory(app.config["CLIENT_PDF"], filename=filename, as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
 
 @app.route('/articles')
 def articles():
@@ -237,9 +297,6 @@ def accountsettings():
     return render_template('accountsettings.html')
 
 
-@app.route('/adminpage', methods=['GET', 'POST'])
-def adminpage():
-    return render_template('adminpage.html')
 
 
 @app.route("/tests")
@@ -269,7 +326,8 @@ def livesearch_field():
     return jsonify(lol_1)
 
 
-
+path = join(dirname(__file__), 'uploads')
+admin.add_view(FileAdmin(path, '/uploads/', name='Uploadss'))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
