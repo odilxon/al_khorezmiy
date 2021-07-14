@@ -2104,7 +2104,7 @@ hr {
     font-weight: 600;
 }
 .dropdown-item:hover {
-    background-color: rgb(122, 122, 122);}
+    background-color: rgb(192, 205, 221);}
 #topnav {
     padding: 0;
 }
@@ -2752,6 +2752,10 @@ label {
 .registerform {
     width: 280px;
     /* height: 40px; */
+}
+.subbtnarticle {
+    width: 240px;
+    padding: 10px;
 }
 .liststyle {
     margin-left: 20px;

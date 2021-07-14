@@ -62,50 +62,23 @@
                 {{ form.hidden_tag() }}
                 <fieldset>
                   <div class="group">
-                    <div class="form-group hleft-side">
-                      <!-- <div class="form-group left-side">
-                        <span class="form-select">
-                          <select name="" id="select-left">
-                            <option value="">Select category (Optional)</option>
-                            <option value="">Name 1</option>
-                            <option value="">Name 2</option>
-                            <option value="">Name 3</option>
-                          </select>
-                        </span>
-                      </div>
-                      <div class="form-group left-side">
-                        <span class="form-select">
-                          <select name="" id="select-left">
-                            <option value="">Select category (Optional)</option>
-                            <option value="">Name 1</option>
-                            <option value="">Name 2</option>
-                            <option value="">Name 3</option>
-                          </select>
-                        </span>
-                      </div> -->
-                    </div>
                     <div class="form-group hright-side">
                       <div class="form-group right-side">
-                        <span class="form-select">
+                        <!-- <span class="form-select">
                           <select name="" id="select-right">
                             <option value="">Select category (Optional)</option>
                             <option value="">Name 1</option>
                             <option value="">Name 2</option>
                             <option value="">Name 3</option>
                           </select>
-                        </span>
-                        <div class="adddelbtns"><a href="#" class="addbtn"><i class="fa fa-plus"></i></a></div>
-                      </div>
-                      <div class="form-group right-side">
-                        <span class="form-select">
-                          <select name="" id="select-right">
-                            <option value="">Select category (Optional)</option>
-                            <option value="">Name 1</option>
-                            <option value="">Name 2</option>
-                            <option value="">Name 3</option>
-                          </select>
-                        </span>
-                        <div class="adddelbtns"><a href="#" class="delbtn"><i class="fa fa-close"></i></a></div>
+                        </span> -->
+                        <select class="form-control" id="rating" name="rating">
+                          <option value="5">5</option>
+                          <option value="4">4</option>
+                          <option value="3" selected>3</option>
+                          <option value="2">2</option>
+                          <option value="1">1</option>
+                        </select>
                       </div>
                     </div>
                   </div>  
@@ -156,7 +129,7 @@
                     <!-- <textarea placeholder="Add Your Abstract"></textarea> -->
                   </div>                  
                 </fieldset>
-                {{ form.submit(class='btn btn-primary btn-lg btn-block registerform') }}
+                {{ form.submit(class='subbtnarticle btn btn-primary') }}
               </form>
               <!-- <form action="" class="formtheme formaddproject">
                 <fieldset>

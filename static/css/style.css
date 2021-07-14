@@ -158,7 +158,7 @@ li:first-child::after{
     color: #000;
 }
 .top-right-home li:after {
-    /* top: 53%; */
+    top: 53%;
     left: 8px;
     width: 4px;
     height: 4px;
@@ -1231,6 +1231,10 @@ label {
 .registerform {
     width: 280px;
     /* height: 40px; */
+}
+.subbtnarticle {
+    width: 240px;
+    padding: 10px;
 }
 .submit-body {
     height: auto;

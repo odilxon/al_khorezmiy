@@ -3,7 +3,7 @@ from flask_security.core import RoleMixin
 from werkzeug.exceptions import default_exceptions
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash
-from flask import Flask, flash, render_template, url_for, request, redirect, jsonify, abort, send_file, send_from_directory, safe_join
+from flask import Flask, Markup, flash, render_template, url_for, request, redirect, jsonify, abort, send_file, send_from_directory, safe_join
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -214,7 +214,7 @@ class Category(db.Model, UserMixin):
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    paper_categories = db.relationship("Paper_category", backref="category", lazy=True)
+    paper_category = db.relationship("Paper", backref="category", lazy=True)
 
     def format(self):
         return {
@@ -223,17 +223,35 @@ class Category(db.Model, UserMixin):
         }
 
 
-class Paper_category(db.Model, UserMixin):
-    __tablename__ = 'paper_category'
-    id = db.Column(db.Integer, primary_key=True)
-    paper_id = db.Column(db.Integer, db.ForeignKey('paper.id'))
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
+class Paper(db.Model, UserMixin):
+    __tablename__ = 'paper'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    title = db.Column(db.String, nullable=False)
+    abstract = db.Column(db.String, nullable=False)
+    keyword = db.Column(db.String, nullable=False)
+    body = db.Column(db.String, nullable=False)
+    reference = db.Column(db.String, nullable=False)
+    created_time = db.Column(db.DateTime, nullable=False)
+    updated_time = db.Column(db.DateTime, nullable=False)
+    paper_status = db.Column(db.String, nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    paper_actions = db.relationship("Paper_action", backref='paper', lazy=True)
+    paper_statistics = db.relationship("Paper_statistic", backref='paper', lazy=True)
+    
     def format(self):
         return {
             "id" : self.id,
-            "paper_id" : self.paper_id,
-            "category_id" : self.category_id,
+            "user_id" : self.user_id,
+            "title" : self.title,
+            "abstract" : self.abstract,
+            "keyword" : self.keyword,
+            "body" : self.body,
+            "reference" : self.reference,
+            "created_time" : self.created_time,
+            "updated_time" : self.updated_time,
+            "paper_status" : self.paper_status,
         }
 
 class Score(db.Model, UserMixin):
@@ -250,37 +268,6 @@ class Score(db.Model, UserMixin):
             "score_time" : self.score_time,
             "paper_action_id" : self.paper_action_id,
         }
-
-class Paper(db.Model, UserMixin):
-    __tablename__ = 'paper'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    title = db.Column(db.String, nullable=False)
-    abstract = db.Column(db.String, nullable=False)
-    keyword = db.Column(db.String, nullable=False)
-    body = db.Column(db.String, nullable=False)
-    reference = db.Column(db.String, nullable=False)
-    created_time = db.Column(db.DateTime, nullable=False)
-    updated_time = db.Column(db.DateTime, nullable=False)
-    paper_status = db.Column(db.String, nullable=False)
-    paper_actions = db.relationship("Paper_action", backref='paper', lazy=True)
-    paper_statistics = db.relationship("Paper_statistic", backref='paper', lazy=True)
-    paper_categories = db.relationship("Paper_category", backref='paper', lazy=True)
-
-    def format(self):
-        return {
-            "id" : self.id,
-            "user_id" : self.user_id,
-            "title" : self.title,
-            "abstract" : self.abstract,
-            "keyword" : self.keyword,
-            "body" : self.body,
-            "reference" : self.reference,
-            "created_time" : self.created_time,
-            "updated_time" : self.updated_time,
-            "paper_status" : self.paper_status,
-        }
-
 
 class Fault(db.Model, UserMixin):
     __tablename__ = 'fault'
@@ -387,10 +374,6 @@ def GetToken():
 #         # redirect to login page if user doesn't have access
 #         return redirect(url_for('login.html', next=request.url))
 
-
-
-
-
 class MyAdminIndexView(AdminIndexView):
     def is_accessible(self):
         print('I am hereeeee')
@@ -398,7 +381,6 @@ class MyAdminIndexView(AdminIndexView):
 
 user_manager = ModelView(User, db.session)
 
-from flask import Markup
 
 class MyView(ModelView):
     def _user_formatter(view, context, model, name):

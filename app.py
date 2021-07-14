@@ -1,6 +1,7 @@
 # from os import name, path
-from datetime import date, timedelta
 import os
+from datetime import date, timedelta
+from threading import stack_size
 from flask.signals import message_flashed
 from werkzeug.datastructures import Authorization
 from wtforms import form
@@ -15,7 +16,7 @@ from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = '/uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
-app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10
 app.config["CLIENT_PDF"] = "/uploads/pdf"
 app.config['UPLOAD_PATH'] = '/uploads'
 
@@ -247,9 +248,30 @@ def get_pdf(pdf_id):
 def articles():
     return render_template("articles.html")
 
+def getSize(filename):
+    st = os.stat(filename)
+    
+    kb = round(st.st_size/1024, 2)
+    mb = round(kb/1024, 2)
+
+    if st.st_size > 1024 and st.st_size < 1048576:
+        return str(kb) + ' kb'
+    elif st.st_size > 1048576 and st.st_size < 1073741824:
+        return str(mb) + ' mb'
+
+
 @app.route('/articlelist')
 def articlelist():
-    return render_template('articlelist.html')
+    papers = Paper.query.filter(Paper.user_id==current_user.id).all()
+    print(papers)
+    Papers = []
+    for p in papers:
+        P = p.format()
+        P['created_time'] = P['created_time'].strftime("%Y-%m-%d, %H:%M:%S")
+        P['filename'] = P['body'].split("/")[1]
+        P['filesize'] = getSize(P['body'])
+        Papers.append(P)
+    return render_template('articlelist.html' , papers=Papers)
 
 
 @app.route('/articledetail')
